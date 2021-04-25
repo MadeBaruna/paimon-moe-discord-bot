@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2020"],
+    "module": "CommonJS",
+    "target": "ES2020",
+    "strict": true,
+    "strictNullChecks": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "outDir": "./build",
+    "baseUrl": "src",
+    "paths": {
+      "@config": ["./config.ts"],
+      "@bot/*": ["./classes/*"],
+      "@command/*": ["./commands/*"],
+      "@reaction/*": ["./reactions/*"],
+    }
+  }
+}

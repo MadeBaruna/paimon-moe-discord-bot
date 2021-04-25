@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  api:
+    image: ghcr.io/madebaruna/paimon-moe-discord-bot:latest
+    restart: always
+    environment: 
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
+    volumes:
+      - type: bind
+        source: /home/baruna/test/paimon-discord/messages.json
+        target: /bot/src/messages.json
+        

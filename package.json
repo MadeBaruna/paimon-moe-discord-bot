@@ -1,0 +1,34 @@
+{
+  "name": "paimon-moe-discord-bot",
+  "version": "1.0.0",
+  "description": "A bot for paimon.moe Discord server",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint -c .eslintrc.js --ext .ts src",
+    "typecheck": "tsc",
+    "dev": "tsnd --respawn -r tsconfig-paths/register ./src/index.ts",
+    "start": "ts-node -T -r tsconfig-paths/register ./src/index.ts"
+  },
+  "author": "Made Baruna",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "ts-node-dev": "^1.1.6"
+  },
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "dotenv": "^8.2.0",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.2.4"
+  }
+}

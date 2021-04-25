@@ -1,0 +1,3 @@
+node_modules/
+src/messages.json
+.env
