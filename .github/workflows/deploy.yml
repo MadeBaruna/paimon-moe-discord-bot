@@ -19,7 +19,7 @@ jobs:
 
   build-docker-image:
     name: Build docker image
-    needs: lint
+    needs: lint-and-typecheck
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
