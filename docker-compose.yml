@@ -8,6 +8,5 @@ services:
       DISCORD_TOKEN: ${DISCORD_TOKEN}
     volumes:
       - type: bind
-        source: /home/baruna/test/paimon-discord/messages.json
+        source: /home/ubuntu/server/paimon-moe-discord-bot/messages.json
         target: /bot/src/messages.json
-        
