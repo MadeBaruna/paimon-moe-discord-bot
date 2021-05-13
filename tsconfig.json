@@ -19,6 +19,7 @@
       "@bot/*": ["./classes/*"],
       "@command/*": ["./commands/*"],
       "@reaction/*": ["./reactions/*"],
+      "@data/*": ["./data/*"],
     }
   }
 }

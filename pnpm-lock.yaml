@@ -4,6 +4,7 @@ specifiers:
   '@types/node': ^14.14.41
   '@typescript-eslint/eslint-plugin': ^4.22.0
   '@typescript-eslint/parser': ^4.22.0
+  dayjs: ^1.10.4
   discord.js: github:discordjs/discord.js
   dotenv: ^8.2.0
   eslint: ^7.25.0
@@ -12,14 +13,17 @@ specifiers:
   eslint-plugin-import: ^2.22.1
   eslint-plugin-node: ^11.1.0
   eslint-plugin-promise: ^5.1.0
+  fuse.js: ^6.4.6
   ts-node: ^9.1.1
   ts-node-dev: ^1.1.6
   tsconfig-paths: ^3.9.0
   typescript: ^4.2.4
 
 dependencies:
-  discord.js: github.com/discordjs/discord.js/705d7b36af313245d027cb12ba21c2fae7d948c1
+  dayjs: 1.10.4
+  discord.js: github.com/discordjs/discord.js/73f4114f59fc2f514d570ac8df3eac7d328cca3c
   dotenv: 8.2.0
+  fuse.js: 6.4.6
   ts-node: 9.1.1_typescript@4.2.4
   tsconfig-paths: 3.9.0
   typescript: 4.2.4
@@ -498,6 +502,10 @@ packages:
       meow: 3.7.0
     dev: true
 
+  /dayjs/1.10.4:
+    resolution: {integrity: sha512-RI/Hh4kqRc1UKLOAf/T5zdMMX5DQIlDxwUe3wSyMMnEbGunnpENCdbUgM+dW7kXidZqCttBrmw7BhN4TMddkCw==}
+    dev: false
+
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     dependencies:
@@ -953,6 +961,11 @@ packages:
   /functional-red-black-tree/1.0.1:
     resolution: {integrity: sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=}
     dev: true
+
+  /fuse.js/6.4.6:
+    resolution: {integrity: sha512-/gYxR/0VpXmWSfZOIPS3rWwU8SHgsRTwWuXhyb2O6s7aRuVtHtxCkR33bNYu3wyLyNx/Wpv0vU7FZy8Vj53VNw==}
+    engines: {node: '>=10'}
+    dev: false
 
   /get-intrinsic/1.1.1:
     resolution: {integrity: sha512-kWZrnVM42QCiEA2Ig1bG8zjoIMOgxWwYCEeNdwY6Tv/cOSeGpcoX4pXHfKUxNKVoArnrEr2e9srnAxxGIraS9Q==}
@@ -2055,8 +2068,8 @@ packages:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
     engines: {node: '>=6'}
 
-  github.com/discordjs/discord.js/705d7b36af313245d027cb12ba21c2fae7d948c1:
-    resolution: {tarball: https://codeload.github.com/discordjs/discord.js/tar.gz/705d7b36af313245d027cb12ba21c2fae7d948c1}
+  github.com/discordjs/discord.js/73f4114f59fc2f514d570ac8df3eac7d328cca3c:
+    resolution: {tarball: https://codeload.github.com/discordjs/discord.js/tar.gz/73f4114f59fc2f514d570ac8df3eac7d328cca3c}
     name: discord.js
     version: 12.5.0
     engines: {node: '>=14.0.0'}

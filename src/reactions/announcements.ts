@@ -14,7 +14,7 @@ export default class AnnouncementsReactions extends Reaction {
     user: User | PartialUser,
     type: 'add' | 'remove',
   ): Promise<void> {
-    if (!['📢', '🔔'].includes(reaction.emoji.name)) {
+    if (!['📢', '🔔'].includes(reaction.emoji.name ?? '')) {
       await reaction.remove();
       return;
     }
@@ -25,7 +25,7 @@ export default class AnnouncementsReactions extends Reaction {
     };
 
     const role = reaction.message.guild?.roles.cache.find(
-      (e) => e.name === types[reaction.emoji.name],
+      (e) => e.name === types[reaction.emoji.name ?? ''],
     );
     if (role === undefined) return;
 

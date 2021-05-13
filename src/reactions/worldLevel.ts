@@ -16,7 +16,7 @@ export default class WorldLevelReactions extends Reaction {
   ): Promise<void> {
     if (
       !['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣'].includes(
-        reaction.emoji.name,
+        reaction.emoji.name ?? '',
       )
     ) {
       await reaction.remove();
@@ -35,7 +35,7 @@ export default class WorldLevelReactions extends Reaction {
     };
 
     const role = reaction.message.guild?.roles.cache.find(
-      (e) => e.name === types[reaction.emoji.name],
+      (e) => e.name === types[reaction.emoji.name ?? ''],
     );
     if (role === undefined) return;
 
