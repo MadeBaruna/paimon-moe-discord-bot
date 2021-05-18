@@ -10,6 +10,7 @@ const secondary: {
 } = {
   atk: { name: 'ATK', multiplier: 1, suffix: '' },
   atkPercent: { name: 'ATK%', multiplier: 100, suffix: '%' },
+  physicalDamage: { name: 'Phys DMG%', multiplier: 100, suffix: '%' },
   critDamage: { name: 'CRIT Damage', multiplier: 100, suffix: '%' },
   critRate: { name: 'CRIT Rate', multiplier: 100, suffix: '%' },
   em: { name: 'Elemental Mastery', multiplier: 1, suffix: '' },

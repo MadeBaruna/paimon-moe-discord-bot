@@ -3341,4 +3341,26 @@ export const builds: Builds = {
       },
     },
   },
+  eula: {
+    roles: {
+      DPS: {
+        recommended: true,
+        weapons: [
+          {
+            id: 'song_of_broken_pines',
+          },
+        ],
+        artifacts: [['pale_flame']],
+        mainStats: {
+          sands: 'TBD',
+          goblet: 'TBD',
+          circlet: 'TBD',
+        },
+        subStats: ['TBD'],
+        talent: ['TBD', 'TBD', 'TBD'],
+        tip: 'TBD',
+        note: 'TBD',
+      },
+    },
+  },
 };

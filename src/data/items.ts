@@ -652,4 +652,14 @@ export const itemList = {
     name: 'Bloodjade Branch',
     rarity: 5,
   },
+  crystalline_bloom: {
+    id: 'crystalline_bloom',
+    name: 'Crystalline Bloom',
+    rarity: 5,
+  },
+  dragon_lords_crown: {
+    id: 'dragon_lords_crown',
+    name: "Dragon Lord's Crown",
+    rarity: 5,
+  },
 };
