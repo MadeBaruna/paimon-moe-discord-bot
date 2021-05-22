@@ -4,12 +4,14 @@ import dotenv from 'dotenv';
 import { loadCommands, loadReactions } from './util';
 import { client } from './client';
 import { onGuildMemberAdd } from './events/guildMemberAdd';
+import { startTwitterCron } from 'cron/twitter';
 
 dotenv.config();
 
 async function start(): Promise<void> {
   client.on('ready', () => {
     console.log('Paimon bot has started');
+    startTwitterCron();
   });
 
   const commands = await loadCommands();
