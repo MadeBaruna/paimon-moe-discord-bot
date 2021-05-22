@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 
 import { loadCommands, loadReactions } from './util';
 import { client } from './client';
+import { onGuildMemberAdd } from './events/guildMemberAdd';
 
 dotenv.config();
 
@@ -31,6 +32,10 @@ async function start(): Promise<void> {
     for (const reaction of reactions) {
       void reaction.check(react, user, 'remove');
     }
+  });
+
+  client.on('guildMemberAdd', (member) => {
+    void onGuildMemberAdd(member);
   });
 
   void client.login(process.env.DISCORD_TOKEN);
