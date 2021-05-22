@@ -27,7 +27,7 @@ async function checkTwitter(): Promise<void> {
         params: {
           max_results: 5,
           exclude: 'retweets,replies',
-          start_time: currentTime.subtract(15, 'minute').toISOString(),
+          start_time: currentTime.subtract(10, 'minute').toISOString(),
           end_time: currentTime.toISOString(),
         },
       },
