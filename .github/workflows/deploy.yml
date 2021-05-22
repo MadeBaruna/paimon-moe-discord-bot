@@ -51,12 +51,13 @@ jobs:
       uses: appleboy/ssh-action@master
       env:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        TWITTER_TOKEN: ${{ secrets.TWITTER_TOKEN }}
       with:
         host: ${{ secrets.SERVER_HOST }}
         username: ${{ secrets.SERVER_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script_stop: true
-        envs: DISCORD_TOKEN
+        envs: DISCORD_TOKEN,TWITTER_TOKEN
         script: |
           mkdir -p ~/server/paimon-moe-discord-bot
           cd ~/server/paimon-moe-discord-bot
@@ -65,5 +66,6 @@ jobs:
           rm -f .env
           touch .env
           echo "DISCORD_TOKEN=$DISCORD_TOKEN" >> .env
+          echo "TWITTER_TOKEN=$TWITTER_TOKEN" >> .env
           sudo docker-compose pull 
           sudo docker-compose up -d
