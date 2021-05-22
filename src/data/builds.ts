@@ -24,8 +24,8 @@ interface Builds {
 export const builds: Builds = {
   sucrose: {
     roles: {
-      'SUB DPS': {
-        recommended: true,
+      'DPS': {
+        recommended: false,
         weapons: [
           {
             id: 'lost_prayer_to_the_sacred_winds',
@@ -55,7 +55,10 @@ export const builds: Builds = {
             id: 'magic_guide',
           },
         ],
-        artifacts: [['viridescent_venerer']],
+        artifacts: [
+          ['viridescent_venerer'],
+          ['viridescent_venerer', 'gladiators_finale'],
+        ],
         mainStats: {
           sands: 'ATK%',
           goblet: 'Anemo Damage',
@@ -68,7 +71,7 @@ export const builds: Builds = {
           'Energy Recharge',
           'Flat ATK',
         ],
-        talent: ['Burst', 'Normal Attack', 'Skill'],
+        talent: ['Skill', 'Burst', 'Normal Attack'],
         tip: '',
         note: 'Despite how much damage she could do alone, Sucrose DPS playstyle still surrounds other party members to have her kit utilized at max.',
       },
@@ -268,11 +271,12 @@ export const builds: Builds = {
         ],
         artifacts: [
           ['viridescent_venerer'],
+          ['noblesse_oblige'],
           ['viridescent_venerer', 'noblesse_oblige'],
           ['viridescent_venerer', 'gladiators_finale'],
         ],
         mainStats: {
-          sands: 'ATK% / Energy Recharge',
+          sands: 'ATK% / Elemental Mastery / Energy Recharge',
           goblet: 'Anemo DMG',
           circlet: 'Crit Rate / DMG',
         },
@@ -1316,29 +1320,29 @@ export const builds: Builds = {
         recommended: true,
         weapons: [
           {
+            id: 'alley_hunter',
+            refine: 5,
+          },
+          {
             id: 'skyward_harp',
           },
           {
+            id: 'the_stringless',
+            refine: 5,
+          },
+          {
             id: 'alley_hunter',
-            refine: [2, 5],
+            refine: [1, 4],
           },
           {
             id: 'amos_bow',
           },
           {
-            id: 'the_stringless',
-            refine: [2, 5],
-          },
-          {
             id: 'elegy_for_the_end',
           },
           {
-            id: 'alley_hunter',
-            refine: 1,
-          },
-          {
             id: 'the_stringless',
-            refine: 1,
+            refine: [1, 4],
           },
           {
             id: 'the_viridescent_hunt',
@@ -1533,7 +1537,7 @@ export const builds: Builds = {
   lisa: {
     roles: {
       DPS: {
-        recommended: true,
+        recommended: false,
         weapons: [
           {
             id: 'skyward_atlas',
@@ -1572,7 +1576,7 @@ export const builds: Builds = {
           ['gladiators_finale', 'thundering_fury'],
         ],
         mainStats: {
-          sands: 'ATK% / Elemental Mastery',
+          sands: 'ATK% / Energy Recharge / Elemental Mastery',
           goblet: 'Electro DMG',
           circlet: 'Crit Rate / DMG',
         },
@@ -1587,8 +1591,8 @@ export const builds: Builds = {
         tip: '',
         note: 'Lisa gets Elemental Mastery over Ascension, make sure that you pair her with someone that can do off-field elemental applications, ideally Hydro for Electro-Charge reactions.\n',
       },
-      SUPPORT: {
-        recommended: false,
+      'SUB DPS': {
+        recommended: true,
         weapons: [
           {
             id: 'skyward_atlas',
@@ -1597,22 +1601,23 @@ export const builds: Builds = {
             id: 'the_widsith',
           },
           {
-            id: 'mappa_mare',
+            id: 'lost_prayer_to_the_sacred_winds',
           },
           {
-            id: 'thrilling_tales_of_dragon_slayers',
+            id: 'memory_of_dust',
+          },
+          {
+            id: 'mappa_mare',
           },
           {
             id: 'favonius_codex',
           },
-          {
-            id: 'prototype_amber',
-          },
         ],
         artifacts: [
+          ['thundering_fury', 'gladiators_finale'],
           ['thundering_fury', 'noblesse_oblige'],
           ['noblesse_oblige'],
-          ['instructor'],
+          ['thundersoother'],
           ['the_exile'],
         ],
         mainStats: {
@@ -1622,13 +1627,13 @@ export const builds: Builds = {
         },
         subStats: [
           'Crit Rate / DMG',
-          'Energy Recharge',
           'ATK%',
+          'Energy Recharge',
           'Elemental Mastery',
           'Flat ATK',
         ],
         talent: ['Burst', 'Skill', 'Normal Attack'],
-        tip: '',
+        tip: 'More info here: https://keqingmains.com/lisa',
         note: "Can be built to set up for either Burst damage or Quickswap Skill Nuke damage.Lisa works well with anemo characters which can keep enemies in her ultimate radius.Instructor is placed above The Exile for Lisa's burst energy cost being 80, so her ultimate can take long to activate again for the Exile 4-set perk to be abused.",
       },
     },
@@ -2286,9 +2291,10 @@ export const builds: Builds = {
         artifacts: [
           ['noblesse_oblige'],
           ['noblesse_oblige', 'heart_of_depth'],
+          ['noblesse_oblige', 'gladiators_finale'],
           ['noblesse_oblige', 'wanderers_troupe'],
-          ['wanderers_troupe', 'heart_of_depth'],
-          ['wanderers_troupe', 'instructor'],
+          ['heart_of_depth', 'wanderers_troupe'],
+          ['noblesse_oblige', 'instructor'],
           ['instructor'],
           ['noblesse_oblige', 'the_exile'],
           ['the_exile', 'scholar'],
@@ -2303,7 +2309,7 @@ export const builds: Builds = {
         subStats: ['Crit Rate / DMG', 'ATK%', 'Energy Recharge', 'Flat ATK'],
         talent: ['Burst', 'Skill', 'Normal Attack'],
         tip: "Activating XQ's ES/EB applies Hydro to the on-field character with his shield. (Pyro in specific)\nCleansing electro may take an additional switch for your character with the shield active, while Cryo would freeze you in place.",
-        note: "Set 1-5 is assuming that you already have the optimal Energy Recharge and wish to pursue the highest DPS possible.\nSet 6 requires Xingqiu to be on field and triggering the elemental reaction, otherwise the 4-set perk will not come into effect.\nSet 7 gives a good balance in between DPS and additional Energy Recharge to cover for what you might need, potentially better than Set 3 or 4.\nSet 8 is only necessary if you really lack Energy Recharge or have no other set to use.\nSet 9 is only recommended in the instance where he is supporting Keqing.\nSet 10 is second to noblesse full set if with kaeya in freeze team.Festering Desire on r5 is better than Skyward Blade on r1 as a damage subcarry/support option. You can get r5 completely for free if you played the 1.2 event.*Harbringer of Dawn is a great weapon for Xingqiu, assuming the following conditions are met: 1) He's C6 (grants energy per burst tick) or 2) He's teamed up with another Hydro Character.",
+        note: "Set 1-5 is assuming that you already have the optimal Energy Recharge and wish to pursue the highest DPS possible.\nSet 6 requires Xingqiu to be on field and triggering the elemental reaction, otherwise the 4-set perk will not come into effect.\nSet 7 gives a good balance in between DPS and additional Energy Recharge to cover for what you might need, potentially better than Set 3 or 4.\nSet 8 is only necessary if you really lack Energy Recharge or have no other set to use.\nSet 9 is only recommended in the instance where he is supporting Keqing.\nSet 10 is second to noblesse full set if with kaeya in freeze team.Festering Desire on r5 is better than Skyward Blade on r1 as a damage subcarry/support option. You can get r5 completely for free if you played the 1.2 event.*Harbringer of Dawn is a great weapon for Xingqiu, assuming the following conditions are met: 1) He's C6 (grants energy per burst tick) or 2) He's teamed up with another Hydro Character.\nSet 11 is second to noblesse full set if with Kaeya in freeze team.",
       },
     },
   },
@@ -2539,7 +2545,7 @@ export const builds: Builds = {
         },
         subStats: ['Crit Rate / DMG', 'ATK%', 'Energy Recharge'],
         talent: ['Burst', 'Normal Attack', 'Skill'],
-        tip: "If you want Mona's ult to be the one proc'ing the vaporize 2.0x multiplier:1. Apply Pyro status on enemy2. Cast Burst (should react and remove Pyro status on the enemy after using Burst)3. Apply Pyro status on enemy4. Burst will pop after enemy gets hit, applying Hydro Damage onto Pyro status, resulting in the 2.0x damage multiplier on Hydro triggered Vaporize.",
+        tip: 'An in depth guide on weapon choices, playstyle, and how to do the vaporise nuke can be found here: https://tinyurl.com/monatips',
         note: 'Use Berserker + The Exile until you get good 5 ⭐ Artifacts for Heart of Depth.\n',
       },
       'SUB DPS/NUKE': {
@@ -2571,15 +2577,15 @@ export const builds: Builds = {
           },
         ],
         artifacts: [
-          ['noblesse_oblige'],
           ['noblesse_oblige', 'heart_of_depth'],
+          ['noblesse_oblige', 'gladiators_finale'],
           ['noblesse_oblige', 'wanderers_troupe'],
-          ['noblesse_oblige', 'the_exile'],
-          ['noblesse_oblige', 'scholar'],
+          ['noblesse_oblige'],
+          ['the_exile', 'scholar'],
           ['instructor'],
         ],
         mainStats: {
-          sands: 'ATK% / Elemental Mastery',
+          sands: 'ATK% / ER% / Elemental Mastery',
           goblet: 'Hydro DMG',
           circlet: 'Crit Rate / DMG',
         },
@@ -3347,19 +3353,58 @@ export const builds: Builds = {
         recommended: true,
         weapons: [
           {
+            id: 'wolfs_gravestone',
+          },
+          {
+            id: 'the_unforged',
+          },
+          {
             id: 'song_of_broken_pines',
           },
+          {
+            id: 'serpent_spine',
+          },
+          {
+            id: 'blackcliff_slasher',
+          },
+          {
+            id: 'prototype_archaic',
+          },
+          {
+            id: 'snow-tombed_starsilver',
+          },
+          {
+            id: 'snow-tombed_starsilver',
+          },
+          {
+            id: 'debate_club',
+            refine: 5,
+          },
+          {
+            id: 'skyrider_greatsword',
+          },
         ],
-        artifacts: [['pale_flame']],
+        artifacts: [
+          ['pale_flame'],
+          ['pale_flame', 'bloodstained_chivalry'],
+          ['pale_flame', 'gladiators_finale'],
+          ['bloodstained_chivalry', 'gladiators_finale'],
+          ['gladiators_finale'],
+        ],
         mainStats: {
-          sands: 'TBD',
-          goblet: 'TBD',
-          circlet: 'TBD',
+          sands: 'ATK% / Energy Recharge',
+          goblet: 'Physical DMG / ATK%',
+          circlet: 'Crit Rate / DMG',
         },
-        subStats: ['TBD'],
-        talent: ['TBD', 'TBD', 'TBD'],
-        tip: 'TBD',
-        note: 'TBD',
+        subStats: [
+          'Crit Rate / DMG',
+          'Energy Recharge',
+          'ATK%',
+          'Flat ATK',
+        ],
+        talent: ['Normal Attack', 'Burst', 'Skill'],
+        tip: 'The simpler way to illustrate her combo is:\nNormal combo: NA Spam > Press Cast Skill > NA Spam > Press Cast Skill.\nBurst combo: Press Cast > Burst > Press Cast > NA Spam > Hold Cast\n Currently the best theorized combo for Eula is 2 NA -> ES Tap -> EB -> ES Tap -> 4 NA -> dodge cancel -> 2 NA -> Hold ES Cast -> 2 NA -> Lightfall Sword Explosion\nAn alternative combo is ES Tap -> EB -> ES Hold -> 4 NA -> dodge cancel -> 3 NA -> Lightfall Sword Explosion',
+        note: "Eula's weapon rankings assume that you're not running her with Bennett, and that she has more than 40% ER substats from her artifacts alone. Increasing Eula's Energy Recharge up to ~140% through substats can help alleviate her burst downtime.\nEula's burst does not snapshot. This means that any buffs Eula has upon casting burst will not be taken into effect if the buff duration expires before the Lightfall Sword hits.\nRegarding Pale Flame (4): This is Eula's optimal artifact set and it relies on having a condition fulfilled in order to outperform Pale Flame (2) + Bloodstained Chivalry (2). If you are able to sustain the conditional buff, you will be able to achieve a 50% Physical DMG Bonus + 18% Atk. Without using your Elemental Burst, you can sustain the Pale Flame's 4 set bonus because each stack lasts 7s and it refreshes per stack, and Eula's Elemental Skill is only 4s when doing 1-taps, therefore you can keep the condition up. When using this set, it is recommended to not use hold skill cast until your Lightfall Sword is nearly about to end. This restriction is only for players who don't have Eula C2 or above. Please visit the Ability Tips for her combo.\nRegarding The Unforged: This weapon is only above Song of Broken Pines if Eula is paired with zhongli.\nRegarding Skyward Pride: If your Eula is struggling to keep uptime on her burst, this weapon is a strong choice. If there is a cryo battery unit in your team (Diona with Sacrificial bow or Kaeya with Favonius Sword) or your team generates enough particles on their own, Skyward Pride loses effectiveness compared to the above options.\nATK Goblet is better than Physical DMG bonus if ran with a high refines Serpent Spine.",
       },
     },
   },
