@@ -24,7 +24,7 @@ interface Builds {
 export const builds: Builds = {
   sucrose: {
     roles: {
-      'DPS': {
+      DPS: {
         recommended: false,
         weapons: [
           {
@@ -147,7 +147,9 @@ export const builds: Builds = {
           },
         ],
         artifacts: [
+          ['bloodstained_chivalry', 'pale_flame'],
           ['gladiators_finale'],
+          ['bloodstained_chivalry', 'pale_flame'],
           ['bloodstained_chivalry', 'gladiators_finale'],
           ['brave_heart', 'viridescent_venerer'],
           ['martial_artist', 'viridescent_venerer'],
@@ -170,10 +172,10 @@ export const builds: Builds = {
         recommended: true,
         weapons: [
           {
-            id: 'skyward_blade',
+            id: 'primordial_jade_cutter',
           },
           {
-            id: 'primordial_jade_cutter',
+            id: 'skyward_blade',
           },
           {
             id: 'aquila_favonia',
@@ -189,6 +191,9 @@ export const builds: Builds = {
           },
           {
             id: 'lions_roar',
+          },
+          {
+            id: 'blackcliff_longsword',
           },
           {
             id: 'favonius_sword',
@@ -299,144 +304,46 @@ export const builds: Builds = {
         recommended: true,
         weapons: [
           {
-            id: 'aquila_favonia',
-          },
-          {
             id: 'primordial_jade_cutter',
           },
           {
             id: 'summit_shaper',
+          },
+          {
+            id: 'aquila_favonia',
           },
           {
             id: 'festering_desire',
             refine: 5,
-          },
-          {
-            id: 'the_black_sword',
-          },
-          {
-            id: 'blackcliff_longsword',
-          },
-          {
-            id: 'iron_sting',
-          },
-          {
-            id: 'the_flute',
-          },
-          {
-            id: 'sword_of_descension',
-          },
-        ],
-        artifacts: [
-          ['gladiators_finale'],
-          ['gladiators_finale', 'noblesse_oblige'],
-          ['gladiators_finale', 'archaic_petra'],
-          ['brave_heart', 'berserker'],
-          ['martial_artist', 'berserker'],
-          ['resolution_of_sojourner', 'berserker'],
-          ['brave_heart', 'instructor'],
-          ['martial_artist', 'instructor'],
-          ['resolution_of_sojourner', 'instructor'],
-        ],
-        mainStats: {
-          sands: 'ATK%',
-          goblet: 'Geo / Physical DMG',
-          circlet: 'Crit Rate / DMG',
-        },
-        subStats: ['Crit Rate / DMG', 'ATK%', 'Energy Recharge', 'Flat ATK'],
-        talent: ['Skill', 'Burst', 'Normal Attack'],
-        tip: '',
-      },
-      'DPS PHYSICAL': {
-        recommended: true,
-        weapons: [
-          {
-            id: 'aquila_favonia',
-          },
-          {
-            id: 'primordial_jade_cutter',
-          },
-          {
-            id: 'summit_shaper',
-          },
-          {
-            id: 'the_black_sword',
-          },
-          {
-            id: 'prototype_rancour',
-          },
-          {
-            id: 'blackcliff_longsword',
-          },
-          {
-            id: 'the_flute',
-          },
-          {
-            id: 'sword_of_descension',
-          },
-        ],
-        artifacts: [
-          ['gladiators_finale'],
-          ['gladiators_finale', 'noblesse_oblige'],
-          ['gladiators_finale', 'archaic_petra'],
-          ['brave_heart', 'berserker'],
-          ['martial_artist', 'berserker'],
-          ['resolution_of_sojourner', 'berserker'],
-          ['brave_heart', 'instructor'],
-          ['martial_artist', 'instructor'],
-          ['resolution_of_sojourner', 'instructor'],
-        ],
-        mainStats: {
-          sands: 'ATK%',
-          goblet: 'Geo / Physical DMG',
-          circlet: 'Crit Rate / DMG',
-        },
-        subStats: ['Crit Rate / DMG', 'ATK%', 'Energy Recharge', 'Flat ATK'],
-        talent: ['Skill', 'Burst', 'Normal Attack'],
-        tip: '',
-      },
-      'SUB DPS/NUKE': {
-        recommended: false,
-        weapons: [
-          {
-            id: 'primordial_jade_cutter',
-          },
-          {
-            id: 'summit_shaper',
-          },
-          {
-            id: 'festering_desire',
-            refine: 5,
-          },
-          {
-            id: 'aquila_favonia',
           },
           {
             id: 'skyward_blade',
           },
           {
-            id: 'the_alley_flash',
-          },
-          {
             id: 'blackcliff_longsword',
           },
           {
-            id: 'the_flute',
+            id: 'the_black_sword',
           },
           {
             id: 'iron_sting',
           },
           {
-            id: 'harbinger_of_dawn',
+            id: 'the_flute',
+          },
+          {
+            id: 'sword_of_descension',
           },
         ],
         artifacts: [
-          ['archaic_petra', 'noblesse_oblige'],
-          ['archaic_petra'],
-          ['noblesse_oblige'],
           ['gladiators_finale', 'archaic_petra'],
-          ['gladiators_finale', 'noblesse_oblige'],
-          ['the_exile'],
+          ['archaic_petra', 'noblesse_oblige'],
+          ['brave_heart', 'berserker'],
+          ['martial_artist', 'berserker'],
+          ['resolution_of_sojourner', 'berserker'],
+          ['brave_heart', 'instructor'],
+          ['martial_artist', 'instructor'],
+          ['resolution_of_sojourner', 'instructor'],
         ],
         mainStats: {
           sands: 'ATK%',
@@ -445,14 +352,10 @@ export const builds: Builds = {
         },
         subStats: ['Crit Rate / DMG', 'ATK%', 'Energy Recharge', 'Flat ATK'],
         talent: ['Skill', 'Burst', 'Normal Attack'],
-        tip: '',
-        note: 'When using Primordial Jade Cutter, use an ER Sands + Atk circlet, or crit dmg circlet with atk% sands and ER substats.',
+        tip: 'Skill and Burst have equal priorities.',
+        note: "This section is dedicated to utilising the Geo Traveller's immense geo burst damage capabilities. Due to how little field time this playstyle takes, the traveller can also fulfill the role of a quickswap style Sub-DPS",
       },
-    },
-  },
-  traveler_anemo: {
-    roles: {
-      DPS: {
+      'DPS PHYSICAL': {
         recommended: false,
         weapons: [
           {
@@ -462,7 +365,16 @@ export const builds: Builds = {
             id: 'primordial_jade_cutter',
           },
           {
+            id: 'summit_shaper',
+          },
+          {
+            id: 'skyward_blade',
+          },
+          {
             id: 'the_black_sword',
+          },
+          {
+            id: 'blackcliff_longsword',
           },
           {
             id: 'prototype_rancour',
@@ -471,10 +383,115 @@ export const builds: Builds = {
             id: 'the_flute',
           },
           {
+            id: 'harbinger_of_dawn',
+          },
+        ],
+        artifacts: [
+          ['gladiators_finale', 'pale_flame'],
+          ['pale_flame', 'bloodstained_chivalry'],
+          ['pale_flame'],
+          ['gladiators_finale'],
+          ['retracing_bolide'],
+          ['brave_heart', 'berserker'],
+          ['martial_artist', 'berserker'],
+          ['resolution_of_sojourner', 'berserker'],
+        ],
+        mainStats: {
+          sands: 'ATK%',
+          goblet: 'Physical DMG',
+          circlet: 'Crit Rate / DMG',
+        },
+        subStats: ['Crit Rate / DMG', 'ATK%', 'Energy Recharge', 'Flat ATK'],
+        talent: ['Normal Attack', 'Skill', 'Burst'],
+        tip: '',
+        note: "Regarding Gladiator's Finale (2) Pale Flame (2): This set is ranked higher than Pale Flame (2) Bloodstained Chivalry (2) due to how much geo damage is in his kit. If you truly prefer to have the highest physical damage output, use Set 2 instead.\nRegarding Pale Flame (4): This set is unreliable for a multitude of reasons. Firstly, a 6 second cooldown means that the 4 piece set effect will only kick in 12 seconds into the rotation (overall DPS loss as compared to other sets). Second, due to the nature of the ability (where there is a delay on skill cast), it can be clunky to maintain the uptime of the aforementioned 4 piece set effect.",
+      },
+    },
+  },
+  traveler_anemo: {
+    roles: {
+      'DPS ANEMO': {
+        recommended: true,
+        weapons: [
+          {
+            id: 'primordial_jade_cutter',
+          },
+          {
+            id: 'summit_shaper',
+          },
+          {
+            id: 'aquila_favonia',
+          },
+          {
+            id: 'festering_desire',
+            refine: 5,
+          },
+          {
+            id: 'skyward_blade',
+          },
+          {
             id: 'blackcliff_longsword',
           },
           {
+            id: 'the_black_sword',
+          },
+          {
+            id: 'iron_sting',
+          },
+          {
+            id: 'the_flute',
+          },
+          {
             id: 'sword_of_descension',
+          },
+        ],
+        artifacts: [
+          ['gladiators_finale', 'viridescent_venerer'],
+          ['viridescent_venerer'],
+          ['noblesse_oblige', 'viridescent_venerer'],
+          ['brave_heart', 'berserker'],
+          ['martial_artist', 'berserker'],
+          ['resolution_of_sojourner', 'berserker'],
+        ],
+        mainStats: {
+          sands: 'ATK%',
+          goblet: 'Anemo DMG',
+          circlet: 'Crit Rate / DMG',
+        },
+        subStats: [
+          'Crit Rate / DMG',
+          'ATK%',
+          'Energy Recharge',
+          'Elemental Mastery',
+          'Flat ATK',
+        ],
+        talent: ['Skill', 'Burst', 'Normal Attack'],
+        tip: '',
+        note: "This section is dedicated to utilising the Anemo Traveller's Anemo Skill/Burst. Due to how little field time this playstyle takes, the traveller can also fulfill the role of a quickswap style Sub-DPS.",
+      },
+      'DPS PHYSICAL': {
+        recommended: false,
+        weapons: [
+          {
+            id: 'aquila_favonia',
+          },
+          {
+            id: 'summit_shaper',
+          },
+          {
+            id: 'primordial_jade_cutter',
+          },
+          {
+            id: 'skyward_blade',
+          },
+          {
+            id: 'prototype_rancour',
+          },
+          {
+            id: 'blackcliff_longsword',
+          },
+          {
+            id: 'the_flute',
           },
           {
             id: 'iron_sting',
@@ -482,68 +499,26 @@ export const builds: Builds = {
           {
             id: 'harbinger_of_dawn',
           },
-          {
-            id: 'fillet_blade',
-          },
         ],
         artifacts: [
+          ['pale_flame'],
+          ['pale_flame', 'bloodstained_chivalry'],
           ['gladiators_finale'],
-          ['gladiators_finale', 'noblesse_oblige'],
-          ['gladiators_finale', 'archaic_petra'],
+          ['gladiators_finale', 'pale_flame'],
+          ['gladiators_finale', 'bloodstained_chivalry'],
           ['brave_heart', 'berserker'],
           ['martial_artist', 'berserker'],
           ['resolution_of_sojourner', 'berserker'],
-          ['brave_heart', 'instructor'],
-          ['martial_artist', 'instructor'],
-          ['resolution_of_sojourner', 'instructor'],
         ],
         mainStats: {
-          sands: 'ATK%',
-          goblet: 'Anemo / Physical DMG',
+          sands: 'ATK% / Energy Recharge',
+          goblet: 'Physical DMG',
           circlet: 'Crit Rate / DMG',
         },
         subStats: ['Crit Rate / DMG', 'ATK%', 'Energy Recharge', 'Flat ATK'],
         talent: ['Normal Attack', 'Skill', 'Burst'],
         tip: '',
-      },
-      SUPPORT: {
-        recommended: true,
-        weapons: [
-          {
-            id: 'skyward_blade',
-          },
-          {
-            id: 'favonius_sword',
-          },
-          {
-            id: 'festering_desire',
-          },
-          {
-            id: 'the_flute',
-          },
-          {
-            id: 'sacrificial_sword',
-          },
-          {
-            id: 'fillet_blade',
-          },
-          {
-            id: 'cool_steel',
-          },
-        ],
-        artifacts: [
-          ['viridescent_venerer'],
-          ['instructor'],
-          ['noblesse_oblige'],
-        ],
-        mainStats: {
-          sands: 'ATK% / Energy Recharge',
-          goblet: 'Anemo DMG',
-          circlet: 'Crit Rate / DMG',
-        },
-        subStats: ['Energy Recharge', 'ATK%', 'Elemental Mastery', 'Flat ATK'],
-        talent: ['Skill', 'Burst', 'Normal Attack'],
-        tip: 'Use Elemental Skill and/or Elemental Burst then switch.',
+        note: 'When running Pale Flame (4), make sure you do Press Cast and not Hold Cast, as the Hold Cast Skill Cooldown would be too long for you to refresh your Pale Flame (4) stacks.',
       },
     },
   },
@@ -624,6 +599,7 @@ export const builds: Builds = {
           ['maiden_beloved', 'the_exile'],
           ['maiden_beloved', 'scholar'],
           ['the_exile'],
+          ['instructor'],
         ],
         mainStats: {
           sands: 'Energy Recharge / HP%',
@@ -675,6 +651,8 @@ export const builds: Builds = {
           ['blizzard_strayer', 'noblesse_oblige'],
           ['gladiators_finale', 'blizzard_strayer'],
           ['gladiators_finale', 'noblesse_oblige'],
+          ['wanderers_troupe', 'blizzard_strayer'],
+          ['wanderers_troupe', 'noblesse_oblige'],
         ],
         mainStats: {
           sands: 'ATK% / Energy Recharge / Elemental Mastery',
@@ -1396,6 +1374,9 @@ export const builds: Builds = {
             id: 'the_unforged',
           },
           {
+            id: 'song_of_broken_pines',
+          },
+          {
             id: 'serpent_spine',
           },
           {
@@ -1650,13 +1631,13 @@ export const builds: Builds = {
             id: 'the_unforged',
           },
           {
+            id: 'song_of_broken_pines',
+          },
+          {
             id: 'serpent_spine',
           },
           {
             id: 'skyward_pride',
-          },
-          {
-            id: 'serpent_spine',
           },
           {
             id: 'lithic_blade',
@@ -2208,7 +2189,7 @@ export const builds: Builds = {
         subStats: ['Crit Rate / DMG', 'DEF%', 'Energy Recharge', 'Flat DEF'],
         talent: ['Skill', 'Burst', 'Normal Attack'],
         tip: '',
-        note: 'It is better to run DEF over ATK on albedo since most of his damage comes from his E. \nYou can refresh the E transient blossom 2 seconds internal cooldown by placing down the E again right after you perform transient blossom. For example, if you stand in the middle of your E and have your E off cooldown, you then attack an enemy and make the blossom happen, then place down the E immediately, your next attack will be transient blossom without the 2 seconds internal cooldown. This is very important since Albedo only has 4 seconds of e cooldown, which makes this mechanic extremely spammable.\n',
+        note: 'It is better to run DEF over ATK on albedo since most of his damage comes from his E.\nYou can refresh the E transient blossom 2 seconds internal cooldown by placing down the E again right after you perform transient blossom. For example, if you stand in the middle of your E and have your E off cooldown, you then attack an enemy and make the blossom happen, then place down the E immediately, your next attack will be transient blossom without the 2 seconds internal cooldown. This is very important since Albedo only has 4 seconds of e cooldown, which makes this mechanic extremely spammable.',
       },
       'SUB DPS': {
         recommended: true,
@@ -2257,7 +2238,7 @@ export const builds: Builds = {
         subStats: ['Crit Rate / DMG', 'DEF%', 'Energy Recharge', 'Flat DEF'],
         talent: ['Skill', 'Burst', 'Normal Attack'],
         tip: '',
-        note: "2 Archaic Petra 2 Defender's Will is the cheaper option, but if you have really good substats, it is better to run 2 Petra 2 Noblesse.\nAlbedo's E particle generation is completely RNG like Zhongli, but with better odds.\nIt is generally recommended to not build ER/ATK on him at all and go all in on DEF/Geo Dmg Bonus/Crit since most of his dmg comes from transient blossom and his ult damage is entirely rng.\nRun DEF main stat on hat and sand. Albedo's E DEF scaling is very high and Harbinger gives you a lot of leeway to rely on substats for crit.\nIf [C2], go for Archaic Petra + Noblesse Oblige, the overall damage gain is better than DEF% Scaling.HOD is the go-to weapon for SUB DPS Albedo due to most of his damage coming from his E procs, which scale of Def%. ",
+        note: "Albedo's E particle generation is completely RNG like Zhongli, but with better odds.\nIt is generally recommended to not build ER/ATK on him at all and go all in on DEF/Geo Dmg Bonus/Crit since most of his dmg comes from transient blossom and his ult damage is entirely rng.\nRun DEF main stat on hat and sand. Albedo's E DEF scaling is very high and Harbinger gives you a lot of leeway to rely on substats for crit.\nHOD is the go-to weapon for SUB DPS Albedo due to most of his damage coming from his E procs, which scale of Def%.",
       },
     },
   },
@@ -2319,13 +2300,16 @@ export const builds: Builds = {
         recommended: false,
         weapons: [
           {
+            id: 'skyward_atlas',
+          },
+          {
+            id: 'lost_prayer_to_the_sacred_winds',
+          },
+          {
             id: 'the_widsith',
           },
           {
             id: 'memory_of_dust',
-          },
-          {
-            id: 'lost_prayer_to_the_sacred_winds',
           },
           {
             id: 'solar_pearl',
@@ -2343,7 +2327,12 @@ export const builds: Builds = {
             id: 'magic_guide',
           },
         ],
-        artifacts: [['heart_of_depth'], ['wanderers_troupe']],
+        artifacts: [
+          ['heart_of_depth'],
+          ['wanderers_troupe'],
+          ['heart_of_depth', 'gladiators_finale'],
+          ['wanderers_troupe', 'gladiators_finale'],
+        ],
         mainStats: {
           sands: 'ATK%',
           goblet: 'Hydro DMG',
@@ -2352,7 +2341,7 @@ export const builds: Builds = {
         subStats: ['Crit Rate / DMG', 'ATK%', 'Elemental Mastery', 'Flat ATK'],
         talent: ['Normal Attack', 'Skill', 'Burst'],
         tip: "Barbara's skill gives you a pulse of healing every 5 seconds, every pulse will imbue you with a hydro status, that means it can be used for status-cleansing (Pyro in specific, while other elements may take more pulses).Take note that Hydro reacting with Cryo status will freeze you in place, her skill should be used in consideration of the environment",
-        note: 'Use Charged Attacks.\nAlways activate your skill first, as it reduces stamina consumption and if you have Constellation 2, it will give 15% Hydro Damage Bonus.\n',
+        note: "Use Charged Attacks if you're going to be doing Vaporize DPS, Normal Attacks are for Electro-Charge DPS.\nMemory of Dust requires stacks to be utilized, and in Vaporize DPS comps, you usually don't want to give up the first few Vaporize hits to stack up Memory of Dust's perk.\nAlways activate your skill first, as it reduces stamina consumption and if you have Constellation 2, it will give 15% Hydro Damage Bonus.\n",
       },
       SUPPORT: {
         recommended: true,
@@ -2366,9 +2355,10 @@ export const builds: Builds = {
         ],
         artifacts: [
           ['maiden_beloved'],
+          ['maiden_beloved', 'tenacity_of_the_millelith'],
+          ['noblesse_oblige'],
           ['maiden_beloved', 'the_exile'],
           ['maiden_beloved', 'scholar'],
-          ['noblesse_oblige'],
         ],
         mainStats: {
           sands: 'Energy Recharge / HP%',
@@ -2782,6 +2772,8 @@ export const builds: Builds = {
         artifacts: [
           ['noblesse_oblige', 'crimson_witch_of_flames'],
           ['crimson_witch_of_flames'],
+          ['crimson_witch_of_flames', 'gladiators_finale'],
+          ['crimson_witch_of_flames', 'wanderers_troupe'],
           ['noblesse_oblige'],
           ['noblesse_oblige', 'the_exile'],
           ['noblesse_oblige', 'scholar'],
@@ -2858,6 +2850,8 @@ export const builds: Builds = {
           ['crimson_witch_of_flames'],
           ['crimson_witch_of_flames', 'gladiators_finale'],
           ['crimson_witch_of_flames', 'noblesse_oblige'],
+          ['crimson_witch_of_flames', 'wanderers_troupe'],
+          ['thundering_fury'],
         ],
         mainStats: {
           sands: 'ATK% / Elemental Mastery',
@@ -2872,7 +2866,7 @@ export const builds: Builds = {
         ],
         talent: ['Skill', 'Burst', 'Normal Attack'],
         tip: "Bennett's EB grants you a pyro status as long as your characters are within his burst AoE (Cryo in specific, since Pyro > Cryo).For that, cast EB with Bennett, switch to the character imbued with Cryo and walk on Bennett's Burst fieldUpon entering burst field, the Pyro status will continuously imbue you with Pyro, reacting with other elements on you and eventually removing them.",
-        note: "Set 1 works best with chongyun on the same team for consistent melt, c6 bennett does not work with chongyun at all.The recommended artifact sets are based on the assumption a DPS Bennet is build with a Melt/Vape team comp because practically speaking, a Phys Bennett is useless compared to other main DPS roles and Melt/Vape comps are where Bennet shines as a DPS.\nAssuming a melt/vaporize team, Crimson Witch 4-pcs is your best set for damage.Pyro damage bonus will always be the best for cup. The combo for the highest melt/vaporize dmg is black sword and EM sand. R1 iron sting and EM sand turns out to have diminishing retuns and isn't as good, but R2+ iron sting is a different question because better buffs. (Assuming you don't have a whale build's CR/CD stats, in which case Aquilla with EM sands is just flat out better.)\n",
+        note: "Set 1 works best with chongyun on the same team for consistent melt, c6 bennett does not work with chongyun at all.The recommended artifact sets are based on the assumption a DPS Bennet is build with a Melt/Vape team comp because practically speaking, a Phys Bennett is useless compared to other main DPS roles and Melt/Vape comps are where Bennet shines as a DPS.\nAssuming a melt/vaporize team, Crimson Witch 4-pcs is your best set for damage.Pyro damage bonus will always be the best for cup. The combo for the highest melt/vaporize dmg is black sword and EM sand. R1 iron sting and EM sand turns out to have diminishing retuns and isn't as good, but R2+ iron sting is a different question because better buffs. (Assuming you don't have a whale build's CR/CD stats, in which case Aquilla with EM sands is just flat out better.)\nRegarding Thundering Fury (4): This set works best if paired with Electro supports such as Beidou and Fischl/Lisa, as it allows Bennett to accomplish 2 things:\n1) Rapidly spam E for raw pyro damage + overload\n2) generate tons of energy for the entire team.\nThundering Fury (4) also allows Bennett to quickly break the shields of the Abyss Lectors in Floor 12, chamber 3. This comp is generally only recommended for those with Beidou on c2/c6.",
       },
       SUPPORT: {
         recommended: true,
@@ -2881,25 +2875,22 @@ export const builds: Builds = {
             id: 'aquila_favonia',
           },
           {
-            id: 'the_alley_flash',
-          },
-          {
             id: 'skyward_blade',
           },
           {
-            id: 'summit_shaper',
+            id: 'the_alley_flash',
           },
           {
             id: 'festering_desire',
+          },
+          {
+            id: 'prototype_rancour',
           },
           {
             id: 'favonius_sword',
           },
           {
             id: 'sacrificial_sword',
-          },
-          {
-            id: 'prototype_rancour',
           },
           {
             id: 'the_flute',
@@ -2930,7 +2921,7 @@ export const builds: Builds = {
         ],
         talent: ['Burst', 'Skill', 'Normal Attack'],
         tip: '',
-        note: "Heals from Elemental Burst scale off of HP, while damage buff from Burst only scales with your base ATK.\nBase ATK refers to only character base atk stat and weapon base atk stat.\nDO NOT increase Bennett's constellation from 5 to 6 unless he is in a pyro team and you know what you're doing. This is because Bennett turns all of your melee on-field character's normal/charge attack into pyro, which means that Bennett will lose a lot of his team comp potential.\nAlthough Bennett is usually considered a healer, he already heals a lot even without necessarily building for HP%, if you find it unnecessary to build for HP%, you are free to build him as a Pyro DPS with ATK% and Crit building.",
+        note: "Heals from Elemental Burst scale off of HP, while damage buff from Burst only scales with your base ATK (character base atk stat and weapon base atk stat)\nRegarding Prototype Rancour: This weapon will give you a stronger buff than even Festering Desire (4⭐). However, due to its substat being physical damage%, it requires you to heavily invest into energy recharge in artifacts to maintain good burst uptime. If you only want a stronger atk buff, use this weapon over Festering Desire.\nRegarding Alley Flash: Similar to Prototype Rancour, this weapon will give a very slightly stronger buff as compared to Skyward Blade (5⭐), but requires you to find more energy recharge in artifacts, for this reason, skyward blade is ranked higher.\nDO NOT increase Bennett's constellation from 5 to 6 unless he is in a pyro team and you know what you're doing. This is because Bennett turns all of your melee on-field character's normal/charge attack into pyro, which means that Bennett will lose a lot of his team comp potential.\nAlthough Bennett is usually considered a healer, he already heals a lot even without necessarily building for HP%, if you find it unnecessary to build for HP%, you are free to build him as a Pyro DPS with ATK% and Crit.\n",
       },
     },
   },
@@ -2947,6 +2938,9 @@ export const builds: Builds = {
           },
           {
             id: 'wolfs_gravestone',
+          },
+          {
+            id: 'song_of_broken_pines',
           },
           {
             id: 'serpent_spine',
@@ -3091,6 +3085,7 @@ export const builds: Builds = {
           ['crimson_witch_of_flames'],
           ['wanderers_troupe'],
           ['crimson_witch_of_flames', 'gladiators_finale'],
+          ['crimson_witch_of_flames', 'wanderers_troupe'],
           ['retracing_bolide'],
         ],
         mainStats: {
@@ -3126,6 +3121,9 @@ export const builds: Builds = {
             id: 'serpent_spine',
           },
           {
+            id: 'song_of_broken_pines',
+          },
+          {
             id: 'skyward_pride',
           },
           {
@@ -3151,6 +3149,7 @@ export const builds: Builds = {
         artifacts: [
           ['crimson_witch_of_flames'],
           ['crimson_witch_of_flames', 'gladiators_finale'],
+          ['crimson_witch_of_flames', 'wanderers_troupe'],
           ['gladiators_finale'],
         ],
         mainStats: {
@@ -3356,16 +3355,22 @@ export const builds: Builds = {
             id: 'wolfs_gravestone',
           },
           {
-            id: 'the_unforged',
+            id: 'song_of_broken_pines',
           },
           {
-            id: 'song_of_broken_pines',
+            id: 'the_unforged',
           },
           {
             id: 'serpent_spine',
           },
           {
+            id: 'skyward_pride',
+          },
+          {
             id: 'blackcliff_slasher',
+          },
+          {
+            id: 'lithic_blade',
           },
           {
             id: 'prototype_archaic',
@@ -3374,14 +3379,12 @@ export const builds: Builds = {
             id: 'snow-tombed_starsilver',
           },
           {
-            id: 'snow-tombed_starsilver',
+            id: 'skyrider_greatsword',
+            refine: 5,
           },
           {
             id: 'debate_club',
             refine: 5,
-          },
-          {
-            id: 'skyrider_greatsword',
           },
         ],
         artifacts: [
@@ -3396,15 +3399,10 @@ export const builds: Builds = {
           goblet: 'Physical DMG / ATK%',
           circlet: 'Crit Rate / DMG',
         },
-        subStats: [
-          'Crit Rate / DMG',
-          'Energy Recharge',
-          'ATK%',
-          'Flat ATK',
-        ],
+        subStats: ['Crit Rate / DMG', 'Energy Recharge', 'ATK%', 'Flat ATK'],
         talent: ['Normal Attack', 'Burst', 'Skill'],
         tip: 'The simpler way to illustrate her combo is:\nNormal combo: NA Spam > Press Cast Skill > NA Spam > Press Cast Skill.\nBurst combo: Press Cast > Burst > Press Cast > NA Spam > Hold Cast\n Currently the best theorized combo for Eula is 2 NA -> ES Tap -> EB -> ES Tap -> 4 NA -> dodge cancel -> 2 NA -> Hold ES Cast -> 2 NA -> Lightfall Sword Explosion\nAn alternative combo is ES Tap -> EB -> ES Hold -> 4 NA -> dodge cancel -> 3 NA -> Lightfall Sword Explosion',
-        note: "Eula's weapon rankings assume that you're not running her with Bennett, and that she has more than 40% ER substats from her artifacts alone. Increasing Eula's Energy Recharge up to ~140% through substats can help alleviate her burst downtime.\nEula's burst does not snapshot. This means that any buffs Eula has upon casting burst will not be taken into effect if the buff duration expires before the Lightfall Sword hits.\nRegarding Pale Flame (4): This is Eula's optimal artifact set and it relies on having a condition fulfilled in order to outperform Pale Flame (2) + Bloodstained Chivalry (2). If you are able to sustain the conditional buff, you will be able to achieve a 50% Physical DMG Bonus + 18% Atk. Without using your Elemental Burst, you can sustain the Pale Flame's 4 set bonus because each stack lasts 7s and it refreshes per stack, and Eula's Elemental Skill is only 4s when doing 1-taps, therefore you can keep the condition up. When using this set, it is recommended to not use hold skill cast until your Lightfall Sword is nearly about to end. This restriction is only for players who don't have Eula C2 or above. Please visit the Ability Tips for her combo.\nRegarding The Unforged: This weapon is only above Song of Broken Pines if Eula is paired with zhongli.\nRegarding Skyward Pride: If your Eula is struggling to keep uptime on her burst, this weapon is a strong choice. If there is a cryo battery unit in your team (Diona with Sacrificial bow or Kaeya with Favonius Sword) or your team generates enough particles on their own, Skyward Pride loses effectiveness compared to the above options.\nATK Goblet is better than Physical DMG bonus if ran with a high refines Serpent Spine.",
+        note: "Eula's weapon rankings assume that you're not running her with Bennett, and that she has more than 40% ER substats from her artifacts alone. Increasing Eula's Energy Recharge up to ~140% through substats can help alleviate her burst downtime.\nEula's burst does not snapshot. This means that any buffs Eula has upon casting burst will not be taken into effect if the buff duration expires before the Lightfall Sword hits.\nRegarding Pale Flame (4): This is Eula's optimal artifact set and it relies on having a condition fulfilled in order to outperform Pale Flame (2) + Bloodstained Chivalry (2). If you are able to sustain the conditional buff, you will be able to achieve a 50% Physical DMG Bonus + 18% Atk. Without using your Elemental Burst, you can sustain the Pale Flame's 4 set bonus because each stack lasts 7s and it refreshes per stack, and Eula's Elemental Skill is only 4s when doing 1-taps, therefore you can keep the condition up. When using this set, it is recommended to not use hold skill cast until your Lightfall Sword is nearly about to end. This restriction is only for players who don't have Eula C2 or above. Please visit the Ability Tips for her combo.\nRegarding Serpent Spine: It is only better than Skyward Pride in terms of damage within one rotation when it has more than one refinement.\nRegarding Skyward Pride: This weapon is more forgiving towards ER substats. If there is a cryo battery unit in your team (Diona with Sacrificial bow or Kaeya with Favonius Sword) or your team generates enough particles on their own, Skyward Pride loses effectiveness compared to the above options.\nRegarding Energy Recharge Sands: This follows the same principle as Skyward Pride. If your energy recharge is below ~140% and you're struggling to keep burst uptime due to lackluster particle generation, this is a solid choice.",
       },
     },
   },
