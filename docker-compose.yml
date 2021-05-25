@@ -6,6 +6,7 @@ services:
     restart: always
     environment: 
       DISCORD_TOKEN: ${DISCORD_TOKEN}
+      TWITTER_TOKEN: ${TWITTER_TOKEN}
     volumes:
       - type: bind
         source: /home/ubuntu/server/paimon-moe-discord-bot/messages.json
