@@ -33,7 +33,7 @@ export function generateWeaponEmbed(id: string): MessageEmbed {
   ) {
     embed.addField(
       weapon.skill.name,
-      weapon.skill.description[4]
+      weapon.skill.description
         .replace(/<span([^>+]*)>/g, '**')
         .replace(/<\/span[^>]*>/g, '**'),
     );
