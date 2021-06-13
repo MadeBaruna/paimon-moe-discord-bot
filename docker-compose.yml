@@ -1,13 +1,13 @@
-version: "3.8"
+version: '3.8'
 
 services:
   api:
     image: ghcr.io/madebaruna/paimon-moe-discord-bot:latest
     restart: always
-    environment: 
+    environment:
       DISCORD_TOKEN: ${DISCORD_TOKEN}
       TWITTER_TOKEN: ${TWITTER_TOKEN}
     volumes:
       - type: bind
-        source: /home/ubuntu/server/paimon-moe-discord-bot/messages.json
+        source: /home/baruna/server/paimon-moe-discord-bot/messages.json
         target: /bot/src/messages.json
