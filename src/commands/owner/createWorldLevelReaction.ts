@@ -7,7 +7,7 @@ export default class Ping extends Command {
     super({
       name: 'create roles reaction embed',
       command: 'reactionroles:worldlevel',
-      permission: 'ADMINISTRATOR',
+      ownerOnly: true,
     });
   }
 
@@ -16,19 +16,19 @@ export default class Ping extends Command {
     embed.setTitle('World Level Roles');
     embed.setDescription(
       'React below if you want to show others what is your world level\n\n' +
-      '1️⃣ : WL1\n' +
-      '2️⃣ : WL2\n' +
-      '3️⃣ : WL3\n' +
-      '4️⃣ : WL4\n' +
-      '5️⃣ : WL5\n' +
-      '6️⃣ : WL6\n' +
-      '7️⃣ : WL7\n' +
-      '8️⃣ : WL8\n',
+        '1️⃣ : WL1\n' +
+        '2️⃣ : WL2\n' +
+        '3️⃣ : WL3\n' +
+        '4️⃣ : WL4\n' +
+        '5️⃣ : WL5\n' +
+        '6️⃣ : WL6\n' +
+        '7️⃣ : WL7\n' +
+        '8️⃣ : WL8\n',
     );
 
     await message.delete();
 
-    const sent = await message.channel.send(embed);
+    const sent = await await message.channel.send({ embeds: [embed] });
     await sent.react('1️⃣');
     await sent.react('2️⃣');
     await sent.react('3️⃣');

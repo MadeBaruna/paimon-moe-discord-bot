@@ -533,4 +533,38 @@ export const artifacts: {
     ],
     rarity: [4, 5],
   },
+  shimenawas_reminiscence: {
+    id: 'shimenawas_reminiscence',
+    name: "Shimenawa's Reminiscence",
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Hopeful Heart',
+      plume: 'Shaft of Remembrance',
+      circlet: 'Capricious Visage',
+      flower: 'Entangling Bloom',
+      sands: "Morning Dew's Moment",
+    },
+    bonuses: [
+      'ATK +18%.',
+      'When casting an Elemental Skill, if the character has 15 or more Energy, they lose 15 Energy and Normal/Charged/ Plunging Attack DMG is increased by 50% for 10s.',
+    ],
+    rarity: [4, 5],
+  },
+  emblem_of_severed_fate: {
+    id: 'emblem_of_severed_fate',
+    name: 'Emblem of Severed Fate',
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Scarlet Vessel',
+      plume: 'Sundered Feather',
+      circlet: 'Ornate Kabuto',
+      flower: 'Magnificent Tsuba',
+      sands: 'Storm Cage',
+    },
+    bonuses: [
+      'Energy Recharge +20%',
+      'Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way.',
+    ],
+    rarity: [4, 5],
+  },
 };

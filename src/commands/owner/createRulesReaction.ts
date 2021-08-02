@@ -7,7 +7,7 @@ export default class Ping extends Command {
     super({
       name: 'create rules reaction embed',
       command: 'reactionroles:rules',
-      permission: 'ADMINISTRATOR',
+      ownerOnly: true,
     });
   }
 
@@ -15,13 +15,13 @@ export default class Ping extends Command {
     const embed = new MessageEmbed();
     embed.setDescription(
       'If you have read the rules and FAQ\n' +
-      'Please react on the ✅ below to continue\n' +
-      'Also please react on the announcement and region below',
+        'Please react on the ✅ below to continue\n' +
+        'Also please react on the announcement and region below',
     );
 
     await message.delete();
 
-    const sent = await message.channel.send(embed);
+    const sent = await message.channel.send({ embeds: [embed] });
     await sent.react('✅');
 
     await updateMessages('rules', sent.id);

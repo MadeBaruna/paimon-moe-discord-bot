@@ -7,7 +7,7 @@ export default class Ping extends Command {
     super({
       name: 'create roles reaction embed',
       command: 'reactionroles:announcement',
-      permission: 'ADMINISTRATOR',
+      ownerOnly: true,
     });
   }
 
@@ -16,13 +16,13 @@ export default class Ping extends Command {
     embed.setTitle('Announcement Roles');
     embed.setDescription(
       'React below if you want to be notified with:\n\n' +
-      '📢 : Announcement about paimon.moe updates\n' +
-      '🔔 : New dev feed on Twitter',
+        '📢 : Announcement about paimon.moe updates\n' +
+        '🔔 : New dev feed on Twitter',
     );
 
     await message.delete();
 
-    const sent = await message.channel.send(embed);
+    const sent = await message.channel.send({ embeds: [embed] });
     await sent.react('📢');
     await sent.react('🔔');
 

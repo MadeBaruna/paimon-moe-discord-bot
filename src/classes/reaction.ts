@@ -1,4 +1,9 @@
-import { MessageReaction, PartialUser, User } from 'discord.js';
+import {
+  MessageReaction,
+  PartialMessageReaction,
+  PartialUser,
+  User,
+} from 'discord.js';
 import { messages } from '@config';
 
 export default abstract class Reaction {
@@ -11,7 +16,7 @@ export default abstract class Reaction {
   }
 
   async check(
-    reaction: MessageReaction,
+    reaction: MessageReaction | PartialMessageReaction,
     user: User | PartialUser,
     type: 'add' | 'remove',
   ): Promise<void> {
@@ -31,12 +36,12 @@ export default abstract class Reaction {
 
     if (reaction.message.id !== messageId) return;
 
-    void this.run(reaction, user, type);
+    void this.run(reaction as MessageReaction, user, type);
   }
 
   abstract run(
     reaction: MessageReaction,
     user: User | PartialUser,
-    type: 'add' | 'remove'
+    type: 'add' | 'remove',
   ): Promise<void>;
 }

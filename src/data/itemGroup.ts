@@ -4,37 +4,90 @@ export const itemGroup: {
   [key: string]: {
     name: string;
     type?: string;
-    items: any;
+    items: Array<
+      typeof itemList.varunada_lazurite_sliver | typeof itemList.chaos_device
+    >;
   };
 } = {
   teachings_of_freedom: {
     name: 'Freedom',
-    items: [itemList.teachings_of_freedom, itemList.guide_to_freedom, itemList.philosophies_of_freedom],
+    items: [
+      itemList.teachings_of_freedom,
+      itemList.guide_to_freedom,
+      itemList.philosophies_of_freedom,
+    ],
     type: 'book',
   },
   teachings_of_ballad: {
     name: 'Ballad',
-    items: [itemList.teachings_of_ballad, itemList.guide_to_ballad, itemList.philosophies_of_ballad],
+    items: [
+      itemList.teachings_of_ballad,
+      itemList.guide_to_ballad,
+      itemList.philosophies_of_ballad,
+    ],
     type: 'book',
   },
   teachings_of_gold: {
     name: 'Gold',
-    items: [itemList.teachings_of_gold, itemList.guide_to_gold, itemList.philosophies_of_gold],
+    items: [
+      itemList.teachings_of_gold,
+      itemList.guide_to_gold,
+      itemList.philosophies_of_gold,
+    ],
     type: 'book',
   },
   teachings_of_resistance: {
     name: 'Resistance',
-    items: [itemList.teachings_of_resistance, itemList.guide_to_resistance, itemList.philosophies_of_resistance],
+    items: [
+      itemList.teachings_of_resistance,
+      itemList.guide_to_resistance,
+      itemList.philosophies_of_resistance,
+    ],
     type: 'book',
   },
   teachings_of_diligence: {
     name: 'Diligence',
-    items: [itemList.teachings_of_diligence, itemList.guide_to_diligence, itemList.philosophies_of_diligence],
+    items: [
+      itemList.teachings_of_diligence,
+      itemList.guide_to_diligence,
+      itemList.philosophies_of_diligence,
+    ],
     type: 'book',
   },
   teachings_of_prosperity: {
     name: 'Prosperity',
-    items: [itemList.teachings_of_prosperity, itemList.guide_to_prosperity, itemList.philosophies_of_prosperity],
+    items: [
+      itemList.teachings_of_prosperity,
+      itemList.guide_to_prosperity,
+      itemList.philosophies_of_prosperity,
+    ],
+    type: 'book',
+  },
+  teachings_of_transience: {
+    name: 'Transience',
+    items: [
+      itemList.teachings_of_transience,
+      itemList.guide_to_transience,
+      itemList.philosophies_of_transience,
+    ],
+    type: 'book',
+  },
+  teachings_of_elegance: {
+    name: 'Elegance',
+    items: [
+      itemList.teachings_of_elegance,
+      itemList.guide_to_elegance,
+      itemList.philosophies_of_elegance,
+    ],
+    type: 'book',
+  },
+  teachings_of_light: {
+    name: 'Light',
+    items: [
+      itemList.teachings_of_light,
+      itemList.guide_to_light,
+      itemList.philosophies_of_light,
+    ],
     type: 'book',
   },
   tile_of_decarabians_tower: {
@@ -94,6 +147,36 @@ export const itemGroup: {
       itemList.piece_of_aerosiderite,
       itemList.bit_of_aerosiderite,
       itemList.chunk_of_aerosiderite,
+    ],
+    type: 'weapon',
+  },
+  coral_branch_of_a_distant_sea: {
+    name: 'Distant Sea',
+    items: [
+      itemList.coral_branch_of_a_distant_sea,
+      itemList.jeweled_branch_of_a_distant_sea,
+      itemList.jade_branch_of_a_distant_sea,
+      itemList.golden_branch_of_a_distant_sea,
+    ],
+    type: 'weapon',
+  },
+  narukamis_wisdom: {
+    name: 'Narukami',
+    items: [
+      itemList.narukamis_wisdom,
+      itemList.narukamis_joy,
+      itemList.narukamis_affection,
+      itemList.narukamis_valor,
+    ],
+    type: 'weapon',
+  },
+  mask_of_the_wicked_lieutenant: {
+    name: 'Mask',
+    items: [
+      itemList.mask_of_the_wicked_lieutenant,
+      itemList.mask_of_the_tigers_bite,
+      itemList.mask_of_the_one_horned,
+      itemList.mask_of_the_kijin,
     ],
     type: 'weapon',
   },
@@ -169,18 +252,12 @@ export const itemGroup: {
   },
   juvenile_jade: {
     name: 'Juvenile Jade',
-    items: [
-      itemList.juvenile_jade,
-    ],
+    items: [itemList.juvenile_jade],
     type: 'ascension_gem',
   },
   chaos_device: {
     name: 'Chaos',
-    items: [
-      itemList.chaos_device,
-      itemList.chaos_circuit,
-      itemList.chaos_core,
-    ],
+    items: [itemList.chaos_device, itemList.chaos_circuit, itemList.chaos_core],
   },
   damaged_mask: {
     name: 'Mask',
@@ -277,5 +354,9 @@ export const itemGroup: {
       itemList.shimmering_nectar,
       itemList.energy_nectar,
     ],
+  },
+  chaos_gear: {
+    name: 'Chaos Gear',
+    items: [itemList.chaos_gear, itemList.chaos_axis, itemList.chaos_oculus],
   },
 };

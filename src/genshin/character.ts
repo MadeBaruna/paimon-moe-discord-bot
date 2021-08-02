@@ -1,10 +1,18 @@
-import { Message, MessageEmbed, MessageReaction, User } from 'discord.js';
-import { characters } from '@data/characters';
+import {
+  MessageActionRow,
+  MessageButton,
+  MessageEmbed,
+  CommandInteraction,
+  HexColorString,
+  Message,
+} from 'discord.js';
+import { characters as chars } from '@data/characters';
 import { builds } from '@data/builds';
 import { weapons } from '@data/weapons';
 import { artifacts } from '@data/artifacts';
+import { prefix } from '@config';
 
-const colors: { [key: string]: string } = {
+const colors: { [key: string]: HexColorString } = {
   anemo: '#A6F4CC',
   cryo: '#74D6D9',
   pyro: '#FCA66F',
@@ -13,22 +21,22 @@ const colors: { [key: string]: string } = {
   hydro: '#15CDDF',
 };
 
-const reactions = ['1️⃣', '2️⃣', '3️⃣'];
+const characters = chars as {
+  [key: string]: typeof chars.amber;
+};
 
-export async function generateBuildEmbed(
+function getArtifactName(id: string): string {
+  if (id === '+18%_atk_set') return '+18% ATK Set';
+  else return artifacts[id].name;
+}
+
+function getEmbed(
   id: string,
   index: number,
-  message: Message,
-  sentMessage?: Message,
-): Promise<void> {
+): { embed: MessageEmbed; buildNames: string[] } {
   const embed = new MessageEmbed();
 
-  const character = (
-    characters as {
-      [key: string]: typeof characters.amber;
-    }
-  )[id];
-
+  const character = characters[id];
   const current = builds[id];
 
   const build = Object.entries(current.roles).sort((a, b) =>
@@ -46,7 +54,7 @@ export async function generateBuildEmbed(
   embed.setColor(colors[character.element.id]);
   embed.setTitle(`${title}${data.recommended ? ' 👍' : ''}`);
   if (data.note !== undefined) {
-    embed.setDescription(data.note.replace(/\n/g, '\n\n'));
+    embed.setDescription(data.note);
   }
   embed.addField(
     'MAIN STATS',
@@ -68,6 +76,7 @@ export async function generateBuildEmbed(
     data.weapons
       .map((e, i) => {
         let refine = ' ';
+        let stack = '';
         if (e.refine !== undefined) {
           if (Array.isArray(e.refine)) {
             refine = ` [R${e.refine.join('-')}] `;
@@ -75,9 +84,13 @@ export async function generateBuildEmbed(
             refine = ` [R${e.refine}] `;
           }
         }
-        return `**${i + 1}.** ${weapons[e.id].name}${refine}(${
+        if (e.stack !== undefined) {
+          stack = ` [S${e.stack}] `;
+        }
+
+        return `**${i + 1}.** ${weapons[e.id].name}${refine}${stack}(${
           weapons[e.id].rarity
-        }⭐)`;
+        }★)`;
       })
       .join('\n'),
     true,
@@ -87,10 +100,14 @@ export async function generateBuildEmbed(
     data.artifacts
       .map((e, i) => {
         let str;
-        if (e.length > 1) {
-          str = `${artifacts[e[0]].name} (2) ${artifacts[e[1]].name} (2)`;
+        if (e.length > 2) {
+          str =
+            '**Choose 2:** ' +
+            e.map((f) => `${getArtifactName(f)} (2)`).join(' / ');
+        } else if (e.length > 1) {
+          str = `${getArtifactName(e[0])} (2) ${getArtifactName(e[1])} (2)`;
         } else {
-          str = `${artifacts[e[0]].name} (4)`;
+          str = `${getArtifactName(e[0])} (4)`;
         }
         return `**${i + 1}.** ${str}`;
       })
@@ -99,52 +116,78 @@ export async function generateBuildEmbed(
   );
   if (data.tip !== '') embed.addField('ABILITY TIP', data.tip);
 
-  const roles = build.map((e) => e[0]);
-  if (roles.length > 1) {
-    const reactionsAvailable = reactions.slice(0, roles.length);
-    reactionsAvailable.splice(index, 1);
+  return {
+    embed,
+    buildNames: build.map((e) => `${e[0]}${e[1].recommended ? ' 👍' : ''}`),
+  };
+}
 
-    roles.splice(index, 1);
+export async function generateBuildEmbed(
+  id: string,
+  interaction: CommandInteraction,
+): Promise<void> {
+  let index = 0;
 
-    embed.setFooter(
-      `React ${reactionsAvailable
-        .map((e, i) => `${e} for ${roles[i]} Build`)
-        .join(', ')}`,
+  const { embed, buildNames } = getEmbed(id, index);
+
+  if (buildNames.length > 1) {
+    const buttons = buildNames.map(
+      (e, i) =>
+        new MessageButton({
+          customId: `characterbuild-${i}`,
+          label: e,
+          style: 'SECONDARY',
+        }),
     );
 
-    let msg: Message;
+    buttons.forEach((e, i) => {
+      e.disabled = i === index;
+    });
+    const row = new MessageActionRow().addComponents(...buttons);
+    embed.setFooter('Press button below to see other build');
+    const message = await interaction.editReply({
+      embeds: [embed],
+      components: [row],
+    });
 
-    if (sentMessage != null) {
-      msg = await sentMessage.edit(embed);
-    } else {
-      msg = await message.channel.send(embed);
-    }
+    const collector = (message as Message).createMessageComponentCollector({
+      componentType: 'BUTTON',
+      time: 15 * 60 * 1000,
+    });
 
-    await msg.reactions.removeAll();
-    for (const emoji of reactionsAvailable) {
-      await msg.react(emoji);
-    }
-
-    const filter = (reaction: MessageReaction, user: User): boolean =>
-      reactionsAvailable.includes(reaction.emoji.name ?? '') &&
-      user.id !== msg.author.id;
-
-    try {
-      const reacts = await msg.awaitReactions(filter, {
-        max: 1,
-        time: 3600000,
-      });
-      const reaction = reacts.first();
-      if (reaction !== undefined) {
-        const emojiIndex = reactions.indexOf(reaction.emoji.name ?? '');
-        if (emojiIndex > -1) {
-          await generateBuildEmbed(id, emojiIndex, message, msg);
-        }
+    collector?.on('collect', async (i) => {
+      if (i.customId.startsWith('characterbuild-')) {
+        index = Number(i.customId.substring('characterbuild-'.length));
+        const { embed } = getEmbed(id, index);
+        embed.setFooter('Press button below to see other build');
+        buttons.forEach((e, i) => {
+          e.disabled = i === index;
+        });
+        const row = new MessageActionRow().addComponents(...buttons);
+        await i.update({
+          embeds: [embed],
+          components: [row],
+        });
       }
-    } catch (err) {
-      console.log(err);
-    }
+    });
+
+    collector?.on('end', async (i) => {
+      const { embed } = getEmbed(id, index);
+      void (message as Message).edit({
+        embeds: [embed],
+        components: [
+          new MessageActionRow().addComponents(
+            new MessageButton({
+              customId: 'farmable-stop',
+              label: `type ${prefix}genshin ${characters[id].name} to refresh`,
+              style: 'SECONDARY',
+              disabled: true,
+            }),
+          ),
+        ],
+      });
+    });
   } else {
-    await message.channel.send(embed);
+    await interaction.editReply({ embeds: [embed] });
   }
 }

@@ -8,19 +8,22 @@ import { startTwitterCron } from 'cron/twitter';
 
 dotenv.config();
 
-async function start(): Promise<void> {
-  client.on('ready', () => {
-    console.log('Paimon bot has started');
-    startTwitterCron();
-  });
-
-  const commands = await loadCommands();
-  client.on('message', (message) => {
+async function ready(): Promise<void> {
+  const [commands, interactions] = await loadCommands();
+  client.on('messageCreate', (message) => {
     const text = message.content;
     if (text === null) return;
 
     for (const command of commands) {
       command.check(message);
+    }
+  });
+
+  client.on('interactionCreate', (interaction) => {
+    if (interaction.isCommand()) {
+      for (const item of interactions) {
+        item.checkInteraction(interaction);
+      }
     }
   });
 
@@ -38,6 +41,14 @@ async function start(): Promise<void> {
 
   client.on('guildMemberAdd', (member) => {
     void onGuildMemberAdd(member);
+  });
+}
+
+async function start(): Promise<void> {
+  client.on('ready', () => {
+    console.log('Paimon bot has started');
+    void ready();
+    startTwitterCron();
   });
 
   void client.login(process.env.DISCORD_TOKEN);

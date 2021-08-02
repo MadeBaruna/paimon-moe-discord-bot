@@ -7,7 +7,7 @@ export default class Ping extends Command {
     super({
       name: 'set dev feed channel',
       command: 'setchannel:devfeed',
-      permission: 'ADMINISTRATOR',
+      ownerOnly: true,
     });
   }
 

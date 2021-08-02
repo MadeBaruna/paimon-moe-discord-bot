@@ -6,5 +6,6 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "workbench.colorCustomizations": {
     "statusBarItem.remoteBackground": "#58BC34"
-  }
+  },
+  "prettier.trailingComma": "all"
 }

@@ -1,71 +1,111 @@
-import { Message, MessageEmbed, MessageReaction, User } from 'discord.js';
+import {
+  Message,
+  MessageEmbed,
+  CommandInteraction,
+  MessageActionRow,
+  MessageButton,
+} from 'discord.js';
 import Command from '@bot/command';
 import { search } from 'genshin/search';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
+import { prefix } from '@config';
 dayjs.extend(utc);
 
 export default class Genshin extends Command {
   constructor() {
     super({
-      name: 'genshin',
+      name: 'Search Genshin Impact related stuff. Leave keyword empty to show what items are farmable today.',
       command: 'genshin',
+      registerSlashCommand: true,
+      slashCommandOptions: [
+        {
+          name: 'keyword',
+          description: 'You can search about character, artifact, or weapon.',
+          type: 'STRING',
+        },
+      ],
     });
   }
 
-  async run(message: Message, args: string): Promise<void> {
-    if (args === ' help') {
-      await message.channel.send(
-        new MessageEmbed().setDescription(
-          'Usage:\n' +
-            '`/genshin` Show what items are farmable today\n' +
-            '`/genshin <search query>` Show information about character build, weapon, or artifact' +
-            '\n\n[Community Character Builds](https://tinyurl.com/genshinbuilds) by the Genshin Helper Team',
-        ),
-      );
-    } else if (args === '') {
-      await this.sendResult(message);
+  async interact(interaction: CommandInteraction): Promise<void> {
+    const keyword = interaction.options.get('keyword')?.value ?? '';
+    if (keyword === 'help') {
+      await interaction.reply({
+        embeds: [
+          new MessageEmbed().setDescription(
+            'Usage:\n' +
+              '`/genshin` Show what items are farmable today\n' +
+              '`/genshin <search query>` Show information about character build, weapon, or artifact' +
+              '\n\n[Community Character Builds](https://tinyurl.com/genshinbuilds) by the Genshin Helper Team',
+          ),
+        ],
+      });
+    } else if (keyword === '') {
+      await this.sendResult(interaction);
     } else {
-      await search(args, message);
+      await interaction.defer();
+      await search(keyword as string, interaction);
     }
   }
 
-  private async sendResult(
-    message: Message,
-    sentMessage: Message | null = null,
-    offsetDay: number = 0,
-  ): Promise<void> {
-    const result = this.getEmbed(offsetDay);
+  private async sendResult(interaction: CommandInteraction): Promise<void> {
+    let offset = 0;
+    const result = this.getEmbed();
 
-    let sent: Message;
-    if (sentMessage != null) {
-      sent = await sentMessage.edit(result.embed);
-      await sent.reactions.removeAll();
-    } else {
-      sent = await message.channel.send(result.embed);
-    }
+    const row = new MessageActionRow().addComponents(
+      new MessageButton({
+        customId: 'farmable-prev',
+        label: 'Previous',
+        style: 'SECONDARY',
+      }),
+      new MessageButton({
+        customId: 'farmable-next',
+        label: 'Next',
+        style: 'SECONDARY',
+      }),
+    );
 
-    await sent.react('◀');
-    await sent.react('▶');
+    await interaction.reply({ embeds: [result.embed], components: [row] });
+    const message = await interaction.fetchReply();
 
-    const filter = (reaction: MessageReaction, user: User): boolean =>
-      ['◀', '▶'].includes(reaction.emoji.name ?? '') &&
-      user.id !== sent.author.id;
+    const collector = (message as Message)?.createMessageComponentCollector({
+      componentType: 'BUTTON',
+      time: 15 * 60 * 1000,
+    });
 
-    try {
-      const reactions = await sent.awaitReactions(filter, {
-        max: 1,
-        time: 3600000,
-      });
-      const reaction = reactions.first();
-      if (reaction?.emoji.name === '◀') {
-        await this.sendResult(message, sent, offsetDay - 1);
+    collector?.on('collect', async (i) => {
+      if (i.customId === 'farmable-prev') {
+        const result = this.getEmbed(--offset);
+        await i.update({
+          embeds: [result.embed],
+          components: [row],
+        });
       } else {
-        await this.sendResult(message, sent, offsetDay + 1);
+        const result = this.getEmbed(++offset);
+        await i.update({
+          embeds: [result.embed],
+          components: [row],
+        });
       }
-    } catch (err) {
-      console.log(err);
-    }
+    });
+
+    collector?.on('end', async () => {
+      const result = this.getEmbed(offset);
+      void (message as Message).edit({
+        embeds: [result.embed],
+        components: [
+          new MessageActionRow().addComponents(
+            new MessageButton({
+              customId: 'farmable-stop',
+              label: `type ${prefix}genshin to refresh`,
+              style: 'SECONDARY',
+              disabled: true,
+            }),
+          ),
+        ],
+      });
+    });
   }
 
   private getEmbed(offsetDay: number = 0): {

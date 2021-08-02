@@ -1,15 +1,19 @@
-import { Message } from 'discord.js';
+import { CommandInteraction } from 'discord.js';
 import Command from '@bot/command';
 
 export default class Ping extends Command {
   constructor() {
     super({
-      name: 'ping',
+      name: 'Call Paimon',
       command: 'ping',
+      registerSlashCommand: true,
     });
   }
 
-  async run (message: Message, args: string): Promise<void> {
-    void message.reply('pong');
+  async interact(interaction: CommandInteraction): Promise<void> {
+    void interaction.reply({
+      ephemeral: true,
+      content: 'ehe te nandayo?!',
+    });
   }
 }

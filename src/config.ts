@@ -1,7 +1,9 @@
+import { client } from 'client';
 import fs from 'fs/promises';
 import path from 'path';
 
-export const prefix = '/';
+export const prefix = process.env.DISCORD_COMMAND_PREFIX ?? '/';
+export const ownerId = client.application?.owner?.id ?? '';
 export let messages: { [key: string]: string } = {};
 
 const messagePath = path.resolve(__dirname, 'messages.json');

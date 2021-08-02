@@ -3,7 +3,7 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import { messages } from '@config';
 import { client } from 'client';
-import { TextChannel } from 'discord.js';
+import { TextChannel, Snowflake } from 'discord.js';
 
 interface Tweet {
   id: string;
@@ -34,10 +34,12 @@ async function checkTwitter(): Promise<void> {
     );
 
     const devFeedChannelId = messages.devfeed;
-    const channel = client.channels.cache.get(devFeedChannelId) as TextChannel;
+    const channel = client.channels.cache.get(
+      devFeedChannelId as Snowflake,
+    ) as TextChannel;
 
     const tweets = data.data;
-    if (tweets === undefined) return; 
+    if (tweets === undefined) return;
 
     for (const tweet of tweets) {
       if (tweet.text.includes('#paimonmoe')) {

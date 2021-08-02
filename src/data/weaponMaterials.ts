@@ -6551,4 +6551,122 @@ export const weaponList = {
       },
     ],
   },
+  'freedom-sworn': {
+    name: 'Freedom-Sworn',
+    id: 'freedom-sworn',
+    rarity: 5,
+    atk: 46,
+    secondary: 'Elemental Mastery',
+    type: weapons.sword,
+    source: 'wish',
+    ascension: [
+      {
+        items: [
+          { item: itemList.fetters_of_the_dandelion_gladiator, amount: 5 },
+          { item: itemList.chaos_device, amount: 5 },
+          { item: itemList.divining_scroll, amount: 3 },
+        ],
+        mora: 10000,
+      },
+      {
+        items: [
+          { item: itemList.chains_of_the_dandelion_gladiator, amount: 5 },
+          { item: itemList.chaos_device, amount: 18 },
+          { item: itemList.divining_scroll, amount: 12 },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          { item: itemList.chains_of_the_dandelion_gladiator, amount: 9 },
+          { item: itemList.chaos_circuit, amount: 9 },
+          { item: itemList.sealed_scroll, amount: 9 },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          { item: itemList.shackles_of_the_dandelion_gladiator, amount: 5 },
+          { item: itemList.chaos_circuit, amount: 18 },
+          { item: itemList.sealed_scroll, amount: 14 },
+        ],
+        mora: 45000,
+      },
+      {
+        items: [
+          { item: itemList.shackles_of_the_dandelion_gladiator, amount: 9 },
+          { item: itemList.chaos_core, amount: 14 },
+          { item: itemList.forbidden_curse_scroll, amount: 9 },
+        ],
+        mora: 55000,
+      },
+      {
+        items: [
+          { item: itemList.dream_of_the_dandelion_gladiator, amount: 6 },
+          { item: itemList.chaos_core, amount: 27 },
+          { item: itemList.forbidden_curse_scroll, amount: 18 },
+        ],
+        mora: 65000,
+      },
+    ],
+  },
+  mistsplitter_reforged: {
+    name: 'Mistsplitter Reforged',
+    id: 'mistsplitter_reforged',
+    rarity: 5,
+    atk: 48,
+    secondary: 'CRIT DMG',
+    type: weapons.sword,
+    source: 'wish',
+    ascension: [
+      {
+        items: [
+          { item: itemList.coral_branch_of_a_distant_sea, amount: 5 },
+          { item: itemList.chaos_gear, amount: 5 },
+          { item: itemList.old_handguard, amount: 3 },
+        ],
+        mora: 10000,
+      },
+      {
+        items: [
+          { item: itemList.jeweled_branch_of_a_distant_sea, amount: 5 },
+          { item: itemList.chaos_gear, amount: 18 },
+          { item: itemList.old_handguard, amount: 12 },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          { item: itemList.jeweled_branch_of_a_distant_sea, amount: 9 },
+          { item: itemList.chaos_axis, amount: 9 },
+          { item: itemList.kageuchi_handguard, amount: 9 },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          { item: itemList.jade_branch_of_a_distant_sea, amount: 5 },
+          { item: itemList.chaos_axis, amount: 18 },
+          { item: itemList.kageuchi_handguard, amount: 14 },
+        ],
+        mora: 45000,
+      },
+      {
+        items: [
+          { item: itemList.jade_branch_of_a_distant_sea, amount: 9 },
+          { item: itemList.chaos_oculus, amount: 14 },
+          { item: itemList.famed_handguard, amount: 9 },
+        ],
+        mora: 55000,
+      },
+      {
+        items: [
+          { item: itemList.golden_branch_of_a_distant_sea, amount: 6 },
+          { item: itemList.chaos_oculus, amount: 27 },
+          { item: itemList.famed_handguard, amount: 18 },
+        ],
+        mora: 65000,
+      },
+    ],
+  },
 };
