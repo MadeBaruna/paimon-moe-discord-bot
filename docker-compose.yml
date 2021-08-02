@@ -6,6 +6,7 @@ services:
     restart: always
     environment:
       DISCORD_TOKEN: ${DISCORD_TOKEN}
+      DISCORD_COMMAND_PREFIX: ${DISCORD_COMMAND_PREFIX}
       TWITTER_TOKEN: ${TWITTER_TOKEN}
     volumes:
       - type: bind
