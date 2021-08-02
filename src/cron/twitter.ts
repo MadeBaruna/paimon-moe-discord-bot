@@ -3,7 +3,7 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import { messages } from '@config';
 import { client } from 'client';
-import { TextChannel, Snowflake } from 'discord.js';
+import { TextChannel } from 'discord.js';
 
 interface Tweet {
   id: string;
@@ -34,9 +34,7 @@ async function checkTwitter(): Promise<void> {
     );
 
     const devFeedChannelId = messages.devfeed;
-    const channel = client.channels.cache.get(
-      devFeedChannelId as Snowflake,
-    ) as TextChannel;
+    const channel = client.channels.cache.get(devFeedChannelId) as TextChannel;
 
     const tweets = data.data;
     if (tweets === undefined) return;
