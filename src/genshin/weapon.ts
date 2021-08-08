@@ -15,6 +15,7 @@ const secondary: {
   critRate: { name: 'CRIT Rate', multiplier: 100, suffix: '%' },
   em: { name: 'Elemental Mastery', multiplier: 1, suffix: '' },
   er: { name: 'Energy Recharge', multiplier: 100, suffix: '%' },
+  hpPercent: { name: 'HP%', multiplier: 100, suffix: '%' },
 };
 
 export function generateWeaponEmbed(id: string): MessageEmbed {
