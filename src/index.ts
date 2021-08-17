@@ -47,6 +47,7 @@ async function ready(): Promise<void> {
 async function start(): Promise<void> {
   client.on('ready', () => {
     console.log('Paimon bot has started');
+    console.log(`Joined ${client.guilds.cache.size} servers`);
     void ready();
     startTwitterCron();
   });
