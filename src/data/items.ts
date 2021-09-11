@@ -669,65 +669,33 @@ export const itemList = {
     rarity: 4,
   },
   gilded_scale: { id: 'gilded_scale', name: 'Gilded Scale', rarity: 5 },
-  perpetual_heart: {
-    id: 'perpetual_heart',
-    name: 'Perpetual Heart',
-    rarity: 4,
-  },
-  sakura_bloom: { id: 'sakura_bloom', name: 'Sakura Bloom' },
-  old_handguard: { id: 'old_handguard', name: 'Old Handguard' },
-  kageuchi_handguard: { id: 'kageuchi_handguard', name: 'Kageuchi Handguard' },
-  famed_handguard: { id: 'famed_handguard', name: 'Famed Handguard' },
-  teachings_of_elegance: {
-    id: 'teachings_of_elegance',
-    name: 'Teachings of Elegance',
-    day: ['wednesday', 'saturday'],
-    rarity: 2,
-  },
-  guide_to_elegance: {
-    id: 'guide_to_elegance',
-    name: 'Guide to Elegance',
-    day: ['wednesday', 'saturday'],
-    rarity: 3,
-    parent: 'teachings_of_elegance',
-  },
-  philosophies_of_elegance: {
-    id: 'philosophies_of_elegance',
-    name: 'Philosophies of Elegance',
-    day: ['wednesday', 'saturday'],
-    rarity: 4,
-    parent: 'teachings_of_elegance',
-  },
   coral_branch_of_a_distant_sea: {
     id: 'coral_branch_of_a_distant_sea',
     name: 'Coral Branch of a Distant Sea',
-    day: ['wednesday', 'saturday'],
+    day: ['monday', 'thursday'],
     rarity: 1,
   },
   jeweled_branch_of_a_distant_sea: {
     id: 'jeweled_branch_of_a_distant_sea',
     name: 'Jeweled Branch of a Distant Sea',
-    day: ['wednesday', 'saturday'],
+    day: ['monday', 'thursday'],
     rarity: 2,
     parent: 'coral_branch_of_a_distant_sea',
   },
   jade_branch_of_a_distant_sea: {
     id: 'jade_branch_of_a_distant_sea',
     name: 'Jade Branch of a Distant Sea',
-    day: ['wednesday', 'saturday'],
+    day: ['monday', 'thursday'],
     rarity: 3,
     parent: 'coral_branch_of_a_distant_sea',
   },
   golden_branch_of_a_distant_sea: {
     id: 'golden_branch_of_a_distant_sea',
-    name: 'Golden Branch of a Distant Sea',
-    day: ['wednesday', 'saturday'],
+    name: 'Golden Branck of a Golden Sea',
+    day: ['monday', 'thursday'],
     rarity: 4,
     parent: 'coral_branch_of_a_distant_sea',
   },
-  chaos_gear: { id: 'chaos_gear', name: 'Chaos Gear' },
-  chaos_axis: { id: 'chaos_axis', name: 'Chaos Axis' },
-  chaos_oculus: { id: 'chaos_oculus', name: 'Chaos Oculus' },
 
   narukamis_wisdom: {
     id: 'narukamis_wisdom',
@@ -803,7 +771,28 @@ export const itemList = {
     name: 'Philosophies of Transience',
     day: ['monday', 'thursday'],
     rarity: 3,
-    parent: 'guide_to_transience',
+    parent: 'teachings_of_transience',
+  },
+
+  teachings_of_elegance: {
+    id: 'teachings_of_elegance',
+    name: 'Teachings of Elegance',
+    day: ['tuesday', 'friday'],
+    rarity: 1,
+  },
+  guide_to_elegance: {
+    id: 'guide_to_elegance',
+    name: 'Guide to Elegance',
+    day: ['tuesday', 'friday'],
+    rarity: 2,
+    parent: 'teachings_of_elegance',
+  },
+  philosophies_of_elegance: {
+    id: 'philosophies_of_elegance',
+    name: 'Philosophies of Elegance',
+    day: ['tuesday', 'friday'],
+    rarity: 3,
+    parent: 'teachings_of_elegance',
   },
 
   teachings_of_light: {
@@ -826,16 +815,41 @@ export const itemList = {
     rarity: 3,
     parent: 'teachings_of_light',
   },
+
+  perpetual_heart: {
+    id: 'perpetual_heart',
+    name: 'Perpetual Heart',
+    rarity: 5,
+  },
   smoldering_pearl: {
     id: 'smoldering_pearl',
     name: 'Smoldering Pearl',
     rarity: 5,
   },
+
+  old_handguard: { id: 'old_handguard', name: 'Old Handguard' },
+  kageuchi_handguard: { id: 'kageuchi_handguard', name: 'Kageuchi Handguard' },
+  famed_handguard: { id: 'famed_handguard', name: 'Famed Handguard' },
+
+  chaos_gear: { id: 'chaos_gear', name: 'Chaos Gear' },
+  chaos_axis: { id: 'chaos_axis', name: 'Chaos Axis' },
+  chaos_oculus: { id: 'chaos_oculus', name: 'Chaos Oculus' },
+
   dismal_prism: { id: 'dismal_prism', name: 'Dismal Prism' },
   crystal_prism: { id: 'crystal_prism', name: 'Crystal Prism' },
   polarizing_prism: { id: 'polarizing_prism', name: 'Polarizing Prism' },
+
+  sakura_bloom: { id: 'sakura_bloom', name: 'Sakura Bloom' },
   crystal_marrow: { id: 'crystal_marrow', name: 'Crystal Marrow' },
   dendrobium: { id: 'dendrobium', name: 'Dendrobium' },
   naku_weed: { id: 'naku_weed', name: 'Naku Weed' },
   okinabuto: { id: 'okinabuto', name: 'Okinabuto' },
+
+  amakumo_fruit: { id: 'amakumo_fruit', name: 'Amakumo Fruit' },
+  storm_beads: { id: 'storm_beads', name: 'Storm Beads' },
+  molten_moment: { id: 'molten_moment', name: 'Molten Moment', rarity: 5 },
+  ashen_heart: { id: 'ashen_heart', name: 'Ashen Heart', rarity: 5 },
+  spectral_husk: { id: 'spectral_husk', name: 'Spectral Husk' },
+  spectral_heart: { id: 'spectral_heart', name: 'Spectral Heart' },
+  spectral_nucleus: { id: 'spectral_nucleus', name: 'Spectral Nucleus' },
 };
