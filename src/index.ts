@@ -5,6 +5,7 @@ import { loadCommands, loadReactions } from './util';
 import { client } from './client';
 import { onGuildMemberAdd } from './events/guildMemberAdd';
 import { startTwitterCron } from 'cron/twitter';
+import { onMessageCreate } from 'events/messageCreate';
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ async function ready(): Promise<void> {
     for (const command of commands) {
       command.check(message);
     }
+
+    void onMessageCreate(message);
   });
 
   client.on('interactionCreate', (interaction) => {

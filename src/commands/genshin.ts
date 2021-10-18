@@ -44,7 +44,7 @@ export default class Genshin extends Command {
     } else if (keyword === '') {
       await this.sendResult(interaction);
     } else {
-      await interaction.defer();
+      await interaction.deferReply();
       await search(keyword as string, interaction);
     }
   }

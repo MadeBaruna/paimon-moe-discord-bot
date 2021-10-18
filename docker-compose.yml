@@ -12,3 +12,12 @@ services:
       - type: bind
         source: /home/baruna/server/paimon-moe-discord-bot/messages.json
         target: /bot/src/messages.json
+
+  redis:
+    image: redis:6.2.6-alpine
+    restart: always
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

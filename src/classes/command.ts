@@ -3,7 +3,7 @@ import {
   CommandInteraction,
   PermissionResolvable,
   ApplicationCommandData,
-  ApplicationCommandOption,
+  ApplicationCommandOptionData,
 } from 'discord.js';
 import { ownerId, prefix } from '../config';
 
@@ -22,7 +22,7 @@ export default abstract class Command {
     permission?: PermissionResolvable;
     ownerOnly?: boolean;
     registerSlashCommand?: boolean;
-    slashCommandOptions?: ApplicationCommandOption[];
+    slashCommandOptions?: ApplicationCommandOptionData[];
   }) {
     this.name = config.name;
     this.command = config.command;
