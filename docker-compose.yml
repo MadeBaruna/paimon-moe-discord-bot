@@ -8,6 +8,8 @@ services:
       DISCORD_TOKEN: ${DISCORD_TOKEN}
       DISCORD_COMMAND_PREFIX: ${DISCORD_COMMAND_PREFIX}
       TWITTER_TOKEN: ${TWITTER_TOKEN}
+      REDIS_URL: ${REDIS_URL}
+      PAIMON_MOE_SERVER_ID: ${PAIMON_MOE_SERVER_ID}
     volumes:
       - type: bind
         source: /home/baruna/server/paimon-moe-discord-bot/messages.json
