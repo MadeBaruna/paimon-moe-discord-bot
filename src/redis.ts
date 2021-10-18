@@ -1,2 +1,4 @@
 import Redis from 'ioredis';
-export const redis = new Redis(process.env.REDIS_URL);
+import { REDIS_URL } from '@config';
+
+export const redis = new Redis(REDIS_URL);

@@ -8,6 +8,7 @@ dotenv.config();
 export const prefix = process.env.DISCORD_COMMAND_PREFIX ?? '/';
 export const ownerId = client.application?.owner?.id ?? '';
 export const PAIMON_MOE_SERVER_ID = process.env.PAIMON_MOE_SERVER_ID ?? '';
+export const REDIS_URL = process.env.REDIS_URL;
 export let messages: { [key: string]: string } = {};
 
 const messagePath = path.resolve(__dirname, 'messages.json');
