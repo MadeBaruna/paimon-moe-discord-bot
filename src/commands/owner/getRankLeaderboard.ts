@@ -21,6 +21,7 @@ export default class GetRankLeaderboard extends Command {
         'WITHSCORES',
       );
 
+      await message.guild?.members.fetch();
       const leaderboard = result.reduce((prev, current, i) => {
         if (i % 2 === 1) {
           prev += ` ${current}\n`;
