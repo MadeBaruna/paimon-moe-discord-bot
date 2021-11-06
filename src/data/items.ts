@@ -691,7 +691,7 @@ export const itemList = {
   },
   golden_branch_of_a_distant_sea: {
     id: 'golden_branch_of_a_distant_sea',
-    name: 'Golden Branck of a Golden Sea',
+    name: 'Golden Branch of a Golden Sea',
     day: ['monday', 'thursday'],
     rarity: 4,
     parent: 'coral_branch_of_a_distant_sea',
@@ -757,20 +757,20 @@ export const itemList = {
     id: 'teachings_of_transience',
     name: 'Teachings of Transience',
     day: ['monday', 'thursday'],
-    rarity: 1,
+    rarity: 2,
   },
   guide_to_transience: {
     id: 'guide_to_transience',
     name: 'Guide to Transience',
     day: ['monday', 'thursday'],
-    rarity: 2,
+    rarity: 3,
     parent: 'teachings_of_transience',
   },
   philosophies_of_transience: {
     id: 'philosophies_of_transience',
     name: 'Philosophies of Transience',
     day: ['monday', 'thursday'],
-    rarity: 3,
+    rarity: 4,
     parent: 'teachings_of_transience',
   },
 
@@ -778,20 +778,20 @@ export const itemList = {
     id: 'teachings_of_elegance',
     name: 'Teachings of Elegance',
     day: ['tuesday', 'friday'],
-    rarity: 1,
+    rarity: 2,
   },
   guide_to_elegance: {
     id: 'guide_to_elegance',
     name: 'Guide to Elegance',
     day: ['tuesday', 'friday'],
-    rarity: 2,
+    rarity: 3,
     parent: 'teachings_of_elegance',
   },
   philosophies_of_elegance: {
     id: 'philosophies_of_elegance',
     name: 'Philosophies of Elegance',
     day: ['tuesday', 'friday'],
-    rarity: 3,
+    rarity: 4,
     parent: 'teachings_of_elegance',
   },
 
@@ -799,20 +799,20 @@ export const itemList = {
     id: 'teachings_of_light',
     name: 'Teachings of Light',
     day: ['wednesday', 'saturday'],
-    rarity: 1,
+    rarity: 2,
   },
   guide_to_light: {
     id: 'guide_to_light',
     name: 'Guide to Light',
     day: ['wednesday', 'saturday'],
-    rarity: 2,
+    rarity: 3,
     parent: 'teachings_of_light',
   },
   philosophies_of_light: {
     id: 'philosophies_of_light',
     name: 'Philosophies of Light',
     day: ['wednesday', 'saturday'],
-    rarity: 3,
+    rarity: 4,
     parent: 'teachings_of_light',
   },
 
@@ -852,4 +852,22 @@ export const itemList = {
   spectral_husk: { id: 'spectral_husk', name: 'Spectral Husk' },
   spectral_heart: { id: 'spectral_heart', name: 'Spectral Heart' },
   spectral_nucleus: { id: 'spectral_nucleus', name: 'Spectral Nucleus' },
+
+  sango_pearl: { id: 'sango_pearl', name: 'Sango Pearl' },
+  dew_of_repudiation: {
+    id: 'dew_of_repudiation',
+    name: 'Dew of Repudiation',
+    rarity: 5,
+  },
+  hellfire_butterfly: {
+    id: 'hellfire_butterfly',
+    name: 'Hellfire Butterfly',
+    rarity: 5,
+  },
+
+  concealed_claw: { id: 'concealed_claw', name: 'Concealed Claw' },
+  concealed_unguis: { id: 'concealed_unguis', name: 'Concealed Unguis' },
+  concealed_talon: { id: 'concealed_talon', name: 'Concealed Talon' },
+
+  fluorescent_fungus: { id: 'fluorescent_fungus', name: 'Fluorescent Fungus' },
 };

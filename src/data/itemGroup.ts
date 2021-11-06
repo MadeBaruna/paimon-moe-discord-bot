@@ -375,4 +375,12 @@ export const itemGroup: {
       itemList.polarizing_prism,
     ],
   },
+  concealed_claw: {
+    name: 'Concealed Claw',
+    items: [
+      itemList.concealed_claw,
+      itemList.concealed_unguis,
+      itemList.concealed_talon,
+    ],
+  },
 };

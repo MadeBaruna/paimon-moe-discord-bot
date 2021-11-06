@@ -2922,6 +2922,28 @@ export const builds: Builds = {
       },
     },
   },
+  sangonomiya_kokomi: {
+    roles: {
+      SUPPORT: {
+        recommended: true,
+        weapons: [
+          {
+            id: 'everlasting_moonglow',
+          },
+        ],
+        artifacts: [['heart_of_depth']],
+        mainStats: {
+          sands: 'HP%',
+          goblet: 'Hydro DMG / HP%',
+          circlet: 'Healing Bonus / HP%',
+        },
+        subStats: ['HP%', 'Flat HP', 'Energy Recharge', 'Elemental Mastery'],
+        talent: ['Burst', 'Skill', 'Normal Attack'],
+        tip: '',
+        note: 'WORK IN PROGRESS',
+      },
+    },
+  },
   amber: {
     roles: {
       DPS: {
@@ -3024,6 +3046,24 @@ export const builds: Builds = {
         talent: ['Burst', 'Skill', 'Normal Attack'],
         tip: '',
         note: 'Due to her poor scalings, this section is dedicated to a low-investment build that provides utility and shieldbreaking capabilities by abusing her quick pyro application on her Elemental Burst. Due to her energy generation being extremely poor, her Energy Recharge options are prioritized.\n\nRegarding Weapon Choices:\nIf Elemental Burst uptime can be maintained, a damage oriented bow such as Skyward Harp, Alley Hunter, or The Stringless can be used to maximize damage over Favonius Warbow.',
+      },
+    },
+  },
+  thoma: {
+    roles: {
+      TBD: {
+        recommended: false,
+        weapons: [],
+        artifacts: [],
+        mainStats: {
+          sands: 'TBD',
+          goblet: 'TBD',
+          circlet: 'TBD',
+        },
+        subStats: ['TBD'],
+        talent: ['TBD', 'TBD', 'TBD'],
+        tip: '',
+        note: '',
       },
     },
   },
