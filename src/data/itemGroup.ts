@@ -383,4 +383,12 @@ export const itemGroup: {
       itemList.concealed_talon,
     ],
   },
+  spectral_husk: {
+    name: 'Spectral',
+    items: [
+      itemList.concealed_claw,
+      itemList.spectral_heart,
+      itemList.spectral_nucleus,
+    ],
+  },
 };

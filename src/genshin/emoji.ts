@@ -32,4 +32,14 @@ export const emoji: { [key: string]: string } = {
   boreal_wolfs_milk_tooth: '<:boreal_wolfs_milk_tooth:813611629589430273>',
   anemo: '<:anemo:813610804024442880>',
   chaos_device: '<:chaos_device:814004675787096074>',
+  chaos_gear: '<:chaos_gear:906578324736839691>',
+  concealed_claw: '<:concealed_claw:906578326016098314>',
+  dismal_prism: '<:dismal_prism:906578324808146975>',
+  spectral_husk: '<:spectral_husk:906578324699103284>',
+  old_handguard: '<:old_handguard:906578324514541599>',
+  narukamis_wisdom: '<:narukamis_wisdom:906578964280127519>',
+  coral_branch_of_a_distant_sea:
+    '<:coral_branch_of_a_distant_sea:906579525255721051>',
+  mask_of_the_wicked_lieutenant:
+    '<:mask_of_the_wicked_lieutenant:906579769859141682>',
 };
