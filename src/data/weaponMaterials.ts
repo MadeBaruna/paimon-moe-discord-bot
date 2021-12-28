@@ -7554,4 +7554,122 @@ export const weaponList = {
       },
     ],
   },
+  cinnabar_spindle: {
+    name: 'Cinnabar Spindle',
+    id: 'cinnabar_spindle',
+    rarity: 4,
+    atk: 41,
+    secondary: 'DEF',
+    type: weapons.sword,
+    source: 'Shadows Amidst Snowstorms Event',
+    ascension: [
+      {
+        items: [
+          { item: itemList.tile_of_decarabians_tower, amount: 3 },
+          { item: itemList.chaos_device, amount: 3 },
+          { item: itemList.damaged_mask, amount: 2 },
+        ],
+        mora: 5000,
+      },
+      {
+        items: [
+          { item: itemList.debris_of_decarabians_city, amount: 3 },
+          { item: itemList.chaos_device, amount: 12 },
+          { item: itemList.damaged_mask, amount: 8 },
+        ],
+        mora: 15000,
+      },
+      {
+        items: [
+          { item: itemList.debris_of_decarabians_city, amount: 6 },
+          { item: itemList.chaos_circuit, amount: 6 },
+          { item: itemList.stained_mask, amount: 6 },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          { item: itemList.fragment_of_decarabians_epic, amount: 3 },
+          { item: itemList.chaos_circuit, amount: 12 },
+          { item: itemList.stained_mask, amount: 9 },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          { item: itemList.fragment_of_decarabians_epic, amount: 6 },
+          { item: itemList.chaos_core, amount: 9 },
+          { item: itemList.ominous_mask, amount: 6 },
+        ],
+        mora: 35000,
+      },
+      {
+        items: [
+          { item: itemList.scattered_piece_of_decarabians_dream, amount: 4 },
+          { item: itemList.chaos_core, amount: 18 },
+          { item: itemList.ominous_mask, amount: 12 },
+        ],
+        mora: 45000,
+      },
+    ],
+  },
+  redhorn_stonethresher: {
+    name: 'Redhorn Stonethresher',
+    id: 'redhorn_stonethresher',
+    rarity: 5,
+    atk: 44,
+    secondary: 'CRIT DMG',
+    type: weapons.claymore,
+    source: 'wish',
+    ascension: [
+      {
+        items: [
+          { item: itemList.narukamis_wisdom, amount: 5 },
+          { item: itemList.concealed_claw, amount: 5 },
+          { item: itemList.old_handguard, amount: 3 },
+        ],
+        mora: 10000,
+      },
+      {
+        items: [
+          { item: itemList.narukamis_joy, amount: 5 },
+          { item: itemList.concealed_claw, amount: 18 },
+          { item: itemList.old_handguard, amount: 12 },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          { item: itemList.narukamis_joy, amount: 9 },
+          { item: itemList.concealed_unguis, amount: 9 },
+          { item: itemList.kageuchi_handguard, amount: 9 },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          { item: itemList.narukamis_affection, amount: 5 },
+          { item: itemList.concealed_unguis, amount: 18 },
+          { item: itemList.kageuchi_handguard, amount: 14 },
+        ],
+        mora: 45000,
+      },
+      {
+        items: [
+          { item: itemList.narukamis_affection, amount: 9 },
+          { item: itemList.concealed_talon, amount: 14 },
+          { item: itemList.famed_handguard, amount: 9 },
+        ],
+        mora: 55000,
+      },
+      {
+        items: [
+          { item: itemList.narukamis_valor, amount: 6 },
+          { item: itemList.concealed_talon, amount: 27 },
+          { item: itemList.famed_handguard, amount: 18 },
+        ],
+        mora: 65000,
+      },
+    ],
+  },
 };

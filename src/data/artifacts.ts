@@ -2,6 +2,7 @@ export const artifacts: {
   [key: string]: {
     id: string;
     name: string;
+    domain?: string;
     setPiece: number[];
     sets: {
       goblet?: string;
@@ -30,6 +31,7 @@ export const artifacts: {
       'Opening a chest regenerates 30% Max HP over 5s.',
     ],
     rarity: [1, 2, 3],
+    domain: 'midsummer_courtyard',
   },
   lucky_dog: {
     id: 'lucky_dog',
@@ -44,6 +46,7 @@ export const artifacts: {
     },
     bonuses: ['DEF increased by 100.', 'Picking up Mora restores 300 HP.'],
     rarity: [1, 2, 3],
+    domain: 'domain_of_guyun',
   },
   traveling_doctor: {
     id: 'traveling_doctor',
@@ -61,6 +64,7 @@ export const artifacts: {
       'Using Elemental Burst restores 20% HP.',
     ],
     rarity: [1, 2, 3],
+    domain: 'valley_of_remembrance',
   },
   resolution_of_sojourner: {
     id: 'resolution_of_sojourner',
@@ -75,6 +79,7 @@ export const artifacts: {
     },
     bonuses: ['ATK +18%.', 'Increases Charged Attack CRIT Rate by 30%.'],
     rarity: [3, 4],
+    domain: 'midsummer_courtyard',
   },
   tiny_miracle: {
     id: 'tiny_miracle',
@@ -92,6 +97,7 @@ export const artifacts: {
       'Incoming elemental DMG increases corresponding Elemental RES by 30% for 10s. Can only occur once every 10s.',
     ],
     rarity: [3, 4],
+    domain: 'valley_of_remembrance',
   },
   berserker: {
     id: 'berserker',
@@ -160,6 +166,7 @@ export const artifacts: {
       "For each different element present in your own party, the wearer's Elemental RES to that corresponding element is increased by 30%.",
     ],
     rarity: [3, 4],
+    domain: 'hidden_palace_of_zhou_formula',
   },
   brave_heart: {
     id: 'brave_heart',
@@ -177,6 +184,7 @@ export const artifacts: {
       'Increases DMG by 30% against opponents with more than 50% HP.',
     ],
     rarity: [3, 4],
+    domain: 'ridge_watch',
   },
   martial_artist: {
     id: 'martial_artist',
@@ -194,6 +202,7 @@ export const artifacts: {
       'After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 25% for 8s.',
     ],
     rarity: [3, 4],
+    domain: 'ridge_watch',
   },
   gambler: {
     id: 'gambler',
@@ -211,6 +220,7 @@ export const artifacts: {
       'Defeating an opponent has a 100% chance to remove Elemental Skill CD. Can only occur once every 15s.',
     ],
     rarity: [3, 4],
+    domain: 'clear_pool_and_mountain_cavern',
   },
   scholar: {
     id: 'scholar',
@@ -228,6 +238,7 @@ export const artifacts: {
       'Gaining Elemental Particles or Orbs gives 3 Energy to all party members who have a bow or a catalyst equipped. Can only occur once every 3s.',
     ],
     rarity: [3, 4],
+    domain: 'clear_pool_and_mountain_cavern',
   },
   prayers_for_illumination: {
     id: 'prayers_for_illumination',
@@ -277,6 +288,7 @@ export const artifacts: {
       'When a character attacks an opponent affected by Cryo, their CRIT Rate is increased by 20%. If the opponent is Frozen, CRIT Rate is increased by an additional 20%.',
     ],
     rarity: [4, 5],
+    domain: 'peak_of_vindagnyr',
   },
   thundersoother: {
     id: 'thundersoother',
@@ -294,6 +306,7 @@ export const artifacts: {
       'Increases DMG against opponents affected by Electro by 35%.',
     ],
     rarity: [4, 5],
+    domain: 'midsummer_courtyard',
   },
   lavawalker: {
     id: 'lavawalker',
@@ -311,6 +324,7 @@ export const artifacts: {
       'Increases DMG against opponents affected by Pyro by 35%.',
     ],
     rarity: [4, 5],
+    domain: 'hidden_palace_of_zhou_formula',
   },
   maiden_beloved: {
     id: 'maiden_beloved',
@@ -328,6 +342,7 @@ export const artifacts: {
       'Using an Elemental Skill or Burst increases healing received by all party members by 20% for 10s.',
     ],
     rarity: [4, 5],
+    domain: 'valley_of_remembrance',
   },
   gladiators_finale: {
     id: 'gladiators_finale',
@@ -362,6 +377,7 @@ export const artifacts: {
       "Increases Swirl DMG by 60%. Decreases opponent's Elemental RES to the element infused in the Swirl by 40% for 10s.",
     ],
     rarity: [4, 5],
+    domain: 'valley_of_remembrance',
   },
   wanderers_troupe: {
     id: 'wanderers_troupe',
@@ -396,6 +412,7 @@ export const artifacts: {
       'Increases damage caused by Overloaded, Electro-Charged and Superconduct by 40%. Triggering such effects decreases Elemental Skill CD by 1s. Can only occur once every 0.8s.',
     ],
     rarity: [4, 5],
+    domain: 'midsummer_courtyard',
   },
   crimson_witch_of_flames: {
     id: 'crimson_witch_of_flames',
@@ -413,6 +430,7 @@ export const artifacts: {
       'Increases Overloaded and Burning DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using Elemental Skill increases the 2-Piece Set Bonus by 50% of its starting value for 10s. Max 3 stacks.',
     ],
     rarity: [4, 5],
+    domain: 'hidden_palace_of_zhou_formula',
   },
   noblesse_oblige: {
     id: 'noblesse_oblige',
@@ -430,6 +448,7 @@ export const artifacts: {
       "Using an Elemental Burst increases all party members' ATK by 20% for 12s. This effect cannot stack.",
     ],
     rarity: [4, 5],
+    domain: 'clear_pool_and_mountain_cavern',
   },
   bloodstained_chivalry: {
     id: 'bloodstained_chivalry',
@@ -447,6 +466,7 @@ export const artifacts: {
       'After defeating an opponent, increases Charged Attack DMG by 50%, and reduces its Stamina cost to 0 for 10s.',
     ],
     rarity: [4, 5],
+    domain: 'clear_pool_and_mountain_cavern',
   },
   archaic_petra: {
     id: 'archaic_petra',
@@ -464,6 +484,7 @@ export const artifacts: {
       'Upon obtaining an Elemental Shard created through a Crystallize Reaction, all party members gain a 35% DMG Bonus for that particular element for 10s. Only one form of Elemental DMG Bonus can be gained in this manner at any one time.',
     ],
     rarity: [4, 5],
+    domain: 'domain_of_guyun',
   },
   retracing_bolide: {
     id: 'retracing_bolide',
@@ -481,6 +502,7 @@ export const artifacts: {
       'While protected by a shield, gain an additional 40% Normal and Charged Attack DMG.',
     ],
     rarity: [4, 5],
+    domain: 'domain_of_guyun',
   },
   heart_of_depth: {
     id: 'heart_of_depth',
@@ -498,6 +520,7 @@ export const artifacts: {
       'After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 30% for 15s.',
     ],
     rarity: [4, 5],
+    domain: 'peak_of_vindagnyr',
   },
   tenacity_of_the_millelith: {
     id: 'tenacity_of_the_millelith',
@@ -515,6 +538,7 @@ export const artifacts: {
       'When an Elemental Skill hits an opponent, the ATK of all nearby party members is increased by 20% and their Shield Strength is increased by 30% for 3s. This effect can be triggered once every 0.5s. This effect can still be triggered even when the character who is using this artifact set is not on the field.',
     ],
     rarity: [4, 5],
+    domain: 'ridge_watch',
   },
   pale_flame: {
     id: 'pale_flame',
@@ -532,6 +556,7 @@ export const artifacts: {
       'When an Elemental Skill hits an opponent, ATK is increased by 9% for 7s. This effect stacks up to 2 times and can be triggered once every 0.3s. Once 2 stacks are reached, the 2-set effect is increased by 100%.',
     ],
     rarity: [4, 5],
+    domain: 'ridge_watch',
   },
   shimenawas_reminiscence: {
     id: 'shimenawas_reminiscence',
@@ -546,9 +571,10 @@ export const artifacts: {
     },
     bonuses: [
       'ATK +18%.',
-      'When casting an Elemental Skill, if the character has 15 or more Energy, they lose 15 Energy and Normal/Charged/ Plunging Attack DMG is increased by 50% for 10s.',
+      'When casting an Elemental Skill, if the character has 15 or more Energy, they lose 15 Energy and Normal/Charged/Plunging Attack DMG is increased by 50% for 10s. This effect will not trigger again during that duration.',
     ],
     rarity: [4, 5],
+    domain: 'momiji-dyed_court',
   },
   emblem_of_severed_fate: {
     id: 'emblem_of_severed_fate',
@@ -566,5 +592,42 @@ export const artifacts: {
       'Increases Elemental Burst DMG by 25% of Energy Recharge. A maximum of 75% bonus DMG can be obtained in this way.',
     ],
     rarity: [4, 5],
+    domain: 'momiji-dyed_court',
+  },
+  husk_of_opulent_dreams: {
+    id: 'husk_of_opulent_dreams',
+    name: 'Husk of Opulent Dreams',
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Calabash of Awakening',
+      plume: 'Plume of Luxury',
+      circlet: 'Skeletal Hat',
+      flower: 'Bloom Times',
+      sands: 'Song of Life',
+    },
+    bonuses: [
+      'DEF +30%',
+      'A character equipped with this Artifact set will obtain the Curiosity effect in the following conditions: When on the field, the character gains 1 stack after hitting an opponent with a Geo attack, triggering a maximum of once every 0.3s. When off the field, the character gains 1 stack every 3s. Curiosity can stack up to 4 times, each providing 6% DEF and a 6% Geo DMG Bonus. When 6 seconds pass without gaining a Curiosity stack, 1 stack is lost.',
+    ],
+    rarity: [4, 5],
+    domain: 'slumbering_court',
+  },
+  'ocean-hued_clam': {
+    id: 'ocean-hued_clam',
+    name: 'Ocean-Hued Clam',
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Pearl Cage',
+      plume: "Deep Palace's Plume",
+      circlet: 'Crown of Watatsumi',
+      flower: 'Sea-Dyed Blossom',
+      sands: 'Cowry of Parting',
+    },
+    bonuses: [
+      'Healing Bonus +15%.',
+      'When the character equipping this artifact set heals a character in the party, a Sea-Dyed Foam will appear for 3 seconds, accumulating the amount of HP recovered from healing (including overflow healing). At the end of the duration, the Sea-Dyed Foam will explode, dealing DMG to nearby opponents based on 90% of the accumulated healing. (This DMG is calculated similarly to Reactions such as Electro-Charged, and Superconduct, but is not affected by Elemental Mastery, Character Levels, or Reaction DMG Bonuses). Only one Sea-Dyed Foam can be produced every 3.5 seconds. Each Sea-Dyed Foam can accumulate up to 30,000 HP (including overflow healing). There can be no more than one Sea-Dyed Foam active at any given time. This effect can still be triggered even when the character who is using this artifact set is not on the field.',
+    ],
+    rarity: [4, 5],
+    domain: 'slumbering_court',
   },
 };
