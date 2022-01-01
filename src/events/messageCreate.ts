@@ -46,7 +46,7 @@ export async function onMessageCreate(message: Message): Promise<void> {
       `discord:${PAIMON_MOE_SERVER_ID}:${message.member.id}`,
       1,
       'EX',
-      8,
+      20,
     );
   } catch (err) {
     console.error(err);

@@ -6,7 +6,7 @@ import { chatExp } from '@data/chatExp';
 
 const expArray = Object.entries(chatExp);
 
-export default class Ping extends Command {
+export default class Level extends Command {
   constructor() {
     super({
       name: 'Get your level in this Discord server',

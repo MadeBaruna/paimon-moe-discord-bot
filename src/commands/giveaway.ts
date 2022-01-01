@@ -12,7 +12,7 @@ import { emoji } from 'genshin/emoji';
 import { redis } from 'redis';
 import { messages, PAIMON_MOE_SERVER_ID } from '@config';
 
-export default class Ping extends Command {
+export default class Giveaway extends Command {
   ticketCounterMessage: Message | null = null;
 
   constructor() {
