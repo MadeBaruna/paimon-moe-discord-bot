@@ -22,7 +22,7 @@ export default class Level extends Command {
       const nextExpNeeded = expArray[level + 1][0];
       void interaction.reply({
         ephemeral: true,
-        content: `You are **LEVEL ${level}** ${emoji.exp}\n**EXP** ${currentExp}/${nextExpNeeded}`,
+        content: `You are **LEVEL ${level}** ${emoji.exp}\n**EXP** ${currentExp}/${nextExpNeeded}\nTo get exp just hangout on the server, chat like usual 😁`,
       });
     } catch (err) {
       console.error(err);
