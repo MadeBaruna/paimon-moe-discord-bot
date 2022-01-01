@@ -3,6 +3,7 @@ import path from 'path';
 import Command from '@bot/command';
 import Reaction from '@bot/reaction';
 import { client } from 'client';
+import { PAIMON_MOE_SERVER_ID } from '@config';
 
 export async function loadCommands(): Promise<[Command[], Command[]]> {
   const commands: Command[] = [];
@@ -38,6 +39,10 @@ export async function loadCommands(): Promise<[Command[], Command[]]> {
   try {
     await client.application?.commands.set(Command.commands);
     console.log('Slash commands registered');
+    await client.guilds.cache
+      .get(PAIMON_MOE_SERVER_ID)
+      ?.commands.set(Command.serverOnlyCommands);
+    console.log('Server only slash commands registered');
   } catch (err) {
     console.error(err);
   }

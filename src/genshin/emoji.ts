@@ -42,4 +42,7 @@ export const emoji: { [key: string]: string } = {
     '<:coral_branch_of_a_distant_sea:906579525255721051>',
   mask_of_the_wicked_lieutenant:
     '<:mask_of_the_wicked_lieutenant:906579769859141682>',
+  exp: '<:exp:926787101406683216>',
+  up: '<:up:926788246933995520>',
+  ticket: '<:ticket:926787193861709834>',
 };

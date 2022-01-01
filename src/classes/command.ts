@@ -9,12 +9,14 @@ import { ownerId, prefix } from '../config';
 
 export default abstract class Command {
   static commands: ApplicationCommandData[] = [];
+  static serverOnlyCommands: ApplicationCommandData[] = [];
 
   name: string;
   command: string;
   permission?: PermissionResolvable;
   ownerOnly?: boolean;
   registerSlashCommand?: boolean;
+  onlyInPaimonMoeServer?: boolean;
 
   constructor(config: {
     name: string;
@@ -22,6 +24,7 @@ export default abstract class Command {
     permission?: PermissionResolvable;
     ownerOnly?: boolean;
     registerSlashCommand?: boolean;
+    onlyInPaimonMoeServer?: boolean;
     slashCommandOptions?: ApplicationCommandOptionData[];
   }) {
     this.name = config.name;
@@ -29,13 +32,22 @@ export default abstract class Command {
     this.permission = config.permission;
     this.ownerOnly = config.ownerOnly;
     this.registerSlashCommand = config.registerSlashCommand;
+    this.onlyInPaimonMoeServer = config.onlyInPaimonMoeServer;
 
     if (config.registerSlashCommand === true) {
-      Command.commands.push({
-        name: this.command,
-        description: this.name,
-        options: config.slashCommandOptions,
-      });
+      if (config.onlyInPaimonMoeServer === true) {
+        Command.serverOnlyCommands.push({
+          name: this.command,
+          description: this.name,
+          options: config.slashCommandOptions,
+        });
+      } else {
+        Command.commands.push({
+          name: this.command,
+          description: this.name,
+          options: config.slashCommandOptions,
+        });
+      }
     }
   }
 
