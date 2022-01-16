@@ -54,7 +54,9 @@ function getEmbed(
   embed.setColor(colors[character.element.id]);
   embed.setTitle(`${title}${data.recommended ? ' 👍' : ''}`);
   if (data.note !== undefined) {
-    embed.setDescription(data.note);
+    embed.setDescription(
+      data.note.replace(/<b>/g, '**').replace(/<\/b>/g, '**'),
+    );
   }
   embed.addField(
     'MAIN STATS',
