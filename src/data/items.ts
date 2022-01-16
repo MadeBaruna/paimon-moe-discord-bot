@@ -870,11 +870,19 @@ export const itemList = {
   concealed_talon: { id: 'concealed_talon', name: 'Concealed Talon' },
 
   fluorescent_fungus: { id: 'fluorescent_fungus', name: 'Fluorescent Fungus' },
+  onikabuto: { id: 'onikabuto', name: 'Onikabuto' },
 
   riftborn_regalia: {
     id: 'riftborn_regalia',
     name: 'Riftborn Regalia',
     rarity: 5,
     parent: 'prithiva_topaz_sliver',
+  },
+
+  dragonheirs_false_fin: {
+    id: 'dragonheirs_false_fin',
+    name: "Dragonheir's False Fin",
+    rarity: 5,
+    parent: 'shivada_jade_sliver',
   },
 };
