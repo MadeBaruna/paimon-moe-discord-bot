@@ -95,7 +95,7 @@ export default class Giveaway extends Command {
           buttonRow = [];
         }
 
-        const win = Math.random() > 0.5;
+        const win = Math.random() >= 0.5;
         if (win) {
           const totalTicket = await redis.incr(
             `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.ticket`,
