@@ -9,6 +9,7 @@ const secondary: {
   [key: string]: { name: string; multiplier: number; suffix: string };
 } = {
   atk: { name: 'ATK', multiplier: 1, suffix: '' },
+  defPercent: { name: 'DEF', multiplier: 100, suffix: '%' },
   atkPercent: { name: 'ATK%', multiplier: 100, suffix: '%' },
   physicalDamage: { name: 'Phys DMG%', multiplier: 100, suffix: '%' },
   critDamage: { name: 'CRIT Damage', multiplier: 100, suffix: '%' },
