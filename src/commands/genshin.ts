@@ -4,9 +4,10 @@ import {
   CommandInteraction,
   MessageActionRow,
   MessageButton,
+  AutocompleteInteraction,
 } from 'discord.js';
 import Command from '@bot/command';
-import { search } from 'genshin/search';
+import { search, searchNameOnly } from 'genshin/search';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import { prefix } from '@config';
@@ -18,11 +19,13 @@ export default class Genshin extends Command {
       name: 'Search Genshin Impact related stuff. Leave keyword empty to show what items are farmable today.',
       command: 'genshin',
       registerSlashCommand: true,
+      hasAutocomplete: true,
       slashCommandOptions: [
         {
           name: 'keyword',
           description: 'You can search about character, artifact, or weapon.',
           type: 'STRING',
+          autocomplete: true,
         },
       ],
     });
@@ -47,6 +50,14 @@ export default class Genshin extends Command {
       await interaction.deferReply();
       await search(keyword as string, interaction);
     }
+  }
+
+  async autocomplete(interaction: AutocompleteInteraction): Promise<void> {
+    if (interaction.commandName !== this.command) return;
+
+    const keyword = interaction.options.getFocused();
+    const result = await searchNameOnly(keyword.toString());
+    await interaction.respond(result);
   }
 
   private async sendResult(interaction: CommandInteraction): Promise<void> {

@@ -4,6 +4,7 @@ import {
   PermissionResolvable,
   ApplicationCommandData,
   ApplicationCommandOptionData,
+  AutocompleteInteraction,
 } from 'discord.js';
 import { ownerId, prefix } from '../config';
 
@@ -17,6 +18,7 @@ export default abstract class Command {
   ownerOnly?: boolean;
   registerSlashCommand?: boolean;
   onlyInPaimonMoeServer?: boolean;
+  hasAutocomplete?: boolean;
 
   constructor(config: {
     name: string;
@@ -25,6 +27,7 @@ export default abstract class Command {
     ownerOnly?: boolean;
     registerSlashCommand?: boolean;
     onlyInPaimonMoeServer?: boolean;
+    hasAutocomplete?: boolean;
     slashCommandOptions?: ApplicationCommandOptionData[];
   }) {
     this.name = config.name;
@@ -33,6 +36,7 @@ export default abstract class Command {
     this.ownerOnly = config.ownerOnly;
     this.registerSlashCommand = config.registerSlashCommand;
     this.onlyInPaimonMoeServer = config.onlyInPaimonMoeServer;
+    this.hasAutocomplete = config.hasAutocomplete;
 
     if (config.registerSlashCommand === true) {
       if (config.onlyInPaimonMoeServer === true) {
@@ -77,6 +81,12 @@ export default abstract class Command {
   }
 
   async interact(interaction: CommandInteraction): Promise<void> {
+    return await Promise.reject(new Error('not implemented'));
+  }
+
+  async autocomplete(interaction: AutocompleteInteraction): Promise<void> {
+    if (interaction.commandName !== this.command) return;
+
     return await Promise.reject(new Error('not implemented'));
   }
 }

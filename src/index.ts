@@ -10,7 +10,7 @@ import { onMessageCreate } from 'events/messageCreate';
 dotenv.config();
 
 async function ready(): Promise<void> {
-  const [commands, interactions] = await loadCommands();
+  const [commands, interactions, autocompletes] = await loadCommands();
   client.on('messageCreate', (message) => {
     const text = message.content;
     if (text === null) return;
@@ -26,6 +26,10 @@ async function ready(): Promise<void> {
     if (interaction.isCommand()) {
       for (const item of interactions) {
         item.checkInteraction(interaction);
+      }
+    } else if (interaction.isAutocomplete()) {
+      for (const item of autocompletes) {
+        void item.autocomplete(interaction);
       }
     }
   });

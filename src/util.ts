@@ -5,9 +5,12 @@ import Reaction from '@bot/reaction';
 import { client } from 'client';
 import { PAIMON_MOE_SERVER_ID } from '@config';
 
-export async function loadCommands(): Promise<[Command[], Command[]]> {
+export async function loadCommands(): Promise<
+  [Command[], Command[], Command[]]
+> {
   const commands: Command[] = [];
   const interactions: Command[] = [];
+  const autocompletes: Command[] = [];
 
   const files = await fs.readdir(path.resolve(__dirname, 'commands'));
   for (const file of files) {
@@ -22,6 +25,10 @@ export async function loadCommands(): Promise<[Command[], Command[]]> {
       interactions.push(command);
     } else {
       commands.push(command);
+    }
+
+    if ((command as Command).hasAutocomplete === true) {
+      autocompletes.push(command);
     }
   }
 
@@ -47,7 +54,7 @@ export async function loadCommands(): Promise<[Command[], Command[]]> {
     console.error(err);
   }
 
-  return [commands, interactions];
+  return [commands, interactions, autocompletes];
 }
 
 export async function loadReactions(): Promise<Reaction[]> {

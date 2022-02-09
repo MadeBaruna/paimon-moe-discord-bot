@@ -56,3 +56,10 @@ export async function search(
     await interaction.editReply(`Cannot find something about ${query} 😕`);
   }
 }
+
+export async function searchNameOnly(
+  query: string,
+): Promise<Array<{ name: string; value: string }>> {
+  const result = engine.search(query, { limit: 5 });
+  return result.map((e) => ({ name: e.item.name, value: e.item.name }));
+}
