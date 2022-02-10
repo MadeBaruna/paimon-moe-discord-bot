@@ -18,8 +18,9 @@
       "@config": ["./config.ts"],
       "@bot/*": ["./classes/*"],
       "@command/*": ["./commands/*"],
+      "@button/*": ["./buttons/*"],
       "@reaction/*": ["./reactions/*"],
-      "@data/*": ["./data/*"],
+      "@data/*": ["./data/*"]
     }
   }
 }

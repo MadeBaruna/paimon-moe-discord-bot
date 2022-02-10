@@ -4,13 +4,15 @@ import Command from '@bot/command';
 import Reaction from '@bot/reaction';
 import { client } from 'client';
 import { PAIMON_MOE_SERVER_ID } from '@config';
+import Button from '@bot/button';
 
 export async function loadCommands(): Promise<
-  [Command[], Command[], Command[]]
+  [Command[], Command[], Command[], Button[]]
 > {
   const commands: Command[] = [];
   const interactions: Command[] = [];
   const autocompletes: Command[] = [];
+  const buttons: Button[] = [];
 
   const files = await fs.readdir(path.resolve(__dirname, 'commands'));
   for (const file of files) {
@@ -30,6 +32,18 @@ export async function loadCommands(): Promise<
     if ((command as Command).hasAutocomplete === true) {
       autocompletes.push(command);
     }
+  }
+
+  const buttonFiles = await fs.readdir(path.resolve(__dirname, 'buttons'));
+  for (const file of buttonFiles) {
+    if (!file.endsWith('.ts')) continue;
+
+    const imported = await import(`@button/${file}`);
+    const ImportedButton = imported.default;
+
+    const button = new ImportedButton();
+
+    buttons.push(button);
   }
 
   const ownerOnlyFiles = await fs.readdir(
@@ -54,7 +68,7 @@ export async function loadCommands(): Promise<
     console.error(err);
   }
 
-  return [commands, interactions, autocompletes];
+  return [commands, interactions, autocompletes, buttons];
 }
 
 export async function loadReactions(): Promise<Reaction[]> {
