@@ -75,7 +75,6 @@ export default class Help extends Button {
       const random = Math.floor(rng() * 10);
       const selectedIndex = (random + currentImage) % 10;
       const selectedImage = images[selectedIndex];
-      console.log(random, selectedIndex);
 
       const msg = await interaction.editReply({
         files: [selectedImage],
@@ -119,7 +118,8 @@ export default class Help extends Button {
           }
 
           await result.update({
-            content: '*Submitting your vote, please wait...*',
+            content:
+              '*Submitting your vote, please wait... (if this stuck please click the vote photo contest button again)*',
             components: [],
           });
           await this.interact(interaction);
