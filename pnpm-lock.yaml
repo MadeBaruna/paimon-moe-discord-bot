@@ -10,7 +10,7 @@ specifiers:
   axios: ^0.21.1
   cron: ^1.8.2
   dayjs: ^1.10.4
-  discord.js: ^13.5.0
+  discord.js: ^13.6.0
   dotenv: ^8.2.0
   eslint: ^7.25.0
   eslint-config-prettier: ^8.3.0
@@ -30,7 +30,7 @@ dependencies:
   axios: 0.21.1
   cron: 1.8.2
   dayjs: 1.10.4
-  discord.js: 13.5.0
+  discord.js: 13.6.0
   dotenv: 8.2.0
   fuse.js: 6.4.6
   ioredis: 4.28.0
@@ -642,8 +642,8 @@ packages:
     engines: {node: '>=12'}
     dev: false
 
-  /discord.js/13.5.0:
-    resolution: {integrity: sha512-K+ZcB0f+wA1ZzDhz3hlaAi4Ap7jSvVEUZ+U29T4DMoiNNUv22F4vu1byrOq8GyyLLDFiZ3iSudea0MvSHu3fQA==}
+  /discord.js/13.6.0:
+    resolution: {integrity: sha512-tXNR8zgsEPxPBvGk3AQjJ9ljIIC6/LOPjzKwpwz8Y1Q2X66Vi3ZqFgRHYwnHKC0jC0F+l4LzxlhmOJsBZDNg9g==}
     engines: {node: '>=16.6.0', npm: '>=7.0.0'}
     dependencies:
       '@discordjs/builders': 0.11.0
