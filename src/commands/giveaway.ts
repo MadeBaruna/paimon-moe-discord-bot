@@ -3,7 +3,6 @@ import {
   Message,
   MessageActionRow,
   MessageButton,
-  MessageEmbed,
   TextBasedChannel,
 } from 'discord.js';
 import Command from '@bot/command';
@@ -11,6 +10,27 @@ import { getLevel } from 'libs/calculateLevel';
 import { emoji } from 'genshin/emoji';
 import { redis } from 'redis';
 import { messages, PAIMON_MOE_SERVER_ID } from '@config';
+
+const available = ['✌️', '✊', '🖐️'];
+const scissor = new MessageButton({
+  customId: '0',
+  label: '',
+  emoji: '✌️',
+  style: 'SECONDARY',
+});
+const rock = new MessageButton({
+  customId: '1',
+  label: '',
+  emoji: '✊',
+  style: 'SECONDARY',
+});
+const paper = new MessageButton({
+  customId: '2',
+  label: '',
+  emoji: '🖐️',
+  style: 'SECONDARY',
+});
+const gameButtons = new MessageActionRow().addComponents(rock, paper, scissor);
 
 export default class Giveaway extends Command {
   ticketCounterMessage: Message | null = null;
@@ -22,6 +42,10 @@ export default class Giveaway extends Command {
       registerSlashCommand: true,
       onlyInPaimonMoeServer: true,
     });
+  }
+
+  getNextResult(): number {
+    return Math.floor(Math.random() * 3);
   }
 
   async interact(interaction: CommandInteraction): Promise<void> {
@@ -73,38 +97,74 @@ export default class Giveaway extends Command {
       });
 
       collector?.on('collect', async (i) => {
-        if (!i.customId.startsWith('giveaway-roll')) return;
+        if (i.customId.startsWith('giveaway-roll')) {
+          const rollUsed =
+            (await redis.get(
+              `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.roll`,
+            )) ?? 0;
+          const { level } = await getLevel(interaction.user.id);
+          const rollLeft = level - Number(rollUsed);
 
-        const rollUsed =
-          (await redis.get(
-            `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.roll`,
-          )) ?? 0;
-        const { level } = await getLevel(interaction.user.id);
-        let rollLeft = level - Number(rollUsed);
+          if (rollLeft === 0) {
+            void i.reply("You don't have any more roll!");
+            return;
+          }
 
-        if (rollLeft === 0) {
-          void i.reply("You don't have any more roll!");
-          return;
-        }
-
-        const rollUsedAfter = await redis.incr(
-          `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.roll`,
-        );
-        rollLeft = level - rollUsedAfter;
-        if (rollLeft === 0) {
-          buttonRow = [];
-        }
-
-        const win = Math.random() >= 0.5;
-        if (win) {
-          const totalTicket = await redis.incr(
-            `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.ticket`,
-          );
-          const totalTicketGlobal = await redis.incr(
-            `discord:${PAIMON_MOE_SERVER_ID}:giveaway.ticket`,
-          );
           await i.update({
-            content: `Yay! You got a TICKET ${emoji.ticket}\nRoll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}** ${emoji.ticket}`,
+            content: 'Rock, Paper, or Scissors?',
+            components: [gameButtons],
+          });
+        } else {
+          const rollUsed =
+            (await redis.get(
+              `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.roll`,
+            )) ?? 0;
+          const { level } = await getLevel(interaction.user.id);
+          const rollLeftBefore = level - Number(rollUsed);
+          if (rollLeftBefore === 0) {
+            void i.reply("You don't have any more roll!");
+            return;
+          }
+
+          const rollUsedAfter = await redis.incr(
+            `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.roll`,
+          );
+          const rollLeft = level - rollUsedAfter;
+          if (rollLeft === 0) {
+            buttonRow = [];
+          }
+
+          const result = this.getNextResult();
+          const player = Number(i.customId);
+          let text = `${available[player]} x ${available[result]}\n\n`;
+
+          if (player === result) {
+            const totalTicket = await redis.incr(
+              `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.ticket`,
+            );
+            text += `Draw! Well you still got a TICKET ${emoji.ticket}!\n`;
+            text += `Roll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}** ${emoji.ticket}`;
+          } else if (
+            (player === 2 && result === 1) ||
+            (player === 1 && result === 0) ||
+            (player === 0 && result === 2)
+          ) {
+            const totalTicket = await redis.incr(
+              `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.ticket`,
+            );
+            text += `You beat me! Here is your TICKET ${emoji.ticket}!\n`;
+            text += `Roll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}** ${emoji.ticket}`;
+          } else {
+            const totalTicket =
+              (await redis.get(
+                `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.ticket`,
+              )) ?? 0;
+            text += 'Haha I win, better luck next time!\n';
+            text += `Roll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}** ${emoji.ticket}`;
+          }
+
+          await i.update({
+            content: text,
             components: buttonRow,
           });
 
@@ -124,25 +184,6 @@ export default class Giveaway extends Command {
               }
             }
           }
-
-          try {
-            const embed = new MessageEmbed();
-            embed.setTitle('5x Blessing of the Welkin Moon Giveaway');
-            embed.setDescription(
-              `${emoji.ticket} Ticket Count: **${totalTicketGlobal}**\n\nType \`/giveaway\` on <#844910701839122432> to join the giveaway!`,
-            );
-            embed.setColor('BLUE');
-            this.ticketCounterMessage?.edit({ embeds: [embed] });
-          } catch (err) {}
-        } else {
-          const totalTicket =
-            (await redis.get(
-              `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.ticket`,
-            )) ?? 0;
-          await i.update({
-            content: `Oops, better luck next time!\nRoll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}**${emoji.ticket}`,
-            components: buttonRow,
-          });
         }
       });
 
