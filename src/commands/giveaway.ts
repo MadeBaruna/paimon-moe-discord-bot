@@ -107,7 +107,9 @@ export default class Giveaway extends Command {
           const rollLeft = level - Number(rollUsed);
 
           if (rollLeft === 0) {
-            void i.reply("You don't have any more roll!");
+            try {
+              void i.reply("You don't have any more roll!");
+            } catch (err) {}
             return;
           }
 
@@ -123,8 +125,10 @@ export default class Giveaway extends Command {
           const { level } = await getLevel(interaction.user.id);
           const rollLeftBefore = level - Number(rollUsed);
           if (rollLeftBefore === 0) {
-            void i.reply("You don't have any more roll!");
-            return;
+            try {
+              void i.reply("You don't have any more roll!");
+              return;
+            } catch (err) {}
           }
 
           const rollUsedAfter = await redis.incr(
@@ -169,10 +173,12 @@ export default class Giveaway extends Command {
             text += `Roll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}** ${emoji.ticket}`;
           }
 
-          await i.update({
-            content: text,
-            components: buttonRow,
-          });
+          try {
+            await i.update({
+              content: text,
+              components: buttonRow,
+            });
+          } catch (err) {}
 
           if (win) {
             const totalTicketGlobal = await redis.incr(
