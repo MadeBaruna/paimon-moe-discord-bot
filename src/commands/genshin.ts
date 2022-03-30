@@ -151,7 +151,7 @@ export default class Genshin extends Command {
       )
       .setURL('https://paimon.moe/items')
       .setFooter('https://paimon.moe/items', 'https://paimon.moe/favicon.png')
-      .setImage(`https://paimon.moe/images/daily/${today}.png?11`);
+      .setImage(`https://paimon.moe/images/daily/${today}.png?12`);
 
     return { embed, today };
   }
