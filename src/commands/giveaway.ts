@@ -3,6 +3,7 @@ import {
   Message,
   MessageActionRow,
   MessageButton,
+  MessageEmbed,
   TextBasedChannel,
 } from 'discord.js';
 import Command from '@bot/command';
@@ -137,6 +138,7 @@ export default class Giveaway extends Command {
           const result = this.getNextResult();
           const player = Number(i.customId);
           let text = `${available[player]} x ${available[result]}\n\n`;
+          let win = false;
 
           if (player === result) {
             const totalTicket = await redis.incr(
@@ -144,6 +146,8 @@ export default class Giveaway extends Command {
             );
             text += `Draw! Well you still got a TICKET ${emoji.ticket}!\n`;
             text += `Roll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}** ${emoji.ticket}`;
+
+            win = true;
           } else if (
             (player === 2 && result === 1) ||
             (player === 1 && result === 0) ||
@@ -154,6 +158,8 @@ export default class Giveaway extends Command {
             );
             text += `You beat me! Here is your TICKET ${emoji.ticket}!\n`;
             text += `Roll left: **${rollLeft}**\nTotal Ticket: **${totalTicket}** ${emoji.ticket}`;
+
+            win = true;
           } else {
             const totalTicket =
               (await redis.get(
@@ -168,21 +174,37 @@ export default class Giveaway extends Command {
             components: buttonRow,
           });
 
-          // update main ticket counter
-          if (this.ticketCounterMessage === null) {
-            const channels = await i.guild?.channels.fetch();
-            if (channels !== undefined) {
-              for (const [, ch] of channels) {
-                if (ch.type === 'GUILD_TEXT') {
-                  try {
-                    const msg = await (ch as TextBasedChannel).messages.fetch(
-                      messages.giveawaycounter,
-                    );
-                    this.ticketCounterMessage = msg;
-                  } catch (err) {}
+          if (win) {
+            const totalTicketGlobal = await redis.incr(
+              `discord:${PAIMON_MOE_SERVER_ID}:giveaway.ticket`,
+            );
+
+            // update main ticket counter
+            if (this.ticketCounterMessage === null) {
+              const channels = await i.guild?.channels.fetch();
+              if (channels !== undefined) {
+                for (const [, ch] of channels) {
+                  if (ch.type === 'GUILD_TEXT') {
+                    try {
+                      const msg = await (ch as TextBasedChannel).messages.fetch(
+                        messages.giveawaycounter,
+                      );
+                      this.ticketCounterMessage = msg;
+                    } catch (err) {}
+                  }
                 }
               }
             }
+
+            try {
+              const embed = new MessageEmbed();
+              embed.setTitle('5x Blessing of the Welkin Moon Giveaway');
+              embed.setDescription(
+                `${emoji.ticket} Ticket Count: **${totalTicketGlobal}**\n\nType \`/giveaway\` on <#844910701839122432> to join the giveaway!`,
+              );
+              embed.setColor('BLUE');
+              this.ticketCounterMessage?.edit({ embeds: [embed] });
+            } catch (err) {}
           }
         }
       });

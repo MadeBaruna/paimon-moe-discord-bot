@@ -14,7 +14,7 @@ export default class Ping extends Command {
 
   async run(message: Message, args: string): Promise<void> {
     const embed = new MessageEmbed();
-    embed.setTitle('2x Blessing of the Welkin Moon Giveaway');
+    embed.setTitle('5x Blessing of the Welkin Moon Giveaway');
     embed.setDescription(
       `${emoji.ticket} Ticket Count: **0**\n\nType \`/giveaway\` on <#844910701839122432> to join the giveaway!`,
     );
