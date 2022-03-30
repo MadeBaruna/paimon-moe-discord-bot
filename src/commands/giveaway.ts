@@ -113,10 +113,12 @@ export default class Giveaway extends Command {
             return;
           }
 
-          await i.update({
-            content: 'Rock, Paper, or Scissors?',
-            components: [gameButtons],
-          });
+          try {
+            await i.update({
+              content: 'Rock, Paper, or Scissors?',
+              components: [gameButtons],
+            });
+          } catch (err) {}
         } else {
           const rollUsed =
             (await redis.get(
@@ -216,19 +218,21 @@ export default class Giveaway extends Command {
       });
 
       collector?.on('end', async (i) => {
-        void i.first()?.update({
-          content: i.first()?.message.content,
-          components: [
-            new MessageActionRow().addComponents(
-              new MessageButton({
-                customId: 'giveaway-stop',
-                label: 'type /giveaway again to refresh',
-                style: 'SECONDARY',
-                disabled: true,
-              }),
-            ),
-          ],
-        });
+        try {
+          void i.first()?.update({
+            content: i.first()?.message.content,
+            components: [
+              new MessageActionRow().addComponents(
+                new MessageButton({
+                  customId: 'giveaway-stop',
+                  label: 'type /giveaway again to refresh',
+                  style: 'SECONDARY',
+                  disabled: true,
+                }),
+              ),
+            ],
+          });
+        } catch (err) {}
       });
     } catch (err) {
       console.error(err);
