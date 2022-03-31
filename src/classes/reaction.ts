@@ -4,7 +4,7 @@ import {
   PartialUser,
   User,
 } from 'discord.js';
-import { messages } from '@config';
+import { messages, PAIMON_MOE_SERVER_ID } from '@config';
 
 export default abstract class Reaction {
   name: string;
@@ -20,6 +20,8 @@ export default abstract class Reaction {
     user: User | PartialUser,
     type: 'add' | 'remove',
   ): Promise<void> {
+    if (reaction.message.guildId !== PAIMON_MOE_SERVER_ID) return;
+
     const messageId = messages[this.key];
 
     if (reaction.partial) {
