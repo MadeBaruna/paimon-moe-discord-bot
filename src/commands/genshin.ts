@@ -88,16 +88,20 @@ export default class Genshin extends Command {
     collector?.on('collect', async (i) => {
       if (i.customId === 'farmable-prev') {
         const result = this.getEmbed(--offset);
-        await i.update({
-          embeds: [result.embed],
-          components: [row],
-        });
+        try {
+          await i.update({
+            embeds: [result.embed],
+            components: [row],
+          });
+        } catch (err) {}
       } else {
         const result = this.getEmbed(++offset);
-        await i.update({
-          embeds: [result.embed],
-          components: [row],
-        });
+        try {
+          await i.update({
+            embeds: [result.embed],
+            components: [row],
+          });
+        } catch (err) {}
       }
     });
 

@@ -166,10 +166,12 @@ export async function generateBuildEmbed(
           e.disabled = i === index;
         });
         const row = new MessageActionRow().addComponents(...buttons);
-        await i.update({
-          embeds: [embed],
-          components: [row],
-        });
+        try {
+          await i.update({
+            embeds: [embed],
+            components: [row],
+          });
+        } catch (err) {}
       }
     });
 

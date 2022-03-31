@@ -49,7 +49,9 @@ export default class BoosterRoleIcon extends Command {
 
       collectorButton?.on('collect', async (i) => {
         const content = this.getContent(i.customId, i.guild?.emojis);
-        void i.update({ ...content });
+        try {
+          void i.update({ ...content });
+        } catch (err) {}
       });
 
       const collectorSelect = message.createMessageComponentCollector({
