@@ -27,6 +27,7 @@ const characters = chars as {
 
 function getArtifactName(id: string): string {
   if (id === '+18%_atk_set') return '+18% ATK Set';
+  else if (id === '+20%_energy_recharge') return '+20% ER Set';
   else return artifacts[id].name;
 }
 

@@ -891,4 +891,14 @@ export const itemList = {
     name: 'The Meaning of Aeons',
     rarity: 5,
   },
+
+  mudra_of_the_malefic_general: {
+    id: 'mudra_of_the_malefic_general',
+    name: 'Mudra of the Malefic General',
+    rarity: 5,
+  },
+
+  gloomy_statuette: { id: 'gloomy_statuette', name: 'Gloomy Statuette' },
+  dark_statuette: { id: 'dark_statuette', name: 'Dark Statuette' },
+  deathly_statuette: { id: 'deathly_statuette', name: 'Deathly Statuette' },
 };

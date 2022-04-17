@@ -630,4 +630,38 @@ export const artifacts: {
     rarity: [4, 5],
     domain: 'slumbering_court',
   },
+  vermillion_hereafter: {
+    id: 'vermillion_hereafter',
+    name: 'Vermillion Hereafter',
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Moment of the Pact',
+      plume: 'Feather of Nascent Light',
+      circlet: 'Thundering Poise',
+      flower: 'Flowering Life',
+      sands: 'Solar Relic',
+    },
+    bonuses: [
+      'ATK +18%.',
+      "After using an Elemental Burst, this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character's HP decreases, their ATK will further increase by 10%. This further increase can occur this way a maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled.",
+    ],
+    rarity: [4, 5],
+  },
+  echoes_of_an_offering: {
+    id: 'echoes_of_an_offering',
+    name: 'Echoes of an Offering',
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Chalice of the Font',
+      plume: 'Jade Leaf',
+      circlet: 'Flowing Rings',
+      flower: 'Soulscent Bloom',
+      sands: 'Symbol of Felicitation',
+    },
+    bonuses: [
+      'ATK +18%.',
+      'When Normal Attacks hit opponents, there is a 36% chance that it will trigger Valley Rite, which will increase Normal Attack DMG by 70% of ATK. This effect will be dispelled 0.05s after a Normal Attack deals DMG. If a Normal Attack fails to trigger Valley Rite, the odds of it triggering the next time will increase by 20%. This trigger can occur once every 0.2s.',
+    ],
+    rarity: [4, 5],
+  },
 };
