@@ -2197,6 +2197,28 @@ export const builds: Builds = {
       },
     },
   },
+  yelan: {
+    roles: {
+      'SUB DPS': {
+        recommended: true,
+        weapons: [
+          {
+            id: 'aqua_simulacra',
+          },
+        ],
+        artifacts: [['emblem_of_severed_fate']],
+        mainStats: {
+          sands: 'TBD',
+          goblet: 'TBD',
+          circlet: 'TBD',
+        },
+        subStats: ['TBD'],
+        talent: ['Burst', 'Skill'],
+        tip: '',
+        note: '',
+      },
+    },
+  },
   diona: {
     roles: {
       SUPPORT: {
@@ -3431,7 +3453,7 @@ export const builds: Builds = {
         ],
         artifacts: [
           ['vermillion_hereafter'],
-          ['viridescent_venerer', '+18%_atk_set', '+18%_atk_set'],
+          ['viridescent_venerer', '+18%_atk_set'],
         ],
         mainStats: {
           sands: 'ATK%',
