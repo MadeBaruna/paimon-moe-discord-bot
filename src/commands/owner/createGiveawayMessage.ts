@@ -7,7 +7,7 @@ export default class Ping extends Command {
   constructor() {
     super({
       name: 'create giveaway message ticket counter',
-      command: 'giveaway:createcounter',
+      command: 'ga:createcounter',
       ownerOnly: true,
     });
   }
