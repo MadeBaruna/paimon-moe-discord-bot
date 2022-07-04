@@ -26,8 +26,9 @@ const characters = chars as {
 };
 
 function getArtifactName(id: string): string {
-  if (id === '+18%_atk_set') return '+18% ATK Set';
-  else if (id === '+20%_energy_recharge') return '+20% ER Set';
+  if (id === '+18%_atk_set') return 'ATK +18% Set';
+  else if (id === '+20%_energy_recharge') return 'ER +20% Set';
+  else if (id === '+25%_physical_dmg') return 'Physical DMG +25% Set';
   else return artifacts[id].name;
 }
 
@@ -61,7 +62,11 @@ function getEmbed(
   }
   embed.addField(
     'MAIN STATS',
-    `**Sands:** ${data.mainStats.sands}\n**Goblet:** ${data.mainStats.goblet}\n**Circlet:** ${data.mainStats.circlet}`,
+    `**Sands:** ${data.mainStats.sands.join(
+      ' / ',
+    )}\n**Goblet:** ${data.mainStats.goblet.join(
+      ' / ',
+    )}\n**Circlet:** ${data.mainStats.circlet.join(' / ')}`,
     true,
   );
   embed.addField(
