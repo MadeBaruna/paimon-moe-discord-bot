@@ -57,7 +57,10 @@ function getEmbed(
   embed.setTitle(`${title}${data.recommended ? ' 👍' : ''}`);
   if (data.note !== undefined) {
     embed.setDescription(
-      data.note.replace(/<b>/g, '**').replace(/<\/b>/g, '**'),
+      data.note
+        .replace(/<b>/g, '**')
+        .replace(/<\/b>/g, '**')
+        .replace(/<a href=\\?"(.*?)\\?">(.*?)<\/a>/g, '[$2]($1)'),
     );
   }
   embed.addField(
