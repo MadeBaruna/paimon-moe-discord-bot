@@ -18,9 +18,9 @@ export default class Ping extends Command {
     const filtered = members?.filter((m) => !m.roles.cache.has(role.id));
 
     if (filtered !== undefined && filtered.size > 0) {
-      filtered?.each((m) => {
-        void m.roles.add(role.id);
-      });
+      for (const [, m] of filtered) {
+        await m.roles.add(role.id);
+      }
       await message.reply({
         content: `Added Traveler role to ${filtered.size} members`,
       });
