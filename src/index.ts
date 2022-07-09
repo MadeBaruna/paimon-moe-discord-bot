@@ -6,6 +6,7 @@ import { client } from './client';
 import { onGuildMemberAdd } from './events/guildMemberAdd';
 import { startTwitterCron } from 'cron/twitter';
 import { onMessageCreate } from 'events/messageCreate';
+import { onGuildMemberUpdate } from 'events/guildMemberUpdate';
 
 dotenv.config();
 
@@ -52,6 +53,10 @@ async function ready(): Promise<void> {
 
   client.on('guildMemberAdd', (member) => {
     void onGuildMemberAdd(member);
+  });
+
+  client.on('guildMemberUpdate', (old, updated) => {
+    void onGuildMemberUpdate(old, updated);
   });
 }
 
