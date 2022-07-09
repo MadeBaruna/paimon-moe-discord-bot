@@ -15,9 +15,14 @@ export default class Ping extends Command {
     const role = message.guild?.roles.cache.find((e) => e.name === 'Traveler');
     if (role === undefined) return;
 
-    const filtered = members?.filter((m) => !m.roles.cache.has(role.id));
+    const filtered = members
+      ?.filter((m) => !m.roles.cache.has(role.id) && !m.pending)
+      .sort((a, b) => b.roles.cache.size - a.roles.cache.size);
 
     if (filtered !== undefined && filtered.size > 0) {
+      await message.reply({
+        content: `Processing Traveler role to ${filtered.size} members`,
+      });
       for (const [, m] of filtered) {
         await m.roles.add(role.id);
       }
