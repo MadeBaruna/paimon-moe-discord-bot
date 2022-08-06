@@ -162,17 +162,31 @@ export default class Help extends Button {
     const selectedImage1 = images[img1];
     const selectedImage2 = images[img2];
 
-    await interaction.guild?.members.fetch(selectedImage1[0]);
-    const submissionUser = interaction.guild?.members.cache.get(
+    let submissionUser1 = interaction.guild?.members.cache.get(
       selectedImage1[0],
     );
+    if (submissionUser1 === undefined) {
+      submissionUser1 = await interaction.guild?.members.fetch(
+        selectedImage1[0],
+      );
+    }
+    let submissionUser2 = interaction.guild?.members.cache.get(
+      selectedImage1[0],
+    );
+    if (submissionUser2 === undefined) {
+      submissionUser2 = await interaction.guild?.members.fetch(
+        selectedImage1[0],
+      );
+    }
 
     const offsetNumber = currentIndex - random + 1;
     const embed1 = new MessageEmbed()
-      .setTitle(`[${offsetNumber}] by ${submissionUser?.displayName ?? ''}`)
+      .setTitle(`[${offsetNumber}] by ${submissionUser1?.displayName ?? ''}`)
       .setImage(selectedImage1[1]);
     const embed2 = new MessageEmbed()
-      .setTitle(`[${offsetNumber + 1}] by ${submissionUser?.displayName ?? ''}`)
+      .setTitle(
+        `[${offsetNumber + 1}] by ${submissionUser2?.displayName ?? ''}`,
+      )
       .setImage(selectedImage2[1]);
 
     const button = new MessageButton({
