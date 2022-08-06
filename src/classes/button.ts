@@ -13,7 +13,7 @@ export default abstract class Button {
   }
 
   checkInteraction(interaction: ButtonInteraction): void {
-    if (interaction.customId !== this.customId) return;
+    if (!interaction.customId.startsWith(this.customId)) return;
     void this.interact(interaction);
   }
 

@@ -1,25 +1,56 @@
 import {
   ButtonInteraction,
-  Message,
   MessageActionRow,
   MessageButton,
+  MessageEmbed,
 } from 'discord.js';
 import { redis } from 'redis';
 import Seedrandom from 'seedrandom';
 import { PAIMON_MOE_SERVER_ID } from '@config';
 import Button from '@bot/button';
+import { getLevel } from 'libs/calculateLevel';
 
 const images = [
-  'https://media.discordapp.net/attachments/938082061074464808/938124883169280050/unknown.png',
-  'https://media.discordapp.net/attachments/938082061074464808/938621726496014346/image0.png',
-  'https://media.discordapp.net/attachments/938082061074464808/938787861375905802/IMG_4348.jpg',
-  'https://media.discordapp.net/attachments/938082061074464808/938965650024595557/20220203201358.png',
-  'https://media.discordapp.net/attachments/938082061074464808/939741656482213958/20220206102113.png',
-  'https://media.discordapp.net/attachments/938082061074464808/939779762891669524/SAVE_20220206_041729.jpg',
-  'https://media.discordapp.net/attachments/938082061074464808/939947656795529226/20220207005750.png',
-  'https://media.discordapp.net/attachments/938082061074464808/940248487168184350/20220207194104.png',
-  'https://media.discordapp.net/attachments/938082061074464808/940252786308812800/20220207212702.png',
-  'https://media.discordapp.net/attachments/938082061074464808/940436112785174549/image0.png',
+  [
+    '218659683752345600',
+    'https://media.discordapp.net/attachments/998190351712002048/999440379868880998/20220721051043.png',
+  ],
+  [
+    '251407021163675648',
+    'https://media.discordapp.net/attachments/998190351712002048/1001828195085074442/20220727191647.png',
+  ],
+  [
+    '462536588132614145',
+    'https://media.discordapp.net/attachments/998190351712002048/1004358953934790696/20220801184700.png',
+  ],
+  [
+    '530786534069108765',
+    'https://media.discordapp.net/attachments/998190351712002048/1002264353887764531/SAVE_20220728_143811.jpg',
+  ],
+  [
+    '540189891435167748',
+    'https://media.discordapp.net/attachments/998190351712002048/1001226883825942579/20220725223653.png',
+  ],
+  [
+    '577366940557770762',
+    'https://media.discordapp.net/attachments/998190351712002048/999380983117783170/20220721005138.png',
+  ],
+  [
+    '697064578290286642',
+    'https://media.discordapp.net/attachments/998190351712002048/999204227463249950/20220718123355.png',
+  ],
+  [
+    '747794126606696458',
+    'https://media.discordapp.net/attachments/998190351712002048/1004088693490991156/20220802025128.png',
+  ],
+  [
+    '847698845387456522',
+    'https://media.discordapp.net/attachments/998190351712002048/1001120487516164167/20220725201615.png',
+  ],
+  [
+    '850749430781050970',
+    'https://media.discordapp.net/attachments/998190351712002048/999668582587826236/20220721172346.png',
+  ],
 ];
 
 export default class Help extends Button {
@@ -30,103 +61,138 @@ export default class Help extends Button {
     });
   }
 
-  async interact(interaction: ButtonInteraction): Promise<void> {
-    try {
-      if (!interaction.deferred) {
-        await interaction.deferReply({
-          ephemeral: true,
-        });
-      }
+  async showVoting(
+    interaction: ButtonInteraction,
+    userId: string,
+    random: number,
+    skip = false,
+  ): Promise<void> {
+    const votedPhotos = await redis.smembers(
+      `discord:${PAIMON_MOE_SERVER_ID}:photocontest-voted:${userId}`,
+    );
+    const userLevel = await getLevel(userId);
+    const voteTimes = 2 + Math.floor(userLevel.level / 10);
+    const voteLeft = voteTimes - votedPhotos.length;
 
-      const likeButton = new MessageButton({
-        customId: 'like',
-        label: 'I LIKE THIS',
-        emoji: '👍',
-        style: 'SUCCESS',
-      });
-
-      const nextButton = new MessageButton({
-        customId: 'next',
-        label: 'Meh, NEXT',
-        style: 'SECONDARY',
-      });
-
-      const row = new MessageActionRow({
-        components: [likeButton, nextButton],
-      });
-
-      const userId = interaction.user.id;
-      const votedImagesStr = await redis.hget(
-        `discord:${PAIMON_MOE_SERVER_ID}:photocontest`,
-        userId,
+    const buttons1 = [];
+    const buttons2 = [];
+    for (let i = 0; i < 5; i++) {
+      const label = `${i + 1}`;
+      const index = (i + random) % 10;
+      const disabled = votedPhotos.includes(index.toString());
+      buttons1.push(
+        new MessageButton({
+          label,
+          customId: `paimon-moe-vote-photo-contest-${index}`,
+          disabled,
+          style: 'PRIMARY',
+        }),
       );
-      const votedImages = votedImagesStr === null ? 0 : Number(votedImagesStr);
-      const currentImage = votedImages;
-
-      if (currentImage === 10) {
-        await interaction.editReply({
-          content: '**You have voted all 10 photos, thank you!**',
-        });
-
-        return;
-      }
-
-      const rng = Seedrandom(userId);
-      const random = Math.floor(rng() * 10);
-      const selectedIndex = (random + currentImage) % 10;
-      const selectedImage = images[selectedIndex];
-
-      const msg = await interaction.editReply({
-        files: [selectedImage],
-        content: `**Vote Photo ${currentImage + 1} / 10**`,
-        components: [row],
-      });
-
-      (msg as Message)
-        .awaitMessageComponent({
-          componentType: 'BUTTON',
-          time: 3600 * 1000,
-        })
-        .then(async (result) => {
-          if (result.customId === 'like') {
-            await redis.zincrby(
-              `discord:${PAIMON_MOE_SERVER_ID}:photocontestvote`,
-              1,
-              selectedIndex.toString(),
-            );
-          }
-
-          const current = await redis.hincrby(
-            `discord:${PAIMON_MOE_SERVER_ID}:photocontest`,
-            userId,
-            1,
-          );
-          if (current === 10) {
-            await result.update({
-              content: '**You have voted all 10 photos, thank you!**',
-              components: [],
-              files: [],
-            });
-
-            await redis.zincrby(
-              `discord:${PAIMON_MOE_SERVER_ID}`,
-              100,
-              result.user.id,
-            );
-
-            return;
-          }
-
-          await result.update({
-            content:
-              '*Submitting your vote, please wait... (if this stuck please click the vote photo contest button again)*',
-            components: [],
-          });
-          await this.interact(interaction);
-        })
-        .catch((err) => console.error(err));
-    } catch (err) {
-      console.error(err);
     }
+    for (let i = 0; i < 5; i++) {
+      const label = `${i + 6}`;
+      const index = (i + 5 + random) % 10;
+      const disabled = votedPhotos.includes(index.toString());
+      buttons2.push(
+        new MessageButton({
+          label,
+          customId: `paimon-moe-vote-photo-contest-${index}`,
+          disabled,
+          style: 'PRIMARY',
+        }),
+      );
+    }
+
+    const voteEmbed = new MessageEmbed()
+      .setTitle('Voting Time!')
+      .setDescription(
+        `Vote the photo you like, currently you can vote **${voteLeft} times**!\nSelect the photo number you want to vote:`,
+      );
+
+    if (skip) {
+      await interaction.update({
+        embeds: [voteEmbed],
+        components:
+          voteLeft === 0
+            ? []
+            : [
+                new MessageActionRow().addComponents(buttons1),
+                new MessageActionRow().addComponents(buttons2),
+              ],
+      });
+      return;
+    }
+
+    await interaction.followUp({
+      ephemeral: true,
+      embeds: [voteEmbed],
+      components:
+        voteLeft === 0
+          ? []
+          : [
+              new MessageActionRow().addComponents(buttons1),
+              new MessageActionRow().addComponents(buttons2),
+            ],
+    });
+  }
+
+  async interact(interaction: ButtonInteraction): Promise<void> {
+    const currentIndexStr = interaction.customId.substring(25);
+    if (!interaction.deferred && currentIndexStr !== 'skip') {
+      await interaction.deferReply({
+        ephemeral: true,
+      });
+    }
+
+    const userId = interaction.user.id;
+    const rng = Seedrandom(userId);
+    const random = Math.floor(rng() * 10);
+
+    let currentIndex = random;
+    if (currentIndexStr === 'skip') {
+      await this.showVoting(interaction, userId, random, true);
+      return;
+    }
+    if (currentIndexStr !== '') currentIndex = Number(currentIndexStr);
+
+    const img1 = currentIndex % 10;
+    const img2 = (currentIndex + 1) % 10;
+    const imgNext = currentIndex + 2;
+
+    const selectedImage1 = images[img1];
+    const selectedImage2 = images[img2];
+
+    await interaction.guild?.members.fetch(selectedImage1[0]);
+    const submissionUser = interaction.guild?.members.cache.get(
+      selectedImage1[0],
+    );
+
+    const offsetNumber = currentIndex - random + 1;
+    const embed1 = new MessageEmbed()
+      .setTitle(`[${offsetNumber}] by ${submissionUser?.displayName ?? ''}`)
+      .setImage(selectedImage1[1]);
+    const embed2 = new MessageEmbed()
+      .setTitle(`[${offsetNumber + 1}] by ${submissionUser?.displayName ?? ''}`)
+      .setImage(selectedImage2[1]);
+
+    const button = new MessageButton({
+      label: 'Show next photos',
+      emoji: '⏩',
+      customId: `paimon-moe-photo-contest-${imgNext}`,
+      style: 'PRIMARY',
+    });
+    console.log('RANDOM', random, img1, img2);
+
+    await interaction.editReply({
+      embeds: [embed1, embed2],
+      components:
+        offsetNumber === 9
+          ? []
+          : [new MessageActionRow().addComponents(button)],
+    });
+
+    if (offsetNumber !== 9) return;
+
+    await this.showVoting(interaction, userId, random);
   }
 }

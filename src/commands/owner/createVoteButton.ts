@@ -5,7 +5,7 @@ export default class Ping extends Command {
   constructor() {
     super({
       name: 'create photo contest vote button',
-      command: 'contest:votebutton',
+      command: '1contest:votebutton',
       ownerOnly: true,
     });
   }
@@ -16,13 +16,12 @@ export default class Ping extends Command {
     const button = new MessageButton({
       customId: 'paimon-moe-photo-contest',
       label: 'VOTE PHOTO CONTEST',
-      emoji: '🎉',
+      emoji: '📸',
       style: 'PRIMARY',
     });
 
     await message.channel.send({
-      content:
-        '**Press the button below to vote!**\n*By voting you will get 100 Chat EXP, thank you!*',
+      content: '**Press the button below to vote!**',
       components: [new MessageActionRow().addComponents(button)],
     });
   }
