@@ -171,11 +171,11 @@ export default class Help extends Button {
       );
     }
     let submissionUser2 = interaction.guild?.members.cache.get(
-      selectedImage1[0],
+      selectedImage2[0],
     );
     if (submissionUser2 === undefined) {
       submissionUser2 = await interaction.guild?.members.fetch(
-        selectedImage1[0],
+        selectedImage2[0],
       );
     }
 
