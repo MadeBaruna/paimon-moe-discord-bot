@@ -19,6 +19,8 @@ export default class Ping extends Command {
     const channelId = source[source.length - 2];
     const messageId = source[source.length - 1];
 
+    const delay = Number(words[2]);
+
     const guild = message.guild;
     const sourceChannel = (await guild?.channels.fetch(
       channelId,
@@ -32,7 +34,7 @@ export default class Ping extends Command {
     await redis.hset(
       `discord:${PAIMON_MOE_SERVER_ID}:sticky`,
       currentChannelId,
-      `${channelId},${messageId}`,
+      `${channelId},${messageId},${delay}`,
     );
 
     await redis.set(

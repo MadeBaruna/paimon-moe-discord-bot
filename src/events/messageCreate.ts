@@ -62,6 +62,11 @@ export async function onMessageCreate(message: Message): Promise<void> {
 }
 
 async function sendStickyMessage(message: Message): Promise<void> {
+  const isCooldown = await redis.get(
+    `discord:${PAIMON_MOE_SERVER_ID}:sticky-delay:${message.channel.id}`,
+  );
+  if (isCooldown !== null) return;
+
   const sticky = (await redis.hget(
     `discord:${PAIMON_MOE_SERVER_ID}:sticky`,
     message.channel.id,
@@ -69,6 +74,7 @@ async function sendStickyMessage(message: Message): Promise<void> {
   const source = sticky.split(',');
   const channelId = source[0];
   const messageId = source[1];
+  const delay = Number(source[2]);
 
   const guild = message.guild;
   const sourceChannel = (await guild?.channels.fetch(channelId)) as TextChannel;
@@ -88,5 +94,12 @@ async function sendStickyMessage(message: Message): Promise<void> {
   await redis.set(
     `discord:${PAIMON_MOE_SERVER_ID}:sticky:${message.channel.id}`,
     sent.id,
+  );
+
+  await redis.set(
+    `discord:${PAIMON_MOE_SERVER_ID}:sticky-delay:${message.channel.id}`,
+    1,
+    'EX',
+    delay,
   );
 }
