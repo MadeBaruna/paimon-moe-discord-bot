@@ -15,7 +15,9 @@ export async function onMessageCreate(message: Message): Promise<void> {
       message.channelId,
     );
     if (haveStickyEnabled === 1) {
-      void sendStickyMessage(message);
+      try {
+        void sendStickyMessage(message);
+      } catch (err) {}
     }
 
     const inIgnoredChannel = await redis.hexists(
@@ -84,7 +86,10 @@ async function sendStickyMessage(message: Message): Promise<void> {
     `discord:${PAIMON_MOE_SERVER_ID}:sticky:${message.channel.id}`,
   );
   if (lastMsg !== null) {
-    await (await message.channel.messages.fetch(lastMsg)).delete();
+    try {
+      const needDelete = await message.channel.messages.fetch(lastMsg);
+      await needDelete.delete();
+    } catch (err) {}
   }
 
   const embed = new MessageEmbed();
