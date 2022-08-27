@@ -220,7 +220,7 @@ export const artifacts: {
       'Defeating an opponent has a 100% chance to remove Elemental Skill CD. Can only occur once every 15s.',
     ],
     rarity: [3, 4],
-    domain: 'clear_pool_and_mountain_cavern',
+    domain: 'spire_of_solitary_enlightenment',
   },
   scholar: {
     id: 'scholar',
@@ -332,7 +332,7 @@ export const artifacts: {
     setPiece: [2, 4],
     sets: {
       goblet: "Maiden's Fleeting Leisure",
-      plume: "Maiden's Heart-stricken Infatuation",
+      plume: "Maiden's Heart-Stricken Infatuation",
       circlet: "Maiden's Fading Beauty",
       flower: "Maiden's Distant Love",
       sands: "Maiden's Passing Youth",
@@ -409,7 +409,7 @@ export const artifacts: {
     },
     bonuses: [
       'Electro DMG Bonus +15%',
-      'Increases damage caused by Overloaded, Electro-Charged and Superconduct by 40%. Triggering such effects decreases Elemental Skill CD by 1s. Can only occur once every 0.8s.',
+      'Increases DMG caused by Overloaded, Electro-Charged, Superconduct, and Hyperbloom by 40%, and the DMG Bonus conferred by Aggravate is increased by 20%. When Quicken or the aforementioned Elemental Reactions are triggered, Elemental Skill CD is decreased by 1s. Can only occur once every 0.8s.',
     ],
     rarity: [4, 5],
     domain: 'midsummer_courtyard',
@@ -427,7 +427,7 @@ export const artifacts: {
     },
     bonuses: [
       'Pyro DMG Bonus +15%',
-      'Increases Overloaded and Burning DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using Elemental Skill increases the 2-Piece Set Bonus by 50% of its starting value for 10s. Max 3 stacks.',
+      'Increases Overloaded and Burning, and Burgeon DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using Elemental Skill increases the 2-Piece Set Bonus by 50% of its starting value for 10s. Max 3 stacks.',
     ],
     rarity: [4, 5],
     domain: 'hidden_palace_of_zhou_formula',
@@ -646,6 +646,7 @@ export const artifacts: {
       "After using an Elemental Burst, this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character's HP decreases, their ATK will further increase by 10%. This further increase can occur this way a maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled.",
     ],
     rarity: [4, 5],
+    domain: 'the_lost_valley',
   },
   echoes_of_an_offering: {
     id: 'echoes_of_an_offering',
@@ -663,5 +664,42 @@ export const artifacts: {
       'When Normal Attacks hit opponents, there is a 36% chance that it will trigger Valley Rite, which will increase Normal Attack DMG by 70% of ATK. This effect will be dispelled 0.05s after a Normal Attack deals DMG. If a Normal Attack fails to trigger Valley Rite, the odds of it triggering the next time will increase by 20%. This trigger can occur once every 0.2s.',
     ],
     rarity: [4, 5],
+    domain: 'the_lost_valley',
+  },
+  deepwood_memories: {
+    id: 'deepwood_memories',
+    name: 'Deepwood Memories',
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Lamp of the Lost',
+      plume: 'Scholar of Vines',
+      circlet: 'Laurel Coronet',
+      flower: 'Labyrinth Wayfarer',
+      sands: 'A Time of Insight',
+    },
+    bonuses: [
+      'Dendro DMG Bonus +15%.',
+      "After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.",
+    ],
+    rarity: [4, 5],
+    domain: 'spire_of_solitary_enlightenment',
+  },
+  gilded_dreams: {
+    id: 'gilded_dreams',
+    name: 'Gilded Dreams',
+    setPiece: [2, 4],
+    sets: {
+      goblet: 'Honeyed Final Feast',
+      plume: 'Feather of Judgment',
+      circlet: 'Shadow of the Sand King',
+      flower: 'Dreaming Steelbloom',
+      sands: 'The Sunken Years',
+    },
+    bonuses: [
+      'Elemental Mastery +80.',
+      'Within 8s of triggering an Elemental Reaction, the character equipping this will obtain buffs based on the Elemental Type of the other party members. ATK is increased by 14% for each party member whose Elemental Type is the same as the equipping character, and Elemental Mastery is increased by 50 for every party member with a different Elemental Type. Each of the aforementioned buffs will count up to 3 characters. This effect can be triggered once every 8s. The character who equips this can still trigger its effects when not on the field.',
+    ],
+    rarity: [4, 5],
+    domain: 'spire_of_solitary_enlightenment',
   },
 };

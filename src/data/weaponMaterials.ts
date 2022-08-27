@@ -605,7 +605,7 @@ export const weaponList = {
         items: [
           { item: itemList.luminous_sands_from_guyun, amount: 5 },
           { item: itemList.hunters_sacrificial_knife, amount: 5 },
-          { item: itemList.treasure_hoarder_insignia, amount: 3 },
+          { item: itemList.damaged_mask, amount: 3 },
         ],
         mora: 10000,
       },
@@ -613,7 +613,7 @@ export const weaponList = {
         items: [
           { item: itemList.lustrous_stone_from_guyun, amount: 5 },
           { item: itemList.hunters_sacrificial_knife, amount: 18 },
-          { item: itemList.treasure_hoarder_insignia, amount: 12 },
+          { item: itemList.damaged_mask, amount: 12 },
         ],
         mora: 20000,
       },
@@ -621,7 +621,7 @@ export const weaponList = {
         items: [
           { item: itemList.lustrous_stone_from_guyun, amount: 9 },
           { item: itemList.agents_sacrificial_knife, amount: 9 },
-          { item: itemList.silver_raven_insignia, amount: 9 },
+          { item: itemList.stained_mask, amount: 9 },
         ],
         mora: 30000,
       },
@@ -629,7 +629,7 @@ export const weaponList = {
         items: [
           { item: itemList.relic_from_guyun, amount: 5 },
           { item: itemList.agents_sacrificial_knife, amount: 18 },
-          { item: itemList.silver_raven_insignia, amount: 14 },
+          { item: itemList.stained_mask, amount: 14 },
         ],
         mora: 45000,
       },
@@ -637,7 +637,7 @@ export const weaponList = {
         items: [
           { item: itemList.relic_from_guyun, amount: 9 },
           { item: itemList.inspectors_sacrificial_knife, amount: 14 },
-          { item: itemList.golden_raven_insignia, amount: 9 },
+          { item: itemList.ominous_mask, amount: 9 },
         ],
         mora: 55000,
       },
@@ -645,7 +645,7 @@ export const weaponList = {
         items: [
           { item: itemList.divine_body_from_guyun, amount: 6 },
           { item: itemList.inspectors_sacrificial_knife, amount: 27 },
-          { item: itemList.golden_raven_insignia, amount: 18 },
+          { item: itemList.ominous_mask, amount: 18 },
         ],
         mora: 65000,
       },
@@ -7089,7 +7089,7 @@ export const weaponList = {
     atk: 42,
     secondary: 'Energy Recharge',
     type: weapons.polearm,
-    source: 'wish',
+    source: 'fishing trade',
     ascension: [
       {
         items: [
@@ -8080,6 +8080,797 @@ export const weaponList = {
           { item: itemList.mask_of_the_kijin, amount: 4 },
           { item: itemList.deathly_statuette, amount: 18 },
           { item: itemList.spectral_nucleus, amount: 12 },
+        ],
+        mora: 45000,
+      },
+    ],
+  },
+  hunters_path: {
+    id: 'hunters_path',
+    name: "Hunter's Path",
+    rarity: 5,
+    atk: 44,
+    secondary: 'CRIT Rate',
+    type: weapons.bow,
+    source: 'Wish',
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.echo_of_scorching_might,
+            amount: 5,
+          },
+          {
+            item: itemList.inactivated_fungal_nucleus,
+            amount: 5,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 3,
+          },
+        ],
+        mora: 10000,
+      },
+      {
+        items: [
+          {
+            item: itemList.remnant_glow_of_scorching_might,
+            amount: 5,
+          },
+          {
+            item: itemList.inactivated_fungal_nucleus,
+            amount: 18,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 12,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.remnant_glow_of_scorching_might,
+            amount: 9,
+          },
+          {
+            item: itemList.dormant_fungal_nucleus,
+            amount: 9,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 9,
+          },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          {
+            item: itemList.dream_of_scorching_might,
+            amount: 5,
+          },
+          {
+            item: itemList.dormant_fungal_nucleus,
+            amount: 18,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 14,
+          },
+        ],
+        mora: 45000,
+      },
+      {
+        items: [
+          {
+            item: itemList.dream_of_scorching_might,
+            amount: 9,
+          },
+          {
+            item: itemList.robust_fungal_nucleus,
+            amount: 14,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 9,
+          },
+        ],
+        mora: 55000,
+      },
+      {
+        items: [
+          {
+            item: itemList.olden_days_of_scorching_might,
+            amount: 6,
+          },
+          {
+            item: itemList.robust_fungal_nucleus,
+            amount: 27,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 18,
+          },
+        ],
+        mora: 65000,
+      },
+    ],
+  },
+  end_of_the_line: {
+    id: 'end_of_the_line',
+    name: 'End of the Line',
+    rarity: 4,
+    atk: 42,
+    secondary: 'Energy Recharge',
+    type: weapons.bow,
+    source: 'fishing trade',
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.echo_of_scorching_might,
+            amount: 3,
+          },
+          {
+            item: itemList.inactivated_fungal_nucleus,
+            amount: 3,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 2,
+          },
+        ],
+        mora: 5000,
+      },
+      {
+        items: [
+          {
+            item: itemList.remnant_glow_of_scorching_might,
+            amount: 3,
+          },
+          {
+            item: itemList.inactivated_fungal_nucleus,
+            amount: 12,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 8,
+          },
+        ],
+        mora: 15000,
+      },
+      {
+        items: [
+          {
+            item: itemList.remnant_glow_of_scorching_might,
+            amount: 6,
+          },
+          {
+            item: itemList.dormant_fungal_nucleus,
+            amount: 6,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 6,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.dream_of_scorching_might,
+            amount: 3,
+          },
+          {
+            item: itemList.dormant_fungal_nucleus,
+            amount: 12,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 9,
+          },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          {
+            item: itemList.dream_of_scorching_might,
+            amount: 6,
+          },
+          {
+            item: itemList.robust_fungal_nucleus,
+            amount: 9,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 6,
+          },
+        ],
+        mora: 35000,
+      },
+      {
+        items: [
+          {
+            item: itemList.olden_days_of_scorching_might,
+            amount: 4,
+          },
+          {
+            item: itemList.robust_fungal_nucleus,
+            amount: 18,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 12,
+          },
+        ],
+        mora: 45000,
+      },
+    ],
+  },
+  forest_regalia: {
+    id: 'forest_regalia',
+    name: 'Forest Regalia',
+    rarity: 4,
+    atk: 44,
+    secondary: 'Energy Recharge',
+    type: weapons.claymore,
+    source: 'forging',
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.copper_talisman_of_the_forest_dew,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_storage,
+            amount: 3,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 2,
+          },
+        ],
+        mora: 5000,
+      },
+      {
+        items: [
+          {
+            item: itemList.iron_talisman_of_the_forest_dew,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_storage,
+            amount: 12,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 8,
+          },
+        ],
+        mora: 15000,
+      },
+      {
+        items: [
+          {
+            item: itemList.iron_talisman_of_the_forest_dew,
+            amount: 6,
+          },
+          {
+            item: itemList.chaos_module,
+            amount: 6,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 6,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.silver_talisman_of_the_forest_dew,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_module,
+            amount: 12,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 9,
+          },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          {
+            item: itemList.silver_talisman_of_the_forest_dew,
+            amount: 6,
+          },
+          {
+            item: itemList.chaos_bolt,
+            amount: 9,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 6,
+          },
+        ],
+        mora: 35000,
+      },
+      {
+        items: [
+          {
+            item: itemList.golden_talisman_of_the_forest_dew,
+            amount: 4,
+          },
+          {
+            item: itemList.chaos_bolt,
+            amount: 18,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 12,
+          },
+        ],
+        mora: 45000,
+      },
+    ],
+  },
+  fruit_of_fulfillment: {
+    id: 'fruit_of_fulfillment',
+    name: 'Fruit of Fulfillment',
+    rarity: 4,
+    atk: 42,
+    secondary: 'Energy Recharge',
+    type: weapons.catalyst,
+    source: 'forging',
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_reminiscence,
+            amount: 3,
+          },
+          {
+            item: itemList.gloomy_statuette,
+            amount: 3,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 2,
+          },
+        ],
+        mora: 5000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_kindness,
+            amount: 3,
+          },
+          {
+            item: itemList.gloomy_statuette,
+            amount: 12,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 8,
+          },
+        ],
+        mora: 15000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_kindness,
+            amount: 6,
+          },
+          {
+            item: itemList.dark_statuette,
+            amount: 6,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 6,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_mourning,
+            amount: 3,
+          },
+          {
+            item: itemList.dark_statuette,
+            amount: 12,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 9,
+          },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_mourning,
+            amount: 6,
+          },
+          {
+            item: itemList.deathly_statuette,
+            amount: 9,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 6,
+          },
+        ],
+        mora: 35000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_truth,
+            amount: 4,
+          },
+          {
+            item: itemList.deathly_statuette,
+            amount: 18,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 12,
+          },
+        ],
+        mora: 45000,
+      },
+    ],
+  },
+  kings_squire: {
+    id: 'kings_squire',
+    name: "King's Squire",
+    rarity: 4,
+    atk: 41,
+    secondary: 'ATK%',
+    type: weapons.bow,
+    source: 'forging',
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.echo_of_scorching_might,
+            amount: 3,
+          },
+          {
+            item: itemList.inactivated_fungal_nucleus,
+            amount: 3,
+          },
+          {
+            item: itemList.firm_arrowhead,
+            amount: 2,
+          },
+        ],
+        mora: 5000,
+      },
+      {
+        items: [
+          {
+            item: itemList.remnant_glow_of_scorching_might,
+            amount: 3,
+          },
+          {
+            item: itemList.inactivated_fungal_nucleus,
+            amount: 12,
+          },
+          {
+            item: itemList.firm_arrowhead,
+            amount: 8,
+          },
+        ],
+        mora: 15000,
+      },
+      {
+        items: [
+          {
+            item: itemList.remnant_glow_of_scorching_might,
+            amount: 6,
+          },
+          {
+            item: itemList.dormant_fungal_nucleus,
+            amount: 6,
+          },
+          {
+            item: itemList.sharp_arrowhead,
+            amount: 6,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.dream_of_scorching_might,
+            amount: 3,
+          },
+          {
+            item: itemList.dormant_fungal_nucleus,
+            amount: 12,
+          },
+          {
+            item: itemList.sharp_arrowhead,
+            amount: 9,
+          },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          {
+            item: itemList.dream_of_scorching_might,
+            amount: 6,
+          },
+          {
+            item: itemList.robust_fungal_nucleus,
+            amount: 9,
+          },
+          {
+            item: itemList.weathered_arrowhead,
+            amount: 6,
+          },
+        ],
+        mora: 35000,
+      },
+      {
+        items: [
+          {
+            item: itemList.olden_days_of_scorching_might,
+            amount: 4,
+          },
+          {
+            item: itemList.robust_fungal_nucleus,
+            amount: 18,
+          },
+          {
+            item: itemList.weathered_arrowhead,
+            amount: 12,
+          },
+        ],
+        mora: 45000,
+      },
+    ],
+  },
+  moonpiercer: {
+    id: 'moonpiercer',
+    name: 'Moonpiercer',
+    rarity: 4,
+    atk: 44,
+    secondary: 'Elemental Mastery',
+    type: 'polearm',
+    source: 'forging',
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_reminiscence,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_storage,
+            amount: 3,
+          },
+          {
+            item: itemList.recruits_insignia,
+            amount: 2,
+          },
+        ],
+        mora: 5000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_kindness,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_storage,
+            amount: 12,
+          },
+          {
+            item: itemList.recruits_insignia,
+            amount: 8,
+          },
+        ],
+        mora: 15000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_kindness,
+            amount: 6,
+          },
+          {
+            item: itemList.chaos_module,
+            amount: 6,
+          },
+          {
+            item: itemList.sergeants_insignia,
+            amount: 6,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_mourning,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_module,
+            amount: 12,
+          },
+          {
+            item: itemList.sergeants_insignia,
+            amount: 9,
+          },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_mourning,
+            amount: 6,
+          },
+          {
+            item: itemList.chaos_bolt,
+            amount: 9,
+          },
+          {
+            item: itemList.lieutenants_insignia,
+            amount: 6,
+          },
+        ],
+        mora: 35000,
+      },
+      {
+        items: [
+          {
+            item: itemList.oasis_gardens_truth,
+            amount: 4,
+          },
+          {
+            item: itemList.chaos_bolt,
+            amount: 18,
+          },
+          {
+            item: itemList.lieutenants_insignia,
+            amount: 12,
+          },
+        ],
+        mora: 45000,
+      },
+    ],
+  },
+  sapwood_blade: {
+    id: 'sapwood_blade',
+    name: 'Sapwood Blade',
+    rarity: 4,
+    atk: '44',
+    secondary: 'Energy Recharge',
+    type: weapons.sword,
+    source: 'forging',
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.copper_talisman_of_the_forest_dew,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_storage,
+            amount: 3,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 2,
+          },
+        ],
+        mora: 5000,
+      },
+      {
+        items: [
+          {
+            item: itemList.iron_talisman_of_the_forest_dew,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_storage,
+            amount: 12,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 8,
+          },
+        ],
+        mora: 15000,
+      },
+      {
+        items: [
+          {
+            item: itemList.iron_talisman_of_the_forest_dew,
+            amount: 6,
+          },
+          {
+            item: itemList.chaos_module,
+            amount: 6,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 6,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.silver_talisman_of_the_forest_dew,
+            amount: 3,
+          },
+          {
+            item: itemList.chaos_module,
+            amount: 12,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 9,
+          },
+        ],
+        mora: 30000,
+      },
+      {
+        items: [
+          {
+            item: itemList.silver_talisman_of_the_forest_dew,
+            amount: 6,
+          },
+          {
+            item: itemList.chaos_bolt,
+            amount: 9,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 6,
+          },
+        ],
+        mora: 35000,
+      },
+      {
+        items: [
+          {
+            item: itemList.golden_talisman_of_the_forest_dew,
+            amount: 4,
+          },
+          {
+            item: itemList.chaos_bolt,
+            amount: 18,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 12,
+          },
         ],
         mora: 45000,
       },

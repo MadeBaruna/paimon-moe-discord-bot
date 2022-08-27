@@ -90,6 +90,33 @@ export const itemGroup: {
     ],
     type: 'book',
   },
+  teachings_of_admonition: {
+    name: 'Admonition',
+    items: [
+      itemList.teachings_of_admonition,
+      itemList.guide_to_admonition,
+      itemList.philosophies_of_admonition,
+    ],
+    type: 'book',
+  },
+  teachings_of_ingenuity: {
+    name: 'Ingenuity',
+    items: [
+      itemList.teachings_of_ingenuity,
+      itemList.guide_to_ingenuity,
+      itemList.philosophies_of_ingenuity,
+    ],
+    type: 'book',
+  },
+  teachings_of_praxis: {
+    name: 'Praxis',
+    items: [
+      itemList.teachings_of_praxis,
+      itemList.guide_to_praxis,
+      itemList.philosophies_of_praxis,
+    ],
+    type: 'book',
+  },
   tile_of_decarabians_tower: {
     name: 'Decarabian',
     items: [
@@ -180,6 +207,36 @@ export const itemGroup: {
     ],
     type: 'weapon',
   },
+  echo_of_scorching_might: {
+    name: 'Scorching Might',
+    items: [
+      itemList.echo_of_scorching_might,
+      itemList.remnant_glow_of_scorching_might,
+      itemList.dream_of_scorching_might,
+      itemList.olden_days_of_scorching_might,
+    ],
+    type: 'weapon',
+  },
+  copper_talisman_of_the_forest_dew: {
+    name: 'Forest Dew',
+    items: [
+      itemList.copper_talisman_of_the_forest_dew,
+      itemList.iron_talisman_of_the_forest_dew,
+      itemList.silver_talisman_of_the_forest_dew,
+      itemList.golden_talisman_of_the_forest_dew,
+    ],
+    type: 'weapon',
+  },
+  oasis_gardens_reminiscence: {
+    name: 'Oasis Garden',
+    items: [
+      itemList.oasis_gardens_reminiscence,
+      itemList.oasis_gardens_kindness,
+      itemList.oasis_gardens_mourning,
+      itemList.oasis_gardens_truth,
+    ],
+    type: 'weapon',
+  },
   agnidus_agate_sliver: {
     name: 'Agnidus Agate',
     items: [
@@ -247,6 +304,16 @@ export const itemGroup: {
       itemList.vayuda_turquoise_fragment,
       itemList.vayuda_turquoise_chunk,
       itemList.vayuda_turquoise_gemstone,
+    ],
+    type: 'ascension_gem',
+  },
+  nagadus_emerald_sliver: {
+    name: 'Nagadus Emerald',
+    items: [
+      itemList.nagadus_emerald_sliver,
+      itemList.nagadus_emerald_fragment,
+      itemList.nagadus_emerald_chunk,
+      itemList.nagadus_emerald_gemstone,
     ],
     type: 'ascension_gem',
   },
@@ -398,5 +465,25 @@ export const itemGroup: {
       itemList.dark_statuette,
       itemList.deathly_statuette,
     ],
+  },
+  fungal_spores: {
+    name: 'Spores',
+    items: [
+      itemList.fungal_spores,
+      itemList.luminescent_pollen,
+      itemList.crystalline_cyst_dust,
+    ],
+  },
+  inactivated_fungal_nucleus: {
+    name: 'Fungal Nucleus',
+    items: [
+      itemList.inactivated_fungal_nucleus,
+      itemList.dormant_fungal_nucleus,
+      itemList.robust_fungal_nucleus,
+    ],
+  },
+  chaos_storage: {
+    name: 'Chaos Storage',
+    items: [itemList.chaos_storage, itemList.chaos_module, itemList.chaos_bolt],
   },
 };
