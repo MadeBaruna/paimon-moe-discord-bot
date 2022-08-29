@@ -1,12 +1,15 @@
-import { Message, MessageEmbed } from 'discord.js';
+import {
+  Message,
+  MessageActionRow,
+  MessageButton,
+  MessageEmbed,
+} from 'discord.js';
 import Command from '@bot/command';
-import { updateMessages } from '@config';
-import { emoji } from 'genshin/emoji';
 
 export default class Ping extends Command {
   constructor() {
     super({
-      name: 'create giveaway message ticket counter',
+      name: 'create giveaway message button',
       command: 'ga:createcounter',
       ownerOnly: true,
     });
@@ -15,15 +18,21 @@ export default class Ping extends Command {
   async run(message: Message, args: string): Promise<void> {
     const embed = new MessageEmbed();
     embed.setTitle('5x Blessing of the Welkin Moon Giveaway');
-    embed.setDescription(
-      `${emoji.ticket} Ticket Count: **0**\n\nType \`/giveaway\` on <#844910701839122432> to join the giveaway!`,
-    );
+    embed.setDescription('Click the button below to join the giveaway!');
     embed.setColor('BLUE');
+
+    const button = new MessageButton({
+      customId: 'paimon-moe-giveaway-button',
+      label: 'JOIN GIVEAWAY',
+      emoji: '🎉',
+      style: 'PRIMARY',
+    });
 
     await message.delete();
 
-    const sent = await message.channel.send({ embeds: [embed] });
-
-    await updateMessages('giveawaycounter', sent.id);
+    await message.channel.send({
+      embeds: [embed],
+      components: [new MessageActionRow().addComponents(button)],
+    });
   }
 }
