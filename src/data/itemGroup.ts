@@ -482,6 +482,14 @@ export const itemGroup: {
       itemList.robust_fungal_nucleus,
     ],
   },
+  faded_red_satin: {
+    name: 'Red Satin',
+    items: [
+      itemList.faded_red_satin,
+      itemList.trimmed_red_silk,
+      itemList.rich_red_brocade,
+    ],
+  },
   chaos_storage: {
     name: 'Chaos Storage',
     items: [itemList.chaos_storage, itemList.chaos_module, itemList.chaos_bolt],

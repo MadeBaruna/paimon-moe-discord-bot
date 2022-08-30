@@ -42,6 +42,17 @@ export const emoji: { [key: string]: string } = {
     '<:coral_branch_of_a_distant_sea:906579525255721051>',
   mask_of_the_wicked_lieutenant:
     '<:mask_of_the_wicked_lieutenant:906579769859141682>',
+  gloomy_statuette: '<:gloomy_statuette:1014166703715917854>',
+  faded_red_satin: '<:faded_red_satin:1014165280009752589>',
+  echo_of_scorching_might: '<:echo_of_scorching_might:1014165605982666792>',
+  chaos_storage: '<:chaos_storage:1014164336626896936>',
+  copper_talisman_of_the_forest_dew:
+    '<:copper_talisman_of_the_forest_de:1014167161918455928>',
+  oasis_gardens_reminiscence:
+    '<:oasis_gardens_reminiscence:1014164763300876349>',
+  inactivated_fungal_nucleus:
+    '<:inactivated_fungal_nucleus:1014164982600060950>',
+  fungal_spores: '<:fungal_spores:1014166921161216081>',
   exp: '<:exp:926787101406683216>',
   up: '<:up:926788246933995520>',
   ticket: '<:ticket:926787193861709834>',
