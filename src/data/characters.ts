@@ -1075,6 +1075,159 @@ export const characters = {
     },
     element: elements.pyro,
   },
+  candace: {
+    id: 'candace',
+    name: 'Candace',
+    rarity: 4,
+    weapon: weapons.polearm,
+    stats: {
+      hp: 10875,
+      atk: 212,
+      def: 683,
+    },
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_sliver,
+            amount: 1,
+          },
+          {
+            item: itemList.none,
+            amount: null,
+          },
+          {
+            item: itemList.redcrest,
+            amount: 3,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 3,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_fragment,
+            amount: 3,
+          },
+          {
+            item: itemList.light_guiding_tetrahedron,
+            amount: 2,
+          },
+          {
+            item: itemList.redcrest,
+            amount: 10,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 15,
+          },
+        ],
+        mora: 40000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_fragment,
+            amount: 6,
+          },
+          {
+            item: itemList.light_guiding_tetrahedron,
+            amount: 4,
+          },
+          {
+            item: itemList.redcrest,
+            amount: 20,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 12,
+          },
+        ],
+        mora: 60000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_chunk,
+            amount: 3,
+          },
+          {
+            item: itemList.light_guiding_tetrahedron,
+            amount: 8,
+          },
+          {
+            item: itemList.redcrest,
+            amount: 30,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 18,
+          },
+        ],
+        mora: 80000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_chunk,
+            amount: 6,
+          },
+          {
+            item: itemList.light_guiding_tetrahedron,
+            amount: 12,
+          },
+          {
+            item: itemList.redcrest,
+            amount: 45,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 12,
+          },
+        ],
+        mora: 100000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_gemstone,
+            amount: 6,
+          },
+          {
+            item: itemList.light_guiding_tetrahedron,
+            amount: 20,
+          },
+          {
+            item: itemList.redcrest,
+            amount: 60,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 24,
+          },
+        ],
+        mora: 120000,
+      },
+    ],
+    material: {
+      material: [
+        itemList.faded_red_satin,
+        itemList.trimmed_red_silk,
+        itemList.rich_red_brocade,
+      ],
+      book: [
+        itemList.teachings_of_admonition,
+        itemList.guide_to_admonition,
+        itemList.philosophies_of_admonition,
+      ],
+      boss: itemList.tears_of_the_calamitous_god,
+    },
+    element: elements.hydro,
+  },
   chongyun: {
     id: 'chongyun',
     name: 'Chongyun',
@@ -1381,6 +1534,159 @@ export const characters = {
     },
     element: elements.dendro,
   },
+  cyno: {
+    id: 'cyno',
+    name: 'Cyno',
+    rarity: 5,
+    weapon: weapons.polearm,
+    stats: {
+      hp: 12491,
+      atk: 318,
+      def: 859,
+    },
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_sliver,
+            amount: 1,
+          },
+          {
+            item: itemList.none,
+            amount: null,
+          },
+          {
+            item: itemList.scarab,
+            amount: 3,
+          },
+          {
+            item: itemList.divining_scroll,
+            amount: 3,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_fragment,
+            amount: 3,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 2,
+          },
+          {
+            item: itemList.scarab,
+            amount: 10,
+          },
+          {
+            item: itemList.divining_scroll,
+            amount: 15,
+          },
+        ],
+        mora: 40000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_fragment,
+            amount: 6,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 4,
+          },
+          {
+            item: itemList.scarab,
+            amount: 20,
+          },
+          {
+            item: itemList.sealed_scroll,
+            amount: 12,
+          },
+        ],
+        mora: 60000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_chunk,
+            amount: 3,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 8,
+          },
+          {
+            item: itemList.scarab,
+            amount: 30,
+          },
+          {
+            item: itemList.sealed_scroll,
+            amount: 18,
+          },
+        ],
+        mora: 80000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_chunk,
+            amount: 6,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 12,
+          },
+          {
+            item: itemList.scarab,
+            amount: 45,
+          },
+          {
+            item: itemList.forbidden_curse_scroll,
+            amount: 12,
+          },
+        ],
+        mora: 100000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_gemstone,
+            amount: 6,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 20,
+          },
+          {
+            item: itemList.scarab,
+            amount: 60,
+          },
+          {
+            item: itemList.forbidden_curse_scroll,
+            amount: 24,
+          },
+        ],
+        mora: 120000,
+      },
+    ],
+    material: {
+      material: [
+        itemList.divining_scroll,
+        itemList.sealed_scroll,
+        itemList.forbidden_curse_scroll,
+      ],
+      book: [
+        itemList.teachings_of_admonition,
+        itemList.guide_to_admonition,
+        itemList.philosophies_of_admonition,
+      ],
+      boss: itemList.mudra_of_the_malefic_general,
+    },
+    element: elements.electro,
+  },
   diluc: {
     id: 'diluc',
     name: 'Diluc',
@@ -1686,6 +1992,159 @@ export const characters = {
       boss: itemList.shard_of_a_foul_legacy,
     },
     element: elements.cryo,
+  },
+  dori: {
+    id: 'dori',
+    name: 'Dori',
+    rarity: 4,
+    weapon: weapons.claymore,
+    stats: {
+      hp: 12397,
+      atk: 223,
+      def: 723,
+    },
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_sliver,
+            amount: 1,
+          },
+          {
+            item: itemList.none,
+            amount: null,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 3,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 3,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_fragment,
+            amount: 3,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 2,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 10,
+          },
+          {
+            item: itemList.faded_red_satin,
+            amount: 15,
+          },
+        ],
+        mora: 40000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_fragment,
+            amount: 6,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 4,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 20,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 12,
+          },
+        ],
+        mora: 60000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_chunk,
+            amount: 3,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 8,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 30,
+          },
+          {
+            item: itemList.trimmed_red_silk,
+            amount: 18,
+          },
+        ],
+        mora: 80000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_chunk,
+            amount: 6,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 12,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 45,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 12,
+          },
+        ],
+        mora: 100000,
+      },
+      {
+        items: [
+          {
+            item: itemList.vajrada_amethyst_gemstone,
+            amount: 6,
+          },
+          {
+            item: itemList.thunderclap_fruitcore,
+            amount: 20,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 60,
+          },
+          {
+            item: itemList.rich_red_brocade,
+            amount: 24,
+          },
+        ],
+        mora: 120000,
+      },
+    ],
+    material: {
+      material: [
+        itemList.faded_red_satin,
+        itemList.trimmed_red_silk,
+        itemList.rich_red_brocade,
+      ],
+      book: [
+        itemList.teachings_of_ingenuity,
+        itemList.guide_to_ingenuity,
+        itemList.philosophies_of_ingenuity,
+      ],
+      boss: itemList.bloodjade_branch,
+    },
+    element: elements.electro,
   },
   eula: {
     id: 'eula',

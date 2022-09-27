@@ -482,16 +482,24 @@ export const itemGroup: {
       itemList.robust_fungal_nucleus,
     ],
   },
+  chaos_storage: {
+    name: 'Chaos Storage',
+    items: [itemList.chaos_storage, itemList.chaos_module, itemList.chaos_bolt],
+  },
   faded_red_satin: {
-    name: 'Red Satin',
+    name: 'Satin',
     items: [
       itemList.faded_red_satin,
       itemList.trimmed_red_silk,
       itemList.rich_red_brocade,
     ],
   },
-  chaos_storage: {
-    name: 'Chaos Storage',
-    items: [itemList.chaos_storage, itemList.chaos_module, itemList.chaos_bolt],
+  damaged_prism: {
+    name: 'Damaged Prism',
+    items: [
+      itemList.damaged_prism,
+      itemList.turbid_prism,
+      itemList.radiant_prism,
+    ],
   },
 };

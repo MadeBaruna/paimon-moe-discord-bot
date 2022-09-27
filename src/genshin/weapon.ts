@@ -71,7 +71,6 @@ export function generateWeaponEmbed(id: string): MessageEmbed {
   }
   embed.addField('\u200B', '\u200B', true);
 
-  console.log(weaponMaterial.ascension[0].items);
   const ascension = weaponMaterial.ascension[0].items
     .map((e) => `${emoji[e.item.id]} ${itemGroup[e.item.id].name}`)
     .join(' \u200B \u200B ');

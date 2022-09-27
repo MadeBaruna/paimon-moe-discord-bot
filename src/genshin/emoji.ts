@@ -53,6 +53,7 @@ export const emoji: { [key: string]: string } = {
   inactivated_fungal_nucleus:
     '<:inactivated_fungal_nucleus:1014164982600060950>',
   fungal_spores: '<:fungal_spores:1014166921161216081>',
+  damaged_prism: '<:damaged_prism:1024460847831068733>',
   exp: '<:exp:926787101406683216>',
   up: '<:up:926788246933995520>',
   ticket: '<:ticket:926787193861709834>',

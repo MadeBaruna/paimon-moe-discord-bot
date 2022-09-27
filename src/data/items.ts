@@ -1001,6 +1001,7 @@ export const itemList = {
     rarity: 5,
   },
   nilotpala_lotus: { id: 'nilotpala_lotus', name: 'Nilotpala Lotus' },
+  kalpalata_lotus: { id: 'kalpalata_lotus', name: 'Kalpalata Lotus' },
 
   fungal_spores: {
     id: 'fungal_spores',
@@ -1122,5 +1123,34 @@ export const itemList = {
     day: ['tuesday', 'friday'],
     rarity: 4,
     parent: 'oasis_gardens_reminiscence',
+  },
+
+  thunderclap_fruitcore: {
+    id: 'thunderclap_fruitcore',
+    name: 'Thunderclap Fruitcore',
+    rarity: 5,
+    parent: 'vajrada_amethyst_sliver',
+  },
+
+  scarab: { id: 'scarab', name: 'Scarab' },
+  redcrest: { id: 'redcrest', name: 'Redcrest' },
+  light_guiding_tetrahedron: {
+    id: 'light_guiding_tetrahedron',
+    name: 'Light Guiding Tetrahedron',
+    rarity: 5,
+    parent: 'vajrada_amethyst_sliver',
+  },
+
+  damaged_prism: {
+    id: 'damaged_prism',
+    name: 'Damaged Prism',
+  },
+  turbid_prism: {
+    id: 'turbid_prism',
+    name: 'Turbid Prism',
+  },
+  radiant_prism: {
+    id: 'radiant_prism',
+    name: 'Radiant Prism',
   },
 };
