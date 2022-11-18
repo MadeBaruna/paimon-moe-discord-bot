@@ -7,10 +7,13 @@ import { onGuildMemberAdd } from './events/guildMemberAdd';
 import { startTwitterCron } from 'cron/twitter';
 import { onMessageCreate } from 'events/messageCreate';
 import { onGuildMemberUpdate } from 'events/guildMemberUpdate';
+import { getOwnerId } from '@config';
 
 dotenv.config();
 
 async function ready(): Promise<void> {
+  await getOwnerId();
+
   const [commands, interactions, autocompletes, buttons] = await loadCommands();
   client.on('messageCreate', (message) => {
     const text = message.content;
