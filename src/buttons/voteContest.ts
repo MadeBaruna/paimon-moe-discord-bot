@@ -12,44 +12,44 @@ import { getLevel } from 'libs/calculateLevel';
 
 const images = [
   [
-    '218659683752345600',
-    'https://media.discordapp.net/attachments/998190351712002048/999440379868880998/20220721051043.png',
+    '410194780090269706',
+    'https://media.discordapp.net/attachments/1024463928408932473/1028644995298770944/20221009090749.png',
   ],
   [
-    '251407021163675648',
-    'https://media.discordapp.net/attachments/998190351712002048/1001828195085074442/20220727191647.png',
+    '491943470559264772',
+    'https://media.discordapp.net/attachments/1024463928408932473/1037437407445909605/unknown.png',
   ],
   [
-    '462536588132614145',
-    'https://media.discordapp.net/attachments/998190351712002048/1004358953934790696/20220801184700.png',
+    '585444756100743187',
+    'https://media.discordapp.net/attachments/1024463928408932473/1028415160840355881/sing.png',
   ],
   [
-    '530786534069108765',
-    'https://media.discordapp.net/attachments/998190351712002048/1002264353887764531/SAVE_20220728_143811.jpg',
+    '623970215000145921',
+    'https://media.discordapp.net/attachments/1024463928408932473/1034810798477946962/unknown.png',
   ],
   [
-    '540189891435167748',
-    'https://media.discordapp.net/attachments/998190351712002048/1001226883825942579/20220725223653.png',
+    '662043488627589150',
+    'https://media.discordapp.net/attachments/1024463928408932473/1035152878941249546/20221027225016.png',
   ],
   [
-    '752317408122765423',
-    'https://media.discordapp.net/attachments/998190351712002048/1000077530998517811/20220722232847.png',
+    '662088258586673212',
+    'https://media.discordapp.net/attachments/1024463928408932473/1034384514354532362/20221025155203.png',
   ],
   [
-    '697064578290286642',
-    'https://media.discordapp.net/attachments/998190351712002048/999204227463249950/20220718123355.png',
+    '674968396470812673',
+    'https://media.discordapp.net/attachments/1024463928408932473/1030860491595206766/20221015221222.png',
   ],
   [
-    '747794126606696458',
-    'https://media.discordapp.net/attachments/998190351712002048/1004088693490991156/20220802025128.png',
+    '747695162720911360',
+    'https://media.discordapp.net/attachments/1024463928408932473/1030514836825706596/20221014233519.png',
+  ],
+  [
+    '755434546178162709',
+    'https://media.discordapp.net/attachments/1024463928408932473/1031152294949048400/20221016172238.png',
   ],
   [
     '847698845387456522',
-    'https://media.discordapp.net/attachments/998190351712002048/1001120487516164167/20220725201615.png',
-  ],
-  [
-    '850749430781050970',
-    'https://media.discordapp.net/attachments/998190351712002048/999668582587826236/20220721172346.png',
+    'https://media.discordapp.net/attachments/1024463928408932473/1030743417640189983/20221015135338.png',
   ],
 ];
 
@@ -195,9 +195,9 @@ export default class Help extends Button {
       customId: `paimon-moe-photo-contest-${imgNext}`,
       style: 'PRIMARY',
     });
-    console.log('RANDOM', random, img1, img2);
 
     await interaction.editReply({
+      content: 'Please see the 10 photos first 😀',
       embeds: [embed1, embed2],
       components:
         offsetNumber === 9

@@ -9,7 +9,8 @@ import {
 import Command from '@bot/command';
 // import { getLevel } from 'libs/calculateLevel';
 import { emoji } from 'genshin/emoji';
-import { getLevel } from 'libs/calculateLevel';
+import { redis } from 'redis';
+import { PAIMON_MOE_SERVER_ID } from '@config';
 
 // const available = ['✌️', '✊', '🖐️'];
 // const scissor = new MessageButton({
@@ -57,7 +58,7 @@ export default class Giveaway extends Command {
       // const { level } = await getLevel(interaction.user.id);
       // const rollLeft = level - Number(rollUsed);
 
-      const userLevel = await getLevel(interaction.user.id);
+      // const userLevel = await getLevel(interaction.user.id);
 
       // const button = new MessageButton({
       //   customId: 'giveaway-roll',
@@ -68,7 +69,12 @@ export default class Giveaway extends Command {
 
       // const row = new MessageActionRow().addComponents(button);
       // let buttonRow = [row];
-      const giveawayMessage = `\nCurrently you are level ${userLevel.level}, so you have joined the giveaway with **${userLevel.level}** ${emoji.ticket}`;
+
+      const totalTicket =
+        (await redis.get(
+          `discord:${PAIMON_MOE_SERVER_ID}:${interaction.user.id}:giveaway.ticket`,
+        )) ?? 0;
+      const giveawayMessage = `You have joined the giveaway with **${totalTicket}** ${emoji.ticket}`;
       // if (ticketOwned === 0 && rollLeft > 0) {
       //   giveawayMessage =
       //     '\nGet a ticket to join the giveaway by pressing the roll ticket button below!';

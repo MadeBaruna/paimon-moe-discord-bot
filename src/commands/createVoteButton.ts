@@ -5,8 +5,9 @@ export default class Ping extends Command {
   constructor() {
     super({
       name: 'create photo contest vote button',
-      command: '1contest:votebutton',
+      command: 'contest-votebutton',
       ownerOnly: true,
+      registerSlashCommand: true,
     });
   }
 
