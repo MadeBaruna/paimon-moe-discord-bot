@@ -24,6 +24,9 @@ export default class ResetGiveaway extends Command {
       await this.deleteKey(
         `discord:${PAIMON_MOE_SERVER_ID}:photocontest-voted:*`,
       );
+      await this.deleteKey(
+        `discord:${PAIMON_MOE_SERVER_ID}:photocontest-score`,
+      );
 
       await redis.del(`discord:${PAIMON_MOE_SERVER_ID}:giveaway.ticket`);
 

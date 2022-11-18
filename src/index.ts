@@ -27,18 +27,22 @@ async function ready(): Promise<void> {
   });
 
   client.on('interactionCreate', (interaction) => {
-    if (interaction.isCommand()) {
-      for (const item of interactions) {
-        item.checkInteraction(interaction);
+    try {
+      if (interaction.isCommand()) {
+        for (const item of interactions) {
+          item.checkInteraction(interaction);
+        }
+      } else if (interaction.isAutocomplete()) {
+        for (const item of autocompletes) {
+          void item.autocomplete(interaction);
+        }
+      } else if (interaction.isButton()) {
+        for (const item of buttons) {
+          item.checkInteraction(interaction);
+        }
       }
-    } else if (interaction.isAutocomplete()) {
-      for (const item of autocompletes) {
-        void item.autocomplete(interaction);
-      }
-    } else if (interaction.isButton()) {
-      for (const item of buttons) {
-        item.checkInteraction(interaction);
-      }
+    } catch (err) {
+      console.log(err);
     }
   });
 
