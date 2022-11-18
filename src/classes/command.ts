@@ -73,6 +73,14 @@ export default abstract class Command {
 
   checkInteraction(interaction: CommandInteraction): void {
     if (interaction.commandName !== this.command) return;
+    if (this.ownerOnly === true && interaction.user.id !== ownerId) {
+      void interaction.reply({
+        content: 'Sorry, this command is disabled',
+        ephemeral: true,
+      });
+      return;
+    }
+
     void this.interact(interaction);
   }
 

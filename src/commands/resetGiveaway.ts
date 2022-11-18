@@ -1,4 +1,4 @@
-import { Message } from 'discord.js';
+import { CommandInteraction } from 'discord.js';
 import Command from '@bot/command';
 import { redis } from 'redis';
 import { PAIMON_MOE_SERVER_ID } from 'config';
@@ -13,8 +13,12 @@ export default class ResetGiveaway extends Command {
     });
   }
 
-  async run(message: Message): Promise<void> {
+  async interact(interaction: CommandInteraction): Promise<void> {
     try {
+      await interaction.deferReply({
+        ephemeral: true,
+      });
+
       await this.deleteKey(`discord:${PAIMON_MOE_SERVER_ID}:*:giveaway.ticket`);
       await this.deleteKey(`discord:${PAIMON_MOE_SERVER_ID}:*:giveaway.roll`);
       await this.deleteKey(
@@ -23,7 +27,7 @@ export default class ResetGiveaway extends Command {
 
       await redis.del(`discord:${PAIMON_MOE_SERVER_ID}:giveaway.ticket`);
 
-      await message.reply({
+      await interaction.editReply({
         content: 'OK',
       });
     } catch (err) {
