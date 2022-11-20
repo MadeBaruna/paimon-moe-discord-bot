@@ -1153,4 +1153,28 @@ export const itemList = {
     id: 'radiant_prism',
     name: 'Radiant Prism',
   },
+
+  perpetual_caliber: {
+    id: 'perpetual_caliber',
+    name: 'Perpetual Caliber',
+    rarity: 4,
+  },
+  padisarah: {
+    id: 'padisarah',
+    name: 'Padisarah',
+  },
+  quelled_creeper: {
+    id: 'quelled_creeper',
+    name: 'Quelled Creeper',
+    rarity: 5,
+    parent: 'nagadus_emerald_sliver',
+  },
+  puppet_strings: {
+    id: 'puppet_strings',
+    name: 'Puppet Strings',
+  },
+  mirror_of_mushin: {
+    id: 'mirror_of_mushin',
+    name: 'Mirror of Mushin',
+  },
 };

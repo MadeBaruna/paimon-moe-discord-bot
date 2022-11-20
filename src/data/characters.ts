@@ -4288,6 +4288,159 @@ export const characters = {
     },
     element: elements.electro,
   },
+  layla: {
+    id: 'layla',
+    name: 'Layla',
+    rarity: 4,
+    weapon: weapons.sword,
+    stats: {
+      hp: 11092,
+      atk: 217,
+      def: 655,
+    },
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.shivada_jade_sliver,
+            amount: 1,
+          },
+          {
+            item: itemList.none,
+            amount: null,
+          },
+          {
+            item: itemList.nilotpala_lotus,
+            amount: 3,
+          },
+          {
+            item: itemList.divining_scroll,
+            amount: 3,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.shivada_jade_fragment,
+            amount: 3,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 2,
+          },
+          {
+            item: itemList.nilotpala_lotus,
+            amount: 10,
+          },
+          {
+            item: itemList.divining_scroll,
+            amount: 15,
+          },
+        ],
+        mora: 40000,
+      },
+      {
+        items: [
+          {
+            item: itemList.shivada_jade_fragment,
+            amount: 6,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 4,
+          },
+          {
+            item: itemList.nilotpala_lotus,
+            amount: 20,
+          },
+          {
+            item: itemList.sealed_scroll,
+            amount: 12,
+          },
+        ],
+        mora: 60000,
+      },
+      {
+        items: [
+          {
+            item: itemList.shivada_jade_chunk,
+            amount: 3,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 8,
+          },
+          {
+            item: itemList.nilotpala_lotus,
+            amount: 30,
+          },
+          {
+            item: itemList.sealed_scroll,
+            amount: 18,
+          },
+        ],
+        mora: 80000,
+      },
+      {
+        items: [
+          {
+            item: itemList.shivada_jade_chunk,
+            amount: 6,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 12,
+          },
+          {
+            item: itemList.nilotpala_lotus,
+            amount: 45,
+          },
+          {
+            item: itemList.forbidden_curse_scroll,
+            amount: 12,
+          },
+        ],
+        mora: 100000,
+      },
+      {
+        items: [
+          {
+            item: itemList.shivada_jade_gemstone,
+            amount: 6,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 20,
+          },
+          {
+            item: itemList.nilotpala_lotus,
+            amount: 60,
+          },
+          {
+            item: itemList.forbidden_curse_scroll,
+            amount: 24,
+          },
+        ],
+        mora: 120000,
+      },
+    ],
+    material: {
+      material: [
+        itemList.divining_scroll,
+        itemList.sealed_scroll,
+        itemList.forbidden_curse_scroll,
+      ],
+      book: [
+        itemList.teachings_of_ingenuity,
+        itemList.guide_to_ingenuity,
+        itemList.philosophies_of_ingenuity,
+      ],
+      boss: itemList.mirror_of_mushin,
+    },
+    element: elements.cryo,
+  },
   lisa: {
     id: 'lisa',
     name: 'Lisa',
@@ -4591,6 +4744,312 @@ export const characters = {
         itemList.philosophies_of_resistance,
       ],
       boss: itemList.ring_of_boreas,
+    },
+    element: elements.hydro,
+  },
+  nahida: {
+    id: 'nahida',
+    name: 'Nahida',
+    rarity: 5,
+    weapon: weapons.catalyst,
+    stats: {
+      hp: 10360,
+      atk: 299,
+      def: 630,
+    },
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.nagadus_emerald_sliver,
+            amount: 1,
+          },
+          {
+            item: itemList.none,
+            amount: null,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 3,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 3,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.nagadus_emerald_fragment,
+            amount: 3,
+          },
+          {
+            item: itemList.quelled_creeper,
+            amount: 2,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 10,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 15,
+          },
+        ],
+        mora: 40000,
+      },
+      {
+        items: [
+          {
+            item: itemList.nagadus_emerald_fragment,
+            amount: 6,
+          },
+          {
+            item: itemList.quelled_creeper,
+            amount: 4,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 20,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 12,
+          },
+        ],
+        mora: 60000,
+      },
+      {
+        items: [
+          {
+            item: itemList.nagadus_emerald_chunk,
+            amount: 3,
+          },
+          {
+            item: itemList.quelled_creeper,
+            amount: 8,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 30,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 18,
+          },
+        ],
+        mora: 80000,
+      },
+      {
+        items: [
+          {
+            item: itemList.nagadus_emerald_chunk,
+            amount: 6,
+          },
+          {
+            item: itemList.quelled_creeper,
+            amount: 12,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 45,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 12,
+          },
+        ],
+        mora: 100000,
+      },
+      {
+        items: [
+          {
+            item: itemList.nagadus_emerald_gemstone,
+            amount: 6,
+          },
+          {
+            item: itemList.quelled_creeper,
+            amount: 20,
+          },
+          {
+            item: itemList.kalpalata_lotus,
+            amount: 60,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 24,
+          },
+        ],
+        mora: 120000,
+      },
+    ],
+    material: {
+      material: [
+        itemList.fungal_spores,
+        itemList.luminescent_pollen,
+        itemList.crystalline_cyst_dust,
+      ],
+      book: [
+        itemList.teachings_of_ingenuity,
+        itemList.guide_to_ingenuity,
+        itemList.philosophies_of_ingenuity,
+      ],
+      boss: itemList.puppet_strings,
+    },
+    element: elements.dendro,
+  },
+  nilou: {
+    id: 'nilou',
+    name: 'Nilou',
+    rarity: 5,
+    weapon: weapons.sword,
+    stats: {
+      hp: 15185,
+      atk: 230,
+      def: 729,
+    },
+    ascension: [
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_sliver,
+            amount: 1,
+          },
+          {
+            item: itemList.none,
+            amount: null,
+          },
+          {
+            item: itemList.padisarah,
+            amount: 3,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 3,
+          },
+        ],
+        mora: 20000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_fragment,
+            amount: 3,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 2,
+          },
+          {
+            item: itemList.padisarah,
+            amount: 10,
+          },
+          {
+            item: itemList.fungal_spores,
+            amount: 15,
+          },
+        ],
+        mora: 40000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_fragment,
+            amount: 6,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 4,
+          },
+          {
+            item: itemList.padisarah,
+            amount: 20,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 12,
+          },
+        ],
+        mora: 60000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_chunk,
+            amount: 3,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 8,
+          },
+          {
+            item: itemList.padisarah,
+            amount: 30,
+          },
+          {
+            item: itemList.luminescent_pollen,
+            amount: 18,
+          },
+        ],
+        mora: 80000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_chunk,
+            amount: 6,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 12,
+          },
+          {
+            item: itemList.padisarah,
+            amount: 45,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 12,
+          },
+        ],
+        mora: 100000,
+      },
+      {
+        items: [
+          {
+            item: itemList.varunada_lazurite_gemstone,
+            amount: 6,
+          },
+          {
+            item: itemList.perpetual_caliber,
+            amount: 20,
+          },
+          {
+            item: itemList.padisarah,
+            amount: 60,
+          },
+          {
+            item: itemList.crystalline_cyst_dust,
+            amount: 24,
+          },
+        ],
+        mora: 120000,
+      },
+    ],
+    material: {
+      material: [
+        itemList.fungal_spores,
+        itemList.luminescent_pollen,
+        itemList.crystalline_cyst_dust,
+      ],
+      book: [
+        itemList.teachings_of_praxis,
+        itemList.guide_to_praxis,
+        itemList.philosophies_of_praxis,
+      ],
+      boss: itemList.tears_of_the_calamitous_god,
     },
     element: elements.hydro,
   },
