@@ -9561,6 +9561,7 @@ export const weaponList = {
     atk: 44,
     secondary: 'Elemental Mastery',
     type: weapons.catalyst,
+    source: 'wish',
     ascension: [
       {
         items: [
