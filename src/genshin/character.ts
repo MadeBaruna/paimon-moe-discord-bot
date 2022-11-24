@@ -29,6 +29,8 @@ function getArtifactName(id: string): string {
   if (id === '+18%_atk_set') return 'ATK +18% Set';
   else if (id === '+20%_energy_recharge') return 'ER +20% Set';
   else if (id === '+25%_physical_dmg') return 'Physical DMG +25% Set';
+  else if (id === '+80_em') return 'Elemental Mastery +80 Set';
+  else if (id === '+15%_healing_bonus_set') return 'Healing Bonus +15% Set';
   else return artifacts[id].name;
 }
 
